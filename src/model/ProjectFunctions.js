@@ -1,7 +1,7 @@
 
 'use strict';
 
-let projectCards = document.getElementById('projects')
+var projectCards = document.getElementById('projects');
 
 function findValueByAnyAttributeInArray(value, attribute, projects) {
   try {
@@ -15,16 +15,18 @@ function findValueByAnyAttributeInArray(value, attribute, projects) {
     return results;
 
   } catch (error) {
-    console.log("Error: " + error);
   }
 };
 
 function showAllProjects(jsonArray) {
-  projectCards.innerHTML = "";
-  for (let index = 0; index < jsonArray.length; index++) {
-    printCardHtml(jsonArray[index].img,
-      jsonArray[index].name,
-      jsonArray[index].description);
+  try {
+    projectCards.innerHTML = "";
+    for (let index = 0; index < jsonArray.length; index++) {
+      printCardHtml(jsonArray[index].img,
+        jsonArray[index].name,
+        jsonArray[index].description);
+    }
+  } catch (error) {
   }
 };
 
@@ -43,6 +45,7 @@ function getCheckedRadioButton(radioButtons) {
 };
 
 function printCardHtml(image, title, description) {
+
   let div = document.createElement('div');
 
   div.className = 'card';
@@ -50,14 +53,13 @@ function printCardHtml(image, title, description) {
   div.innerHTML = "<img src=" + image + " class='card-img-top'>"
     + "<div class='card-body'>"
     + "<h5 class='card-title'> " + title + " </h5> "
-    + "<p class='card-text'> " + description + " </p>"
-    + "<button class='btn btn-warning' id='edit" + title + "'>Editar</button>"
-    + "<button class='btn btn-danger' id='delete" + title + "' style='float:right'>Borrar</button>";
+    + "<p class='card-text'> " + description + " </p>";
 
   projectCards.appendChild(div);
 };
 
 function addOptionsToSelectFromJson(select, jsonArray) {
+  select.innerHTML = "";
   for (let index = 0; index < jsonArray.length; index++) {
     let option = document.createElement('option');
     option.id = 'project-client';
