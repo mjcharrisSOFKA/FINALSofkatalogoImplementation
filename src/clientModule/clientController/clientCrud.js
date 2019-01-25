@@ -2,7 +2,7 @@ let { Client, Enterprise, Person } = require("../models");
 let clientsCollection = require("./clientObjects");
 let nameEmpresa = document.getElementById("nameEnterprise");
 let nitEmpresa = document.getElementById("nitEnterprise");
-let size = document.getElementById("size");
+let size = document.getElementById("sizeEnterprise");
 let sector = document.getElementById("sector");
 
 document.getElementById("createPerson").addEventListener("click", () => {
