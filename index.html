@@ -12,9 +12,11 @@
 
 <body>
 
-    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; align-self: flex-end" id="mySidebar">
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; align-self: flex-end" 
+        id="mySidebar"
+    >
 
-        <button class="w3-bar-item w3-button w3-large" onclick="w3_close()" style="text-align: right">
+        <button class="w3-bar-item w3-button w3-large" id="button-closeSideBar" style="text-align: right">
             &times;
         </button>
 
@@ -27,39 +29,32 @@
 
     <div id="main" style="background-color: #FF7521">
         <div>
-            <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
-            <h1 class="display-1" style="padding-left: 5%; padding-bottom: 2% "> Sofkatalogos</h1>
+            <button id="button-openSideBar" class="w3-button w3-xlarge" >&#9776;</button>
+            <h1 class="display-1" 
+                style="padding-left: 5%; padding-bottom: 2%; font-weight: 400 "> 
+                Sofkatalogos
+            </h1>
         </div>
     </div>
 
-    <div>
-        <div class="card" style="width: 18rem; padding: 0.2%; margin: 2%">
-            <img src="https://scontent-bog1-1.cdninstagram.com/vp/8fc08ca2e697df83a87fc8d0f48d1f7c/5D008FB3/t51.2885-15/e35/44497515_191274545127444_4674992303067103232_n.jpg?_nc_ht=scontent-bog1-1.cdninstagram.com" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">@Manchabla</h5>
-                <p class="card-text">
+    <div id="cards-content">
+        <div class="card" style="width: 25%; padding: 0.2%; margin: 2%" id="card">
+            <img
+                id="card-img" 
+            src="https://scontent-bog1-1.cdninstagram.com/vp/8fc08ca2e697df83a87fc8d0f48d1f7c/5D008FB3/t51.2885-15/e35/44497515_191274545127444_4674992303067103232_n.jpg?_nc_ht=scontent-bog1-1.cdninstagram.com" 
+                class="card-img-top"
+                style="height: 25rem;"
+            >
+            <div class="card-body" id="card-body">
+                <h5 class="card-title" id="card-title">@Manchabla</h5>
+                <p class="card-text" id="p-in-cardBody">
                     Like it, Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsa nulla, necessitatibus adipisci qui nam doloribus expedita fugiat quos saepe asperiores. Quod vero eveniet nostrum sequi rem amet deleniti soluta!
                 </p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
     </div>
-
-    <script>
-        function w3_open() {
-            document.getElementById("main").style.marginLeft = "25%";
-            document.getElementById("mySidebar").style.width = "25%";
-            document.getElementById("mySidebar").style.display = "block";
-            document.getElementById("openNav").style.display = 'none';
-        }
-
-        function w3_close() {
-            document.getElementById("main").style.marginLeft = "0%";
-            document.getElementById("mySidebar").style.display = "none";
-            document.getElementById("openNav").style.display = "inline-block";
-        }
-    </script>
-
+    <script src="./dist/bundle.js"></script>
 </body>
 
 </html>

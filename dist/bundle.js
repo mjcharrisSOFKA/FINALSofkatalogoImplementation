@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/home.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/HTMLController.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/home.js":
-/*!*********************!*\
-  !*** ./src/home.js ***!
-  \*********************/
+/***/ "./src/HTMLController.js":
+/*!*******************************!*\
+  !*** ./src/HTMLController.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/home.js?");
+eval("\r\ndocument.getElementById(\"button-openSideBar\").addEventListener(\"click\", () => {\r\n    console.log(\"the bar is open\");\r\n    document.getElementById(\"main\").style.marginLeft = \"25%\";\r\n    document.getElementById(\"mySidebar\").style.width = \"25%\";\r\n    document.getElementById(\"mySidebar\").style.display = \"block\";\r\n    document.getElementById(\"cards-content\").style.display = 'none';\r\n});\r\ndocument.getElementById(\"button-closeSideBar\").addEventListener(\"click\", () => {\r\n    console.log(\"the bar is close\");\r\n    document.getElementById(\"main\").style.marginLeft = \"0%\";\r\n    document.getElementById(\"mySidebar\").style.display = \"none\";\r\n    document.getElementById(\"cards-content\").style.display = \"inline-block\";\r\n    document.getElementById(\"cards-content\").style.display = 'block';\r\n});\r\n\n\n//# sourceURL=webpack:///./src/HTMLController.js?");
 
 /***/ })
 
