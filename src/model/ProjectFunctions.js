@@ -50,7 +50,9 @@ function printCardHtml(image, title, description) {
   div.innerHTML = "<img src=" + image + " class='card-img-top'>"
     + "<div class='card-body'>"
     + "<h5 class='card-title'> " + title + " </h5> "
-    + "<p class='card-text'> " + description + " </p>";
+    + "<p class='card-text'> " + description + " </p>"
+    + "<button class='btn btn-warning' id='edit" + title + "'>Editar</button>"
+    + "<button class='btn btn-danger' id='delete" + title + "' style='float:right'>Borrar</button>";
 
   projectCards.appendChild(div);
 };
@@ -85,7 +87,6 @@ function getCheckedBoxes(checkboxArray) {
       checkedBoxes.push(checkBoxId);
     }
   }
-  console.log(checkedBoxes);
   return checkedBoxes;
 };
 
