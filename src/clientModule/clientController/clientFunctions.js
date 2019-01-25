@@ -116,6 +116,7 @@ function cardEnterprise(clientEnterprise) {
         '<div class="card-body">' +
         '<h4 class="card-title" id="enterpriseName">' + clientEnterprise.name + '</h4>' +
         '<p class="card-text">NIT: ' + clientEnterprise.nit + '</p>'+
+        '<p class="card-text">TAMAÑO DE LA EMPRESA: ' + clientEnterprise.size + '</p>'+
         '<p class="card-text">SECTOR: ' + clientEnterprise.sector + '</p>' +
         '<a href=" ' + clientEnterprise.web + '" id="moreEnterprise" target="_blank" class="btn btn-primary">Ver mas</a>'+
         '</div>' +
