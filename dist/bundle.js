@@ -86,8 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-<<<<<<< HEAD
-=======
 /***/ "./src/clientModule/clientController/clientCrud.js":
 /*!*********************************************************!*\
   !*** ./src/clientModule/clientController/clientCrud.js ***!
@@ -95,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("let { Client, Enterprise, Person } = __webpack_require__(/*! ../models */ \"./src/clientModule/models.js\");\r\nlet clientsCollection = __webpack_require__(/*! ./clientObjects */ \"./src/clientModule/clientController/clientObjects.js\");\r\n\r\ndocument.getElementById(\"createPerson\").addEventListener(\"click\", () => {\r\n    let luisa = new Person(\"Andres Quinto\", \"1.036.389.136\", \"../imgs/clients/personaHombre.png\");\r\n    console.log(luisa.img);\r\n    \r\n    console.log(\"Entré\");\r\n});\r\n\n\n//# sourceURL=webpack:///./src/clientModule/clientController/clientCrud.js?");
+eval("let { Client, Enterprise, Person } = __webpack_require__(/*! ../models */ \"./src/clientModule/models.js\");\r\nlet clientsCollection = __webpack_require__(/*! ./clientObjects */ \"./src/clientModule/clientController/clientObjects.js\");\r\nlet nameEmpresa = document.getElementById(\"nameEnterprise\");\r\nlet nitEmpresa = document.getElementById(\"nitEnterprise\");\r\nlet size = document.getElementById(\"sizeEnterprise\");\r\nlet sector = document.getElementById(\"sector\");\r\n\r\ndocument.getElementById(\"createPerson\").addEventListener(\"click\", () => {\r\n\r\n    if (nameEmpresa.value === \"\" || nitEmpresa.value === \"\") {\r\n        alert(\"Todos lo campos soon requridos\");\r\n    } else {\r\n        //console.log(nameEmpresa.value, nitEmpresa.value, size.value, sector.value);\r\n        let newEnterprise = new Enterprise(nameEmpresa.value, nitEmpresa.value, size.value, sector, \"../imgs/clients/alpina.jpg\");\r\n        clientsCollection.enterprises.push(newEnterprise);\r\n        cleanForm();\r\n        message();\r\n        Client.prototype.getClients();\r\n    }\r\n\r\n});\r\n\r\nfunction cleanForm() {\r\n    nameEmpresa.value = \" \";\r\n    document.getElementById(\"nitEnterprise\").value = \" \";\r\n}\r\n\r\nfunction message() {\r\n    document.getElementById(\"message\").innerHTML = '<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">' +\r\n        '<strong>Genial!</strong> La empresa ha sido creada' +\r\n        '<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">' +\r\n        '<span aria-hidden=\"true\">&times;</span>' +\r\n        '</button>' +\r\n        '</div>'\r\n}\r\n\n\n//# sourceURL=webpack:///./src/clientModule/clientController/clientCrud.js?");
 
 /***/ }),
 
@@ -131,19 +129,18 @@ eval("\r\n\r\nvar { Enterprise, Person } = __webpack_require__(/*! ../models.js 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\n\r\nclass Project {\r\n    constructor(name, status, description, startDate, endDate) {\r\n        this.name = name;\r\n        this.status = status;\r\n        this.description = description;\r\n        this.startDate = startDate;\r\n        this.endDate = endDate;\r\n    }\r\n}\r\n\r\nclass Client {\r\n    constructor(name, type,img) {\r\n        this.name = name;\r\n        this.type = type;\r\n        this.img = img;\r\n    }\r\n};\r\n\r\nclass Enterprise extends Client {\r\n    constructor (name, nit, size, sector, img, web){\r\n        super (name, \"Empresa\", img)\r\n        this.nit = nit;\r\n        this.size = size;\r\n        this.sector = sector;\r\n        this.web = web;\r\n       \r\n    }\r\n};\r\n\r\nclass Person extends Client {\r\n    constructor(name, cedula, img) {\r\n        super(name, \"Persona\", img)\r\n        this.cedula = cedula;\r\n    }\r\n};\r\n\r\nclass Sofkiano {\r\n    constructor(name, id, characteristics, sofkaExperience, beforeSofkaExperience) {\r\n        this.name = name;\r\n        this.id = id;\r\n        this.characteristics = characteristics;\r\n        this.sofkaExperience = sofkaExperience;\r\n        this.beforeSofkaExperience = beforeSofkaExperience;\r\n    }\r\n}\r\n\r\nclass Technology {\r\n    constructor(name) {\r\n        this.name = name;\r\n    }\r\n}\r\n\r\nmodule.exports = {Client, Person, Enterprise};\n\n//# sourceURL=webpack:///./src/clientModule/models.js?");
+eval("\n\nclass Project {\n    constructor(name, status, description, startDate, endDate) {\n        this.name = name;\n        this.status = status;\n        this.description = description;\n        this.startDate = startDate;\n        this.endDate = endDate;\n    }\n}\n\nclass Client {\n    constructor(name, type,img) {\n        this.name = name;\n        this.type = type;\n        this.img = img;\n    }\n};\n\nclass Enterprise extends Client {\n    constructor (name, nit, size, sector, img, web){\n        super (name, \"Empresa\", img)\n        this.nit = nit;\n        this.size = size;\n        this.sector = sector;\n        this.web = web;\n       \n    }\n};\n\nclass Person extends Client {\n    constructor(name, cedula, img) {\n        super(name, \"Persona\", img)\n        this.cedula = cedula;\n    }\n};\n\nclass Sofkiano {\n    constructor(name, id, characteristics, sofkaExperience, beforeSofkaExperience) {\n        this.name = name;\n        this.id = id;\n        this.characteristics = characteristics;\n        this.sofkaExperience = sofkaExperience;\n        this.beforeSofkaExperience = beforeSofkaExperience;\n    }\n}\n\nclass Technology {\n    constructor(name) {\n        this.name = name;\n    }\n}\n\nmodule.exports = {Client, Person, Enterprise};\n\n//# sourceURL=webpack:///./src/clientModule/models.js?");
 
 /***/ }),
 
->>>>>>> Client
 /***/ "./src/home.js":
 /*!*********************!*\
   !*** ./src/home.js ***!
   \*********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\SOFKA\\\\Documents\\\\Proyectos\\\\FINALSofkatalogoImplementation\\\\src\\\\home.js'\");\n\n//# sourceURL=webpack:///./src/home.js?");
+eval("__webpack_require__(/*! ./clientModule/clientController/clientFunctions */ \"./src/clientModule/clientController/clientFunctions.js\");\r\n__webpack_require__(/*! ./clientModule/clientController/clientCrud */ \"./src/clientModule/clientController/clientCrud.js\");\r\n\r\n//prueba\r\n\n\n//# sourceURL=webpack:///./src/home.js?");
 
 /***/ })
 
