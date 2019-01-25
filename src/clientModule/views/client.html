@@ -46,13 +46,11 @@
                         Crear cliente
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" id="createEmpresa" data-toggle="modal" data-target="#exampleModalLong"
-                            style="cursor:pointer">Empresa</a>
-                        <a class="dropdown-item" id="createPerson" style="cursor:pointer">Persona</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalLong" style="cursor:pointer">Empresa</a>
+                        <a class="dropdown-item" style="cursor:pointer">Persona</a>
                     </div>
                 </div>
             </div>
-
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
@@ -61,26 +59,30 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLongTitle">Creando Empresa</h5>
+                            <br>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" class="form-control" id="nameEmpresa" placeholder="Nombre">
+                            <input type="text" class="form-control" id="nameEnterprise" placeholder="Nombre">
                             <br>
-                            <input type="text" class="form-control" id="nitEmpresa" placeholder="Cedula">
+                            <input type="text" class="form-control" id="nitEnterprise" placeholder="Cedula">
                             <br>
                             <select class="form-control">
                                 <option>opcion 1</option>
-                              </select>
-                              <br>
-                              <select class="form-control">
+                                <option>opcion 2</option>
+                            </select>
+                            <br>
+                            <select class="form-control">
                                 <option>opcion 1</option>
-                              </select>
+                                <option>opcion 2</option>
+                            </select>
                         </div>
+                        <div id="message" style="padding-left: 18px"></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="button" class="btn btn-primary" id="createPerson">Guardar</button>
                         </div>
                     </div>
                 </div>
