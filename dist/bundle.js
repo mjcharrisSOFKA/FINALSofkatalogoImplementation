@@ -140,7 +140,7 @@ eval("\n\nclass Project {\n    constructor(name, status, description, startDate,
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./clientModule/clientController/clientFunctions */ \"./src/clientModule/clientController/clientFunctions.js\");\r\n__webpack_require__(/*! ./clientModule/clientController/clientCrud */ \"./src/clientModule/clientController/clientCrud.js\");\r\n\r\n//prueba\r\n\n\n//# sourceURL=webpack:///./src/home.js?");
+eval("__webpack_require__(/*! ./clientModule/clientController/clientFunctions */ \"./src/clientModule/clientController/clientFunctions.js\");\r\n__webpack_require__(/*! ./clientModule/clientController/clientCrud */ \"./src/clientModule/clientController/clientCrud.js\");\r\n\n\n//# sourceURL=webpack:///./src/home.js?");
 
 /***/ })
 
