@@ -77,7 +77,9 @@ Client.prototype.getClientsPerson = (type) => {
         document.getElementById("searchButton").addEventListener('click', () => {
             let cliSearched = document.getElementById("clientToSearch").value;
             let foundCliente;
+            let foundPersona;
             let actual;
+            let actualClient;
 
             var show = arr[0].map((client) => {
                 foundCliente = client.name === cliSearched.toUpperCase();
@@ -86,9 +88,20 @@ Client.prototype.getClientsPerson = (type) => {
                 }
             });
 
+            var show = arr[1].map((client) => {
+                foundPersona = client.name === cliSearched.toUpperCase();
+                if (foundPersona) {
+                    actualClient = client;
+                }
+            });
+
             if (actual !== undefined) {
                 document.getElementById("client").innerHTML = cardEnterprise(actual);
-            } else {
+            } 
+            else if (actualClient !== undefined) {
+                document.getElementById("client").innerHTML = cardGeneric(actualClient);
+            } 
+            else {
                 document.getElementById("client").innerHTML = "<h2>Cliente no encontrado</h2>";
             }
 
