@@ -3,19 +3,18 @@ let clientsCollection = require("./clientObjects");
 let nameEmpresa = document.getElementById("nameEnterprise");
 let nitEmpresa = document.getElementById("nitEnterprise");
 let size = document.getElementById("sizeEnterprise");
-let sector = document.getElementById("sector");
+let sector = document.getElementById("sectorEnterprise");
 
 document.getElementById("createPerson").addEventListener("click", () => {
 
     if (nameEmpresa.value === "" || nitEmpresa.value === "") {
         alert("Todos lo campos soon requridos");
     } else {
-        //console.log(nameEmpresa.value, nitEmpresa.value, size.value, sector.value);
-        let newEnterprise = new Enterprise(nameEmpresa.value, nitEmpresa.value, size.value, sector, "../imgs/clients/alpina.jpg");
+        let newEnterprise = new Enterprise(nameEmpresa.value, nitEmpresa.value, size.value, sector.value, "../imgs/clients/alpina.jpg");
         clientsCollection.enterprises.push(newEnterprise);
         cleanForm();
         message();
-        Client.prototype.getClients();
+        cleanHtml();
     }
 
 });
@@ -23,6 +22,8 @@ document.getElementById("createPerson").addEventListener("click", () => {
 function cleanForm() {
     nameEmpresa.value = " ";
     document.getElementById("nitEnterprise").value = " ";
+    
+    
 }
 
 function message() {
@@ -32,4 +33,8 @@ function message() {
         '<span aria-hidden="true">&times;</span>' +
         '</button>' +
         '</div>'
+}
+
+function cleanHtml(){
+    Client.prototype.getClients();
 }
