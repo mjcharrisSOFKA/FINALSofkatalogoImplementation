@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/client.css">
 
     <title>Sofkatalon</title>
 </head>
@@ -15,32 +16,82 @@
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" style="color:white">Clientes Potenciales</a>
         <div class="form-inline" action="">
-            <input class="form-control mr-sm-2" id="clientToSearch" type="" placeholder="Nombre de la empresa" aria-label="Search"
-                required>
+            <input class="form-control mr-sm-2" id="clientToSearch" type="" placeholder="Nombre de la empresa"
+                aria-label="Search" required>
             <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar</button>
         </div>
     </nav>
     <hr>
-    
+
     <div class="container">
         <div class="row">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Opciones de busqueda
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" id="enterprises" style="cursor:pointer">Ver Empresas</a>
-                    <a class="dropdown-item" id="persons" style="cursor:pointer">Ver Personas asociadas</a>
-                    <a class="dropdown-item" id="allClients" style="cursor:pointer">Ver todos</a>
+            <div id="optionsClient">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Opciones de busqueda
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="enterprises" style="cursor:pointer">Ver Empresas</a>
+                        <a class="dropdown-item" id="persons" style="cursor:pointer">Ver Personas asociadas</a>
+                        <a class="dropdown-item" id="allClients" style="cursor:pointer">Ver todos</a>
+                    </div>
                 </div>
             </div>
+
+            <div id="createClient">
+                <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Crear cliente
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="createEmpresa" data-toggle="modal" data-target="#exampleModalLong"
+                            style="cursor:pointer">Empresa</a>
+                        <a class="dropdown-item" id="createPerson" style="cursor:pointer">Persona</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Creando Empresa</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" id="nameEmpresa" placeholder="Nombre">
+                            <br>
+                            <input type="text" class="form-control" id="nitEmpresa" placeholder="Cedula">
+                            <br>
+                            <select class="form-control">
+                                <option>opcion 1</option>
+                              </select>
+                              <br>
+                              <select class="form-control">
+                                <option>opcion 1</option>
+                              </select>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <br>
         <div class="row" id="client">
-            
+
         </div>
-        
+
     </div>
 
 

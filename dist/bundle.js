@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/clientModule/clientController/clientCrud.js":
+/*!*********************************************************!*\
+  !*** ./src/clientModule/clientController/clientCrud.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("let { Client, Enterprise, Person } = __webpack_require__(/*! ../models */ \"./src/clientModule/models.js\");\r\nlet clientsCollection = __webpack_require__(/*! ./clientObjects */ \"./src/clientModule/clientController/clientObjects.js\");\r\n\r\ndocument.getElementById(\"createPerson\").addEventListener(\"click\", () => {\r\n    let luisa = new Person(\"Andres Quinto\", \"1.036.389.136\", \"../imgs/clients/personaHombre.png\");\r\n    console.log(luisa.img);\r\n    \r\n    console.log(\"Entré\");\r\n});\r\n\n\n//# sourceURL=webpack:///./src/clientModule/clientController/clientCrud.js?");
+
+/***/ }),
+
 /***/ "./src/clientModule/clientController/clientFunctions.js":
 /*!**************************************************************!*\
   !*** ./src/clientModule/clientController/clientFunctions.js ***!
@@ -129,7 +140,7 @@ eval("\n\nclass Project {\n    constructor(name, status, description, startDate,
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./clientModule/clientController/clientFunctions */ \"./src/clientModule/clientController/clientFunctions.js\");\n\n//# sourceURL=webpack:///./src/home.js?");
+eval("__webpack_require__(/*! ./clientModule/clientController/clientFunctions */ \"./src/clientModule/clientController/clientFunctions.js\");\r\n__webpack_require__(/*! ./clientModule/clientController/clientCrud */ \"./src/clientModule/clientController/clientCrud.js\");\r\n\n\n//# sourceURL=webpack:///./src/home.js?");
 
 /***/ })
 
