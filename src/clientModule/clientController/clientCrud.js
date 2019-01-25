@@ -5,7 +5,7 @@ let nitEmpresa = document.getElementById("nitEnterprise");
 let size = document.getElementById("sizeEnterprise");
 let sector = document.getElementById("sectorEnterprise");
 
-document.getElementById("createPerson").addEventListener("click", () => {
+document.getElementById("saveEnterprise").addEventListener("click", () => {
 
     if (nameEmpresa.value === "" || nitEmpresa.value === "") {
         alert("Todos lo campos soon requridos");

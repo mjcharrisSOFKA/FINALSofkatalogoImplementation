@@ -46,21 +46,16 @@
                         Crear cliente
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<<<<<<< Updated upstream
-                        <a class="dropdown-item" id="createEmpresa" data-toggle="modal" data-target="#exampleModalLong"
+                        <a class="dropdown-item" id="createEmpresa" data-toggle="modal" data-target="#modalE"
                             style="cursor:pointer">Empresa</a>
                         <a class="dropdown-item" id="createPerson" data-toggle="modal" data-target="#personaModal"
                             style="cursor:pointer">Persona</a>
-=======
-                        <a class="dropdown-item" data-toggle="modal" data-target="#modealE" style="cursor:pointer">Empresa</a>
-                        <a class="dropdown-item" style="cursor:pointer">Persona</a>
->>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="modealE" tabindex="-1" role="dialog" aria-labelledby="modalEnterprise"
+            <div class="modal fade" id="modalE" tabindex="-1" role="dialog" aria-labelledby="modalEnterprise"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -119,7 +114,7 @@
                        
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary">Guardar</button>
+                            <button type="button" id="saveEnterprise" class="btn btn-primary">Guardar</button>
                         </div>
 
                         <div>
@@ -130,7 +125,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="personaModal" tabindex="-1" role="dialog" aria-labelledby="personaModal"
+            <div class="modal fade" id="personaModal" tabindex="-1" role="dialog" aria-labelledby="personaModalTitle"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -149,7 +144,7 @@
                         <div id="message" style="padding-left: 18px"></div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary" id="createPerson">Guardar</button>
+                            <button type="button" class="btn btn-primary" id="createP">Guardar</button>
                         </div>
                     </div>
                 </div>

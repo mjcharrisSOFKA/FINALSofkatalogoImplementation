@@ -26,7 +26,7 @@ let luisa = new Person("LUISA", "1.036.389.136", "../imgs/clients/personaMujer.p
 
 let clientsCollection = {
     "enterprises": [alpina, proteccion, sura, coordinadora, alfaPeople, amadeus, exito, infocorp, iteriaUS, metroM, sas, tecnoquimicas, teleperformance ],
-    "persons": [juan, liza, roxana, martha, gustavo, diego, luisa, andrea]
+    "persons": [juan, liza, roxana, martha, gustavo, diego, luisa]
 }
 
 module.exports = clientsCollection;
