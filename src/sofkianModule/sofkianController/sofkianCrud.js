@@ -29,7 +29,6 @@ function getEspecificSokfian(){
                   alert("no existe el sofkiano buscado")
             }
       })
-
 }
 
 function indicarSiExisteElSofkiano(){
@@ -72,6 +71,45 @@ let div = document.getElementById('sofkianoEspecificoDiv');
         '</div>' +
         '</div>';
   }
+
+(Sofkiano.prototype.tryCatch_eliminarSokfianos = () => {
+      try {
+            eliminarSokfianos();
+      } catch (error) {
+            console.log("Ha ocurrido un error: " + error);
+      }
+})();
+
+function eliminarSokfianos(){
+      document.getElementById("eliminarSofkianBoton").addEventListener('click', () => {
+            if(hayUnSofkianoAEliminar()){
+                   eliminarSofkianoPorNombre()
+                   console.log(sofkianosArray)
+                   document.getElementById('sofkianoEspecificoDiv').innerHTML = " ";
+            }
+            else{
+                  alert("no hay un sofkiano especificado para eliminar")
+            }
+       })
+}
+
+function eliminarSofkianoPorNombre(){
+      nombreDelEliminado = document.getElementById('divConSofkianName').innerHTML;
+      for( var i = 0; i <  sofkianosArray.length; i++){ 
+            if (sofkianosArray[i].name === nombreDelEliminado) {
+                  sofkianosArray.splice(i, 1); 
+            }
+         }
+}
+
+function hayUnSofkianoAEliminar(){
+      var sofkianoEncontrado = false;
+      if(document.getElementById('sofkianoEspecificoDiv').innerHTML !== "NaN"){
+            sofkianoEncontrado = true;
+      }
+      return sofkianoEncontrado;
+}
+
 
 
 
@@ -122,34 +160,11 @@ let div = document.getElementById('sofkianoEspecificoDiv');
 //       })
 // })();
 
-// (Sofkiano.prototype.eliminarSokfianos = () => {
-//       document.getElementById("eliminarSofkianBoton").addEventListener('click', () => {
-//            if(hayUnSofkianoAEliminar()){
-//                   eliminarSofkianoPorNombre()
-//                   console.log(sofkianosArray)
-//            }
-//            else{
-//                  alert("no hay un sofkiano especificado para eliminar")
-//            }
-//       })
-// })();
 
-// function hayUnSofkianoAEliminar(){
-//       var sofkianoEncontrado = false;
-//       if(document.getElementById('sofkianoEspecificoDiv').innerHTML !== "NaN"){
-//             sofkianoEncontrado = true;
-//       }
-//       return sofkianoEncontrado;
-// }
 
-// function eliminarSofkianoPorNombre(){
-//       nombreDelEliminado = document.getElementById('divConSofkianName').innerHTML;
-//       for( var i = 0; i <  sofkianosArray.length; i++){ 
-//             if (sofkianosArray[i].name === nombreDelEliminado) {
-//                   sofkianosArray.splice(i, 1); 
-//             }
-//          }
-// }
+
+
+
 
 
 // function devolverSofkianoCreadoConDataDeTexbox(){
