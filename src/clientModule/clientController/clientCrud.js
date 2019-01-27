@@ -5,25 +5,29 @@ let nitEmpresa = document.getElementById("nitEnterprise");
 let size = document.getElementById("sizeEnterprise");
 let sector = document.getElementById("sectorEnterprise");
 
-document.getElementById("saveEnterprise").addEventListener("click", () => {
+try {
+    document.getElementById("saveEnterprise").addEventListener("click", () => {
 
-    if (nameEmpresa.value === "" || nitEmpresa.value === "") {
-        alert("Todos lo campos soon requridos");
-    } else {
-        let newEnterprise = new Enterprise(nameEmpresa.value, nitEmpresa.value, size.value, sector.value, "../imgs/clients/alpina.jpg");
-        clientsCollection.enterprises.push(newEnterprise);
-        cleanForm();
-        message();
-        cleanHtml();
-    }
+        if (nameEmpresa.value === "" || nitEmpresa.value === "") {
+            alert("Todos lo campos soon requridos");
+        } else {
+            let newEnterprise = new Enterprise(nameEmpresa.value, nitEmpresa.value, size.value, sector.value, "../imgs/clients/alpina.jpg");
+            clientsCollection.enterprises.push(newEnterprise);
+            cleanForm();
+            message();
+            cleanHtml();
+        }
 
-});
+    });
+} catch (error) {
+    console.log(error);
+
+}
+
 
 function cleanForm() {
     nameEmpresa.value = " ";
     document.getElementById("nitEnterprise").value = " ";
-    
-    
 }
 
 function message() {
@@ -35,6 +39,6 @@ function message() {
         '</div>'
 }
 
-function cleanHtml(){
-    Client.prototype.getClients();
+function cleanHtml() {
+    Client.prototype.getAllEnterprises();
 }
