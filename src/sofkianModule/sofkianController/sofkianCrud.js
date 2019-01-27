@@ -72,6 +72,44 @@ let div = document.getElementById('sofkianoEspecificoDiv');
         '</div>';
   }
 
+  function formEdicionSofkian(sofkian) {
+      return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
+      '<img src="imgs/' + sofkian.name + '.jpeg" class="card-img-top" alt="...">' +
+      '<h5 id="divConSofkianName" class="card-title" id="enterpriseName">' + sofkian.name + '</h5>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Nombre:</strong></label>'+
+      '<input type="email" class="form-control" id="nombre_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.name+'" value="'+sofkian.name+'">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Cedula:</strong></label>'+
+      '<input type="email" class="form-control" id="id_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.id+'" value="'+sofkian.id+'">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Caracteristicas:</strong></label>'+
+      '<input type="textarea" class="form-control" id="characteristics_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.characteristics+'" value="'+sofkian.characteristics+'">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Experiencia en sofka:</strong></label>'+
+      '<input type="textarea" class="form-control" id="sofkaExperience_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.sofkaExperience+'" value="'+sofkian.sofkaExperience+'">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Experiencia pre-sofka:</strong></label>'+
+      '<input type="textarea" class="form-control" id="beforeSofkaExperienced_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.beforeSofkaExperienced+'" value="'+sofkian.beforeSofkaExperienced+'">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Tecnologias manejadas:</strong></label>'+
+      '<input type="textarea" class="form-control" id="tecnologias_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.tecnologias[0].name+'" value="'+sofkian.tecnologias[0].name+'">'+
+      '</div>' +
+      '<a href="#" class="btn btn-primary" id="actualizarSofkian">Actualizar</a>' +
+      '</div>';
+}
+
 (Sofkiano.prototype.tryCatch_eliminarSokfianos = () => {
       try {
             eliminarSokfianos();
@@ -82,7 +120,7 @@ let div = document.getElementById('sofkianoEspecificoDiv');
 
 function eliminarSokfianos(){
       document.getElementById("eliminarSofkianBoton").addEventListener('click', () => {
-            if(hayUnSofkianoAEliminar()){
+            if(hayUnSofkianoBuscado()){
                    eliminarSofkianoPorNombre()
                    console.log(sofkianosArray)
                    document.getElementById('sofkianoEspecificoDiv').innerHTML = " ";
@@ -99,16 +137,85 @@ function eliminarSofkianoPorNombre(){
             if (sofkianosArray[i].name === nombreDelEliminado) {
                   sofkianosArray.splice(i, 1); 
             }
-         }
+      }
 }
 
-function hayUnSofkianoAEliminar(){
+function hayUnSofkianoBuscado(){
       var sofkianoEncontrado = false;
       if(document.getElementById('sofkianoEspecificoDiv').innerHTML !== "NaN"){
             sofkianoEncontrado = true;
       }
       return sofkianoEncontrado;
 }
+
+(Sofkiano.prototype.tryCatch_PonerFormParaeditarSokfianos = () => {
+      try {
+            incluirHtmlParaEditar();
+      } catch (error) {
+            console.log("Ha ocurrido un error: " + error);
+      }
+})();
+
+function incluirHtmlParaEditar(){
+      document.getElementById("editarSofkianBoton").addEventListener('click', () => {
+            document.getElementById('sofkianoEspecificoDiv').innerHTML =  formEdicionSofkian(devolverSofkiano());
+      })
+}
+
+function devolverSofkiano(){
+      var sofkiano;
+      nombreDelEliminado = document.getElementById('divConSofkianName').innerHTML;
+      for( var i = 0; i <  sofkianosArray.length; i++){ 
+            if (sofkianosArray[i].name === nombreDelEliminado) {
+                  sofkiano = sofkianosArray[i];
+            }
+      }
+      return sofkiano;
+}
+
+
+document.addEventListener('click',function(e){
+      if(e.target && e.target.id === "actualizarSofkian"){
+            try{
+                  alert("entrrrrrrrrr")
+                  editarSokfianos();
+            }catch{
+
+            }
+      }
+})
+
+
+
+function editarSokfianos(){     
+            if(hayUnSofkianoBuscado()){
+                  alert("Paso por aqui")
+                  var pocision = devolverPocisionEnSofkiano();
+                  sofkianosArray[pocision].name = document.getElementById('nombre_Updt').value;
+                  sofkianosArray[pocision].id = document.getElementById('id_Updt').value;
+                  sofkianosArray[pocision].characteristics = document.getElementById('characteristic_Updt').value;
+                  sofkianosArray[pocision].sofkaExperience = document.getElementById('sofkaExperience_Updt').value;
+                  sofkianosArray[pocision].beforeSofkaExperience = document.getElementById('beforeSofkaExperience_Updt').value;
+                  sofkianosArray[pocision].tecnologias[0] = document.getElementById('tecnologias_Updt').value;
+                  pasarSofkianoAlHtml(cardSofkian(sofkianosArray[pocision]))
+            }
+            else{
+                  alert("no hay un sofkiano especificado para editar")
+            }
+}
+
+function devolverPocisionEnSofkiano(){
+      var PocisionDelsofkianoEnArray;
+      nombreDelEliminado = document.getElementById('divConSofkianName').innerHTML;
+      for( var i = 0; i <  sofkianosArray.length; i++){ 
+            if (sofkianosArray[i].name === nombreDelEliminado) {
+                  PocisionDelsofkianoEnArray = i;
+            }
+      }
+      return PocisionDelsofkianoEnArray;
+}
+
+
 
 
 
@@ -253,16 +360,6 @@ function hayUnSofkianoAEliminar(){
 
 
  
-
-
-
-
-
-
-
-
-
-
 
 
 
