@@ -90,6 +90,70 @@ class SofkianFunctions {
                   }
             }
       }
+      incluirHtmlParaEditar(jsonArray){
+            document.getElementById('sofkianDiv').innerHTML =  this.formEdicionSofkian(this.devolverSofkiano(jsonArray));
+      }
+      devolverSofkiano(jsonArray){
+            var sofkiano;
+            var nombreDelEditado = document.getElementById('divConSofkianName').innerHTML;
+            for( var index = 0; index <  jsonArray.length; index++){ 
+                  if (jsonArray[index].name === nombreDelEditado) {
+                        sofkiano = jsonArray[index];
+                  }
+            }
+            return sofkiano;
+      }
+
+      formEdicionSofkian(sofkian) {
+            return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
+            '<img src="imgs/' + sofkian.img + '" class="card-img-top" alt="...">' +
+            '<h5 id="divConSofkianName" class="card-title" id="enterpriseName">' + sofkian.name + '</h5>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Nombre:</strong></label>'+
+            '<input type="email" class="form-control" id="nombre_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.name+'" value="'+sofkian.name+'">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Cedula:</strong></label>'+
+            '<input type="email" class="form-control" id="id_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.id+'" value="'+sofkian.id+'">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Caracteristicas:</strong></label>'+
+            '<input type="textarea" class="form-control" id="characteristics_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.characteristics+'" value="'+sofkian.characteristics+'">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Experiencia en sofka:</strong></label>'+
+            '<input type="textarea" class="form-control" id="sofkaExperience_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.sofkaExperience+'" value="'+sofkian.sofkaExperience+'">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Experiencia pre-sofka:</strong></label>'+
+            '<input type="textarea" class="form-control" id="beforeSofkaExperienced_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.beforeSofkaExperience+'" value="'+sofkian.beforeSofkaExperience+'">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Tecnologias manejadas:</strong></label>'+
+            '<input type="textarea" class="form-control" id="tecnologias_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.tecnologiasManejadas+'" value="'+sofkian.tecnologiasManejadas+'">'+
+            '</div>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Proyecto 1:</strong></label>'+
+            '<input type="textarea" class="form-control" id="proyecto1_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.proyecto1+'" value="'+sofkian.proyecto1+'">'+
+            '</div>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Porcentaje proyecto 1:</strong></label>'+
+            '<input type="textarea" class="form-control" id="proyecto1_porcentaje_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.dedicacionProyecto1+'" value="'+sofkian.dedicacionProyecto1+'">'+
+            '</div>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Proyecto 1:</strong></label>'+
+            '<input type="textarea" class="form-control" id="proyecto2_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.proyecto2+'" value="'+sofkian.proyecto2+'">'+
+            '</div>' +
+            '<a href="#" class="btn btn-primary" id="actualizarSofkian">Actualizar</a>' +
+            '</div>';
+        }
+      
 
 
 }

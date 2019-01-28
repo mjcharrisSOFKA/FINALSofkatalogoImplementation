@@ -26,4 +26,7 @@ document.getElementById('buscarSofkianBoton').addEventListener('click', () => {
 document.getElementById("eliminarSofkianBoton").addEventListener('click', () => {
     sofkianFunctions.eliminarSokfian(JSON_SOFKIANS);
 });
+document.getElementById("editarSofkianBoton").addEventListener('click', () => {
+    sofkianFunctions.incluirHtmlParaEditar(JSON_SOFKIANS);
+});
 
