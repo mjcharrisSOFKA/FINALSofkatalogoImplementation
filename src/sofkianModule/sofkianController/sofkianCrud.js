@@ -110,6 +110,41 @@ let div = document.getElementById('sofkianoEspecificoDiv');
       '</div>';
 }
 
+function formAgregarSofkian() {
+      return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Nombre:</strong></label>'+
+      '<input type="email" class="form-control" id="nombre_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Cedula:</strong></label>'+
+      '<input type="email" class="form-control" id="id_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Caracteristicas:</strong></label>'+
+      '<input type="textarea" class="form-control" id="characteristics_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Experiencia en sofka:</strong></label>'+
+      '<input type="textarea" class="form-control" id="sofkaExperience_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Experiencia pre-sofka:</strong></label>'+
+      '<input type="textarea" class="form-control" id="beforeSofkaExperienced_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+      '</div>' +
+      '<br>' +
+      '<div class="form-group">' +
+      '<label for="exampleInputEmail1"><strong>Tecnologias manejadas:</strong></label>'+
+      '<input type="textarea" class="form-control" id="tecnologias_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+      '</div>' +
+      '<a href="#" class="btn btn-primary" id="agregarSofkian">Agregar</a>' +
+      '</div>';
+}
+
 (Sofkiano.prototype.tryCatch_eliminarSokfianos = () => {
       try {
             eliminarSokfianos();
@@ -148,7 +183,7 @@ function hayUnSofkianoBuscado(){
       return sofkianoEncontrado;
 }
 
-(Sofkiano.prototype.tryCatch_PonerFormParaeditarSokfianos = () => {
+(Sofkiano.prototype.tryCatch_PonerFormParaEditarSokfianos = () => {
       try {
             incluirHtmlParaEditar();
       } catch (error) {
@@ -178,24 +213,24 @@ document.addEventListener('click',function(e){
       if(e.target && e.target.id === "actualizarSofkian"){
             try{
                   alert("entrrrrrrrrr")
-                  editarSokfianos();
-            }catch{
-
+                  editarSokfiano();
+            }catch(error){
+                  console.log("Ha ocurrido un error: " + error);
             }
       }
 })
 
 
 
-function editarSokfianos(){     
+function editarSokfiano(){     
             if(hayUnSofkianoBuscado()){
                   alert("Paso por aqui")
                   var pocision = devolverPocisionEnSofkiano();
                   sofkianosArray[pocision].name = document.getElementById('nombre_Updt').value;
                   sofkianosArray[pocision].id = document.getElementById('id_Updt').value;
-                  sofkianosArray[pocision].characteristics = document.getElementById('characteristic_Updt').value;
+                  sofkianosArray[pocision].characteristics = document.getElementById('characteristics_Updt').value;
                   sofkianosArray[pocision].sofkaExperience = document.getElementById('sofkaExperience_Updt').value;
-                  sofkianosArray[pocision].beforeSofkaExperience = document.getElementById('beforeSofkaExperience_Updt').value;
+                  sofkianosArray[pocision].beforeSofkaExperience = document.getElementById('beforeSofkaExperienced_Updt').value;
                   sofkianosArray[pocision].tecnologias[0] = document.getElementById('tecnologias_Updt').value;
                   pasarSofkianoAlHtml(cardSofkian(sofkianosArray[pocision]))
             }
@@ -215,10 +250,40 @@ function devolverPocisionEnSofkiano(){
       return PocisionDelsofkianoEnArray;
 }
 
+(Sofkiano.prototype.tryCatch_PonerFormParaAgregarSokfianos = () => {
+      try {
+            incluirHtmlParaAgregar();
+      } catch (error) {
+            console.log("Ha ocurrido un error: " + error);
+      }
+})();
 
+function incluirHtmlParaAgregar(){
+      document.getElementById("agregarSofkianBoton").addEventListener('click', () => {
+            document.getElementById('sofkianoEspecificoDiv').innerHTML =  formAgregarSofkian();
+      })
+}
 
+document.addEventListener('click',function(e){
+      if(e.target && e.target.id === "agregarSofkian"){
+                  agregarSokfiano();
+                  document.getElementById('sofkianoEspecificoDiv').innerHTML =  " ";
+                  alert("se ha creado un nuevo sofkiano");
+      }
+})
 
-
+function agregarSokfiano(){
+      var sofkiano = new Sofkiano( 
+                  document.getElementById('nombre_Updt').value,
+                  document.getElementById('id_Updt').value,
+                  document.getElementById('characteristics_Updt').value,
+                  document.getElementById('sofkaExperience_Updt').value,
+                  document.getElementById('beforeSofkaExperienced_Updt').value,
+                  document.getElementById('tecnologias_Updt').value,
+                  document.getElementById('tecnologias_Updt').value)
+      sofkiano.tecnologias = new Array(document.getElementById('tecnologias_Updt').value, document.getElementById('tecnologias_Updt').value);
+      sofkianosArray.push(sofkiano);
+}
 
 // (Sofkiano.prototype.getAllSokfianosAlCargarTryCatch = () => {
 //       try {
