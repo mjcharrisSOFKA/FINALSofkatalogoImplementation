@@ -183,6 +183,59 @@ class SofkianFunctions {
             '<a href="#" class="btn btn-primary" id="actualizarSofkian">Actualizar</a>' +
             '</div>';
         }
+
+        
+        incluirHtmlParaAgregar(){
+            document.getElementById('sofkianDiv').innerHTML =  this.formAgregarSofkian();
+        }
+
+        formAgregarSofkian() {
+            return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Nombre:</strong></label>'+
+            '<input type="email" class="form-control" id="nombre_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Cedula:</strong></label>'+
+            '<input type="email" class="form-control" id="id_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Caracteristicas:</strong></label>'+
+            '<input type="textarea" class="form-control" id="characteristics_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Experiencia en sofka:</strong></label>'+
+            '<input type="textarea" class="form-control" id="sofkaExperience_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Experiencia pre-sofka:</strong></label>'+
+            '<input type="textarea" class="form-control" id="beforeSofkaExperienced_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+            '</div>' +
+            '<br>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Tecnologias manejadas:</strong></label>'+
+            '<input type="textarea" class="form-control" id="tecnologias_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+            '</div>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Proyecto 1:</strong></label>'+
+            '<input type="textarea" class="form-control" id="proyecto1_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+            '</div>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Porcentaje proyecto 1:</strong></label>'+
+            '<input type="textarea" class="form-control" id="proyecto1_porcentaje_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+            '</div>' +
+            '<div class="form-group">' +
+            '<label for="exampleInputEmail1"><strong>Proyecto 2:</strong></label>'+
+            '<input type="textarea" class="form-control" id="proyecto2_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+            '</div>' +
+            '<a href="#" class="btn btn-primary" id="agregarSofkian">Agregar</a>' +
+            '</div>';
+        }
       
 
 

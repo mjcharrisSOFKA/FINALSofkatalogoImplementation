@@ -35,3 +35,7 @@ document.addEventListener('click',function(e){
         sofkianFunctions.editarSokfiano(JSON_SOFKIANS)
     }
 });
+
+document.getElementById("agregarSofkianBoton").addEventListener('click', () => {
+    sofkianFunctions.incluirHtmlParaAgregar();
+});
