@@ -68,33 +68,44 @@ Client.prototype.getClientsPerson = (type) => {
 
 })();
 
-(Client.prototype.getClientsEnterpriseByName = () => {
-
-
+(Client.prototype.getClientsByName = () => {
 
     document.getElementById("searchButton").addEventListener('click', () => {
-        var find;
+        
         let cliSearched = document.getElementById("clientToSearch").value.toUpperCase();
-        let lista = clientList.enterprises;
-        console.log(lista);
-
-        find = lista.filter( (client) => {
+        var foundPerson;
+        var foundEnterprise;
+        let personsList= clientList.persons;
+        let enterpriseList= clientList.enterprises;
+       
+       
+        foundEnterprise = enterpriseList.filter( (client) => {
             return client.name.includes(cliSearched);
         });
-
-        console.log(find);
-
-        if (find.length !== 0) {
+        
+        foundPerson = personsList.filter(function (client) {
+            return client.name.includes(cliSearched);
+        });
+    
+        if (foundEnterprise.length !== 0) {
             cleanHtml();
-            for (let i = 0; i < find.length; i++) {
-                divRow.innerHTML += cardEnterprise(find[i]);
+            for (let i = 0; i < foundEnterprise.length; i++) {
+                divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
+            }
+        }
+        else if (foundPerson.length !== 0) {
+            cleanHtml();
+            for (let i = 0; i < foundPerson.length; i++) {
+                divRow.innerHTM += cardGeneric(foundPerson[i]);
             }
         }
         else {
             divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
         }
+    }); 
 
-    });
+
+
     /*
 
 
