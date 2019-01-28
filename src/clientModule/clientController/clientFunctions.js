@@ -114,6 +114,51 @@ Client.prototype.getAllPersons = () => {
             divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
         }
     }); 
+<<<<<<< Updated upstream
+=======
+
+    /*
+
+
+    try {
+        document.getElementById("searchButton").addEventListener('click', () => {
+            let cliSearched = document.getElementById("clientToSearch").value;
+            let foundCliente;
+            let foundPersona;
+            let actual;
+            let actualClient;
+
+            var show = arr[0].map((client) => {
+                foundCliente = client.name === cliSearched.toUpperCase();
+                if (foundCliente) {
+                    actual = client;
+                }
+            });
+
+            var show = arr[1].map((client) => {
+                foundPersona = client.name === cliSearched.toUpperCase();
+                if (foundPersona) {
+                    actualClient = client;
+                }
+            });
+
+            if (actual !== undefined) {
+                divRow.innerHTML = cardEnterprise(actual);
+            }
+            else if (actualClient !== undefined) {
+                cleanHtml();
+                return cardGeneric(actualClient);
+            }
+            else {
+                divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
+            }
+
+        });
+    } catch (error) {
+        console.log("Ha ocurrido un error: " + error);
+    }
+*/
+>>>>>>> Stashed changes
 })();
 
 
