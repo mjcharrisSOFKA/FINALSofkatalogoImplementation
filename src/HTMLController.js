@@ -1,6 +1,9 @@
 import ProjectFunctions from './model/ProjectFunctions';
 import { ClientRequest } from 'http';
 
+require("./clientModule/clientController/clientFunctions");
+require("./clientModule/clientController/clientCrud");
+
 
 const JSON_FILE_FOR_PROJECTS = require('./data/ProjectData.json');
 
