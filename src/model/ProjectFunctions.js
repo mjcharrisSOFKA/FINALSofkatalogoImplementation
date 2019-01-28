@@ -1,19 +1,39 @@
 
 'use strict';
 
-const JSON_CLIENTS = require('./../data/clientData.json');
-const JSON_PROJECTS = require('../data/ProjectData.json');
+const JSON_CLIENTS = require('./../data/clientData.json').clients;
+const JSON_PROJECTS = require('../data/ProjectData.json').projects;
 let project = require('./ProjectClass');
 
 
 var projectCards = document.getElementById('projects');
 
-function findValueByAnyAttributeInArray(value, attribute, projects) {
+function createProject() {
+  try {
+    let id = 4;
+    let name = document.getElementById('project-name').value;
+    let description = document.getElementById('project-description').value;
+    let starDate = document.getElementById('project-start-date').value;
+    let endDate = document.getElementById('project-end-date').value;
+    let image = document.getElementById('project-image').value;
+    let client = document.getElementById('project-client').value;
+    let projectTechnologies = document.getElementsByName('technology');
+    let projectSofkianos = document.getElementsByName('sofkiano');
+    let technologies = getCheckedBoxes(projectTechnologies);
+    let sofkianos = getCheckedBoxes(projectSofkianos);
+    let projectToCreate = new Project(name, 0, description, starDate, endDate, image, client, technologies, sofkianos, id);
+    JSON.stringify(JSON_PROJECTS.push(projectToCreate));
+    id++;
+  } catch (error) {
+  }
+};
+
+function findValueByAnyAttribute(value, attribute) {
   try {
 
     let results = [];
     Object.keys(projects).map(key => {
-      if (projects[key][attribute] === value) {
+      if (JSON_PROJECTS.projects[key][attribute] === value) {
         results.push(projects[key]);
       }
     });
@@ -22,11 +42,11 @@ function findValueByAnyAttributeInArray(value, attribute, projects) {
   }
 };
 
-function showAllProjects(jsonArray) {
+function showAllProjects() {
   try {
     projectCards.innerHTML = "";
-    for (let index = 0; index < jsonArray.length; index++) {
-      printCardHtml(jsonArray[index]);
+    for (let index = 0; index < JSON_PROJECTS.length; index++) {
+      printCardHtml(JSON_PROJECTS[index]);
     }
   } catch (error) {
   }
@@ -160,22 +180,22 @@ function updateProject(project) {
   buttonEditProject.innerText = ("Aceptar Cambios");
   divEditingPRoject.appendChild(buttonEditProject);
   let selectClients = document.getElementById('clients-options');
-  addOptionsToSelectFromArray(selectClients, JSON_CLIENTS.clients);
+  addOptionsToSelectFromArray(selectClients, JSON_CLIENTS);
   let tech = document.getElementById('actual-technologies');
   let sofkianos = document.getElementById('actual-sofkianos');
   getPropertiesToEdit(tech, 'technologies');
   getPropertiesToEdit(sofkianos, 'sofkianos');
 
   function getPropertiesToEdit(div, propertyName) {
-    for (let i = 0; i < JSON_CLIENTS.clients.length; i++) {
+    for (let i = 0; i < JSON_CLIENTS.length; i++) {
       let label = document.createElement('label');
-      label.innerText = JSON_CLIENTS.clients[i].name;
+      label.innerText = JSON_CLIENTS[i].name;
       let techCheckBox = document.createElement('input');
       techCheckBox.type = 'checkbox';
-      techCheckBox.id = JSON_CLIENTS.clients[i].name;
+      techCheckBox.id = JSON_CLIENTS[i].name;
       techCheckBox.name = `cb${propertyName}`;
       for (let j = 0; j < project[propertyName].length; j++) {
-        if (project[propertyName][j].name === JSON_CLIENTS.clients[i].name) {
+        if (project[propertyName][j].name === JSON_CLIENTS[i].name) {
           techCheckBox.checked = true;
 
         }
@@ -224,8 +244,8 @@ function getCheckedBoxes(checkboxArray) {
 };
 
 module.exports = {
-  findValueByAnyAttributeInArray, showAllProjects,
+  findValueByAnyAttributeInArray: findValueByAnyAttribute, showAllProjects,
   printSearchResults, getCheckedRadioButton,
-  addOptionsToSelectFromJson: addOptionsToSelectFromArray, addInputsToDivFromJsonWithName,
-  getCheckedBoxes
+  addOptionsToSelectFromArray, addInputsToDivFromJsonWithName,
+  createProject
 };
