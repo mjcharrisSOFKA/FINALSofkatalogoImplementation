@@ -3,9 +3,9 @@ var {Tecnologias} = require('./sofkianClases.js');
 var tecnologia1 = new Tecnologias("5","Angular")
 var tecnologia2 = new Tecnologias("1","C#")
 var tecnologia3 = new Tecnologias("1.5","xamarin")
-var sofkiano1 = new Sofkiano('Leyner','1', 'Leyner', 'sociable, proactivo, servicial', '0','1.5')
-var sofkiano2 = new Sofkiano('Alex','2','Alex',  'lider, sociable, leal', '0','3')
-var sofkiano3 = new Sofkiano('Quinto','3', 'Quinto', 'proactivo,  cumplido', '0','6')
+var sofkiano1 = new Sofkiano('Leyner','1', 'Leyner', 'sociable, proactivo, servicial', '0','1.5','hibot','skynet','10')
+var sofkiano2 = new Sofkiano('Alex','2','Alex',  'lider, sociable, leal', '0','3','wpp 2.0','ps5','55')
+var sofkiano3 = new Sofkiano('Quinto','3', 'Quinto', 'proactivo,  cumplido', '0','6','cortana jr','alexa sr','45')
 sofkiano1.tecnologias = new Array(tecnologia1, tecnologia2);
 sofkiano2.tecnologias = new Array(tecnologia2, tecnologia3);
 sofkiano3.tecnologias = new Array(tecnologia1, tecnologia3);
@@ -57,93 +57,7 @@ let div = document.getElementById('sofkianoEspecificoDiv');
       div.innerHTML = StringDelHtml;
 }
 
-  function cardSofkian(sofkian) {
-        return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
-        '<img src="imgs/' + sofkian.foto + '.jpeg" class="card-img-top" alt="...">' +
-        '<div class="card-body">' +
-        '<h5 id="divConSofkianName" class="card-title" id="enterpriseName">' + sofkian.name + '</h5>' +
-        '<p id="divConSofkianCedula" class="card-text">' + sofkian.id + '</p>' +
-        '<p id="divConSofkianCaracteristicas" class="card-text">' + sofkian.characteristics + '</p>' +
-        '<p id="divConSofkianExperiencia" class="card-text">Experiencia en Sofka: ' + sofkian.sofkaExperience + '</p>' +
-        '<p id="divConBeforeSofkianExperiencia" class="card-text">Experiencia en Sofka:' + sofkian.beforeSofkaExperienced + '</p>' +
-        '<p id="divConTecnologia1" class="card-text">Experiencia en pre-Sofka: ' + sofkian.tecnologias[0].name + '</p>' +
-        '<p id="divConTecnologia1" class="card-text">' + sofkian.tecnologias[1].name + '</p>' +
-        '</div>' +
-        '</div>';
-  }
 
-  function formEdicionSofkian(sofkian) {
-      return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
-      '<img src="imgs/' + sofkian.foto + '.jpeg" class="card-img-top" alt="...">' +
-      '<h5 id="divConSofkianName" class="card-title" id="enterpriseName">' + sofkian.name + '</h5>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Nombre:</strong></label>'+
-      '<input type="email" class="form-control" id="nombre_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.name+'" value="'+sofkian.name+'">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Cedula:</strong></label>'+
-      '<input type="email" class="form-control" id="id_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.id+'" value="'+sofkian.id+'">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Caracteristicas:</strong></label>'+
-      '<input type="textarea" class="form-control" id="characteristics_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.characteristics+'" value="'+sofkian.characteristics+'">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Experiencia en sofka:</strong></label>'+
-      '<input type="textarea" class="form-control" id="sofkaExperience_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.sofkaExperience+'" value="'+sofkian.sofkaExperience+'">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Experiencia pre-sofka:</strong></label>'+
-      '<input type="textarea" class="form-control" id="beforeSofkaExperienced_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.beforeSofkaExperienced+'" value="'+sofkian.beforeSofkaExperienced+'">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Tecnologias manejadas:</strong></label>'+
-      '<input type="textarea" class="form-control" id="tecnologias_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.tecnologias[0].name+'" value="'+sofkian.tecnologias[0].name+'">'+
-      '</div>' +
-      '<a href="#" class="btn btn-primary" id="actualizarSofkian">Actualizar</a>' +
-      '</div>';
-}
-
-function formAgregarSofkian() {
-      return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Nombre:</strong></label>'+
-      '<input type="email" class="form-control" id="nombre_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Cedula:</strong></label>'+
-      '<input type="email" class="form-control" id="id_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Caracteristicas:</strong></label>'+
-      '<input type="textarea" class="form-control" id="characteristics_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Experiencia en sofka:</strong></label>'+
-      '<input type="textarea" class="form-control" id="sofkaExperience_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Experiencia pre-sofka:</strong></label>'+
-      '<input type="textarea" class="form-control" id="beforeSofkaExperienced_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
-      '</div>' +
-      '<br>' +
-      '<div class="form-group">' +
-      '<label for="exampleInputEmail1"><strong>Tecnologias manejadas:</strong></label>'+
-      '<input type="textarea" class="form-control" id="tecnologias_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
-      '</div>' +
-      '<a href="#" class="btn btn-primary" id="agregarSofkian">Agregar</a>' +
-      '</div>';
-}
 
 (Sofkiano.prototype.tryCatch_eliminarSokfianos = () => {
       try {
@@ -232,6 +146,9 @@ function editarSokfiano(){
                   sofkianosArray[pocision].sofkaExperience = document.getElementById('sofkaExperience_Updt').value;
                   sofkianosArray[pocision].beforeSofkaExperience = document.getElementById('beforeSofkaExperienced_Updt').value;
                   sofkianosArray[pocision].tecnologias[0] = document.getElementById('tecnologias_Updt').value;
+                  sofkianosArray[pocision].dedicacion[0] = document.getElementById('proyecto1_Updt').value;
+                  sofkianosArray[pocision].dedicacion[1] = document.getElementById('proyecto2_Updt').value;
+                  sofkianosArray[pocision].tecnologias[0] = document.getElementById('proyecto1_porcentaje_Updt_Updt').value;
                   pasarSofkianoAlHtml(cardSofkian(sofkianosArray[pocision]))
             }
             else{
@@ -282,9 +199,13 @@ function agregarSokfiano(){
                   document.getElementById('sofkaExperience_Updt').value,
                   document.getElementById('beforeSofkaExperienced_Updt').value,
                   document.getElementById('tecnologias_Updt').value,
-                  document.getElementById('tecnologias_Updt').value)
-      sofkiano.tecnologias = new Array(document.getElementById('tecnologias_Updt').value, document.getElementById('tecnologias_Updt').value);
+                  document.getElementById('tecnologias_Updt').value,
+                  document.getElementById('proyecto1_Updt').value,
+                  document.getElementById('proyecto2_Updt').value)
+      tecnologia = new Tecnologias("1.5","xamarin")
+      sofkiano.tecnologias = new Array(tecnologia,tecnologia);
       sofkianosArray.push(sofkiano);
+      console.log(sofkiano)
 }
 
 (Sofkiano.prototype.getAllSokfianosAlCargarTryCatch = () => {
@@ -305,6 +226,128 @@ function agregarSokfiano(){
             div.innerHTML = StringDelHtmlConcatenado;
       })
   }
+
+
+
+  function cardSofkian(sofkian) {
+      return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
+      '<img src="imgs/' + sofkian.foto + '.jpeg" class="card-img-top" alt="...">' +
+      '<div class="card-body">' +
+      '<h5 id="divConSofkianName" class="card-title" id="enterpriseName">' + sofkian.name + '</h5>' +
+      '<p id="divConSofkianCedula" class="card-text">cedula: ' + sofkian.id + '</p>' +
+      '<p id="divConSofkianCaracteristicas" class="card-text">caracteristicas: ' + sofkian.characteristics + '</p>' +
+      '<p id="divConSofkianExperiencia" class="card-text">Experiencia en Sofka: ' + sofkian.sofkaExperience + '</p>' +
+      '<p id="divConBeforeSofkianExperiencia" class="card-text">Experiencia pre-Sofka: ' + sofkian.beforeSofkaExperience + '</p>' +
+      '<p id="divConTecnologia1" class="card-text">tecnologias manejadas: ' + sofkian.tecnologias[0].name + '</p>' +
+      '<p id="divConTecnologia1" class="card-text">proyecto 1: ' + sofkian.dedicacion[0] + '</p>' +
+      '<p id="divConTecnologia1" class="card-text">dedicacion: ' + sofkian.porcentajeEnProyecto1 + '%</p>' +
+      '<p id="divConTecnologia1" class="card-text">proyecto 2: ' + sofkian.dedicacion[1] + '</p>' +
+      '<p id="divConTecnologia1" class="card-text">proyecto 2: ' + sofkian.porcentajeEnProyecto2 + '%</p>' +
+      '</div>' +
+      '</div>';
+}
+
+function formEdicionSofkian(sofkian) {
+    return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
+    '<img src="imgs/' + sofkian.foto + '.jpeg" class="card-img-top" alt="...">' +
+    '<h5 id="divConSofkianName" class="card-title" id="enterpriseName">' + sofkian.name + '</h5>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Nombre:</strong></label>'+
+    '<input type="email" class="form-control" id="nombre_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.name+'" value="'+sofkian.name+'">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Cedula:</strong></label>'+
+    '<input type="email" class="form-control" id="id_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.id+'" value="'+sofkian.id+'">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Caracteristicas:</strong></label>'+
+    '<input type="textarea" class="form-control" id="characteristics_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.characteristics+'" value="'+sofkian.characteristics+'">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Experiencia en sofka:</strong></label>'+
+    '<input type="textarea" class="form-control" id="sofkaExperience_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.sofkaExperience+'" value="'+sofkian.sofkaExperience+'">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Experiencia pre-sofka:</strong></label>'+
+    '<input type="textarea" class="form-control" id="beforeSofkaExperienced_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.beforeSofkaExperience+'" value="'+sofkian.beforeSofkaExperience+'">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Tecnologias manejadas:</strong></label>'+
+    '<input type="textarea" class="form-control" id="tecnologias_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.tecnologias[0].name+'" value="'+sofkian.tecnologias[0].name+'">'+
+    '</div>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Proyecto 1:</strong></label>'+
+    '<input type="textarea" class="form-control" id="proyecto1_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.dedicacion[0]+'" value="'+sofkian.dedicacion[0]+'">'+
+    '</div>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Porcentaje proyecto 1:</strong></label>'+
+    '<input type="textarea" class="form-control" id="proyecto1_porcentaje_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.porcentajeEnProyecto1+'" value="'+sofkian.porcentajeEnProyecto1+'">'+
+    '</div>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Proyecto 1:</strong></label>'+
+    '<input type="textarea" class="form-control" id="proyecto2_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.dedicacion[1]+'" value="'+sofkian.dedicacion[1]+'">'+
+    '</div>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Porcentaje proyecto 1:</strong></label>'+
+    '<input type="textarea" class="form-control" id="proyecto2_porcentaje_Updt" aria-describedby="emailHelp" placeholder="'+sofkian.porcentajeEnProyecto2+'" value="'+sofkian.porcentajeEnProyecto2+'">'+
+    '</div>' +
+    '<a href="#" class="btn btn-primary" id="actualizarSofkian">Actualizar</a>' +
+    '</div>';
+}
+
+function formAgregarSofkian() {
+    return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Nombre:</strong></label>'+
+    '<input type="email" class="form-control" id="nombre_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Cedula:</strong></label>'+
+    '<input type="email" class="form-control" id="id_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Caracteristicas:</strong></label>'+
+    '<input type="textarea" class="form-control" id="characteristics_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Experiencia en sofka:</strong></label>'+
+    '<input type="textarea" class="form-control" id="sofkaExperience_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Experiencia pre-sofka:</strong></label>'+
+    '<input type="textarea" class="form-control" id="beforeSofkaExperienced_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+    '</div>' +
+    '<br>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Tecnologias manejadas:</strong></label>'+
+    '<input type="textarea" class="form-control" id="tecnologias_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+    '</div>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Proyecto 1:</strong></label>'+
+    '<input type="textarea" class="form-control" id="proyecto1_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+    '</div>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Porcentaje proyecto 1:</strong></label>'+
+    '<input type="textarea" class="form-control" id="proyecto1_porcentaje_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+    '</div>' +
+    '<div class="form-group">' +
+    '<label for="exampleInputEmail1"><strong>Proyecto 2:</strong></label>'+
+    '<input type="textarea" class="form-control" id="proyecto2_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">'+
+    '</div>' +
+    '<a href="#" class="btn btn-primary" id="agregarSofkian">Agregar</a>' +
+    '</div>';
+}
 
 
  
