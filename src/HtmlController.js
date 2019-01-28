@@ -30,3 +30,8 @@ document.getElementById("editarSofkianBoton").addEventListener('click', () => {
     sofkianFunctions.incluirHtmlParaEditar(JSON_SOFKIANS);
 });
 
+document.addEventListener('click',function(e){
+    if(e.target && e.target.id === "actualizarSofkian"){
+        sofkianFunctions.editarSokfiano(JSON_SOFKIANS)
+    }
+});

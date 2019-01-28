@@ -104,6 +104,36 @@ class SofkianFunctions {
             return sofkiano;
       }
 
+      editarSokfiano(jsonArray){     
+            if(this.hayUnSofkianoBuscado()){
+                  var pocision = this.devolverPocisionEnSofkiano(jsonArray);
+                  jsonArray[pocision].name = document.getElementById('nombre_Updt').value;
+                  jsonArray[pocision].id = document.getElementById('id_Updt').value;
+                  jsonArray[pocision].characteristics = document.getElementById('characteristics_Updt').value;
+                  jsonArray[pocision].sofkaExperience = document.getElementById('sofkaExperience_Updt').value;
+                  jsonArray[pocision].beforeSofkaExperience = document.getElementById('beforeSofkaExperienced_Updt').value;
+                  jsonArray[pocision].tecnologiasManejadas = document.getElementById('tecnologias_Updt').value;
+                  jsonArray[pocision].proyecto1 = document.getElementById('proyecto1_Updt').value;
+                  jsonArray[pocision].proyecto2 = document.getElementById('proyecto2_Updt').value;
+                  jsonArray[pocision].dedicacionProyecto1 = document.getElementById('proyecto1_porcentaje_Updt').value;
+                  this.printCardHtml(this.cardSofkian(jsonArray[pocision]));
+            }
+            else{
+                  alert("no hay un sofkiano especificado para editar")
+            }
+      }
+
+      devolverPocisionEnSofkiano(jsonArray){
+            var PocisionDelsofkianoEnArray;
+            var nombreParaEditar = document.getElementById('divConSofkianName').innerHTML;
+            for( var index = 0; index <  jsonArray.length; index++){ 
+                  if (jsonArray[index].name === nombreParaEditar) {
+                        var PocisionDelsofkianoEnArray = index;
+                  }
+            }
+            return PocisionDelsofkianoEnArray;
+      }
+
       formEdicionSofkian(sofkian) {
             return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
             '<img src="imgs/' + sofkian.img + '" class="card-img-top" alt="...">' +
