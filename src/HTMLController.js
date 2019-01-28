@@ -58,6 +58,6 @@ document.getElementById("button-closeSideBar").addEventListener("click", () => {
     document.getElementById("button-openSideBar").style.display = 'block';
 });
 
-function  cleanHtml() {
+function cleanHtml() {
     divMainClass.innerHTML = " ";
 }
