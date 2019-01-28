@@ -96,7 +96,8 @@ Client.prototype.getClientsPerson = (type) => {
                 divRow.innerHTML = cardEnterprise(actual);
             }
             else if (actualClient !== undefined) {
-                divRow.innerHTML = cardGeneric(actualClient);
+                cleanHtml();
+                return cardGeneric(actualClient);
             }
             else {
                 divRow.innerHTML = "<h2>Cliente no encontrado</h2>";

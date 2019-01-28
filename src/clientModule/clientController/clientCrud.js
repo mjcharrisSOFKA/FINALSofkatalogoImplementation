@@ -18,10 +18,10 @@ let { divRow, cleanHtml } = require('../clientController/clientFunctions');
             if (nameEmpresa.value === "" || nitEmpresa.value === "") {
                 alert("Todos lo campos soon requridos");
             } else {
-                let newEnterprise = new Enterprise(nameEmpresa.value, nitEmpresa.value, size.value, sector.value, "../imgs/clients/enterpriseDefault.jpg");
+                let newEnterprise = new Enterprise(nameEmpresa.value.toUpperCase(), nitEmpresa.value, size.value, sector.value, "../imgs/clients/enterpriseDefault.jpg");
                 clientsCollection.enterprises.push(newEnterprise);
                 cleanFormEnterprise();
-                message();
+                showMessageEnterprise();
                 cleanHtml();
                 getClients();
             }
@@ -38,10 +38,10 @@ let { divRow, cleanHtml } = require('../clientController/clientFunctions');
             if (namePersona.value === "" || cedulaPersona.value === "") {
                 alert("Todos lo campos soon requridos");
             } else {
-                let newPerson = new Person(namePersona.value, cedulaPersona.value, "../imgs/clients/personDefault.png");
+                let newPerson = new Person(namePersona.value.toUpperCase(), cedulaPersona.value, "../imgs/clients/personDefault.png");
                 clientsCollection.persons.push(newPerson);
                 cleanFormPerson();
-                message();
+                showMessagePerson();
                 cleanHtml();
                 getClients();
             }
@@ -68,7 +68,7 @@ Client.prototype.editClient = (client) => {
 
         buttonEdit.onclick = () => {
             try {
-                let nameEnterprise = document.getElementById("nameEnterp").value;
+                let nameEnterprise = document.getElementById("nameEnterp").value.toUpperCase();
                 let nitEnterprise = document.getElementById("nitEnterp").value;
                 let sizeEnterprise = document.getElementById("sizeEnterp").value;
                 let sectorEnterprise = document.getElementById("sectorEnterp").value;
@@ -80,6 +80,8 @@ Client.prototype.editClient = (client) => {
                         clientsCollection.enterprises[i].nit = nitEnterprise;
                         clientsCollection.enterprises[i].size = sizeEnterprise;
                         clientsCollection.enterprises[i].sector = sectorEnterprise;
+
+                        returnBackUpdate();
                     }
 
                 }
@@ -98,13 +100,15 @@ Client.prototype.editClient = (client) => {
         divCreated.innerHTML = formPerson(client);
 
         buttonEdit.onclick = () => {
-            let namePerson = document.getElementById("namePerson").value;
+            let namePerson = document.getElementById("namePerson").value.toUpperCase();
             let cedulaPerson = document.getElementById("cedulaPerson").value;
 
             for (let i = 0; i < clientsCollection.persons.length; i++) {
                 if (clientsCollection.persons[i].cedula === cedulaPerson) {
                     clientsCollection.persons[i].name = namePerson;
                     clientsCollection.persons[i].cedula = cedulaPerson;
+
+                    returnBackUpdate();
                 }
             }
 
@@ -116,7 +120,28 @@ Client.prototype.editClient = (client) => {
 }
 
 Client.prototype.deleteClient = (client) => {
-    console.log(client);
+    try {
+        if (client.type === "Empresa") {
+            for (let i = 0; i < clientsCollection.enterprises.length; i++) {
+                if (clientsCollection.enterprises[i].nit === client.nit) {
+                    clientsCollection.enterprises.splice(i, 1);
+
+                    returnBackDelete();
+                }
+            }
+        } else {
+            for (let i = 0; i < clientsCollection.persons.length; i++) {
+                if (clientsCollection.persons[i].cedula === client.cedula) {
+                    clientsCollection.persons.splice(i, 1);
+
+                    returnBackDelete();
+                }
+            }
+        }
+    } catch (error) {
+
+    }
+
 }
 
 function formEnterprise(enterprise) {
@@ -187,13 +212,34 @@ function cleanFormPerson() {
     cedulaPersona.value = " ";
 }
 
-function message() {
-    document.getElementById("message").innerHTML = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
-        '<strong>Genial!</strong> El cliente ha sido creado' +
+function showMessageEnterprise() {
+    document.getElementById("messageEnterprise").innerHTML = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+        '<strong>Genial!</strong> Empresa creada' +
         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
         '<span aria-hidden="true">&times;</span>' +
         '</button>' +
         '</div>'
+}
+
+function showMessagePerson() {
+    document.getElementById("messagePerson").innerHTML = '<div class="alert alert-success alert-dismissible fade show" role="alert">' +
+        '<strong>Genial!</strong> Persona creada' +
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+        '<span aria-hidden="true">&times;</span>' +
+        '</button>' +
+        '</div>'
+}
+
+function returnBackUpdate() {
+    alert('Cliente actualizado');
+    cleanHtml();
+    getClients();
+}
+
+function returnBackDelete() {
+    alert('Cliente eliminado');
+    cleanHtml();
+    getClients();
 }
 
 function getClients() {
