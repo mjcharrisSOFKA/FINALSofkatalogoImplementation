@@ -4,13 +4,13 @@ var clientList = require('./clientObjects.js');
 var { Client } = require('../models.js');
 var showClient = [];
 var arr = [];
-let divRow = document.getElementById("client");
+let divRow = document.getElementById('cards-content');
 
 for (let i in clientList) {
     arr.push(clientList[i]);
 }
 
-(Client.prototype.getClients = () => {
+Client.prototype.getClients = () => {
 
     try {
         for (let j = 0; j < arr.length; j++) {
@@ -27,7 +27,12 @@ for (let i in clientList) {
         console.log("Ha ocurrido un error: " + error);
     }
 
-})();
+};
+
+let cardToPrint = document.getElementById('cards-content');
+console.log(cardToPrint);
+
+
 
 Client.prototype.getClientsPerson = (type) => {
     var filterPersona = arr.filter(function (client) {
@@ -158,4 +163,4 @@ function cleanHtml() {
     divRow.innerHTML = " ";
 }
 
-module.exports = { divRow, cleanHtml };
+module.exports = { divRow, cleanHtml};

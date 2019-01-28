@@ -1,7 +1,7 @@
 import ProjectFunctions from './model/ProjectFunctions';
 import ClientFunctions from './clientModule/clientController/clientFunctions';
 
-require("./clientModule/clientController/clientFunctions");
+var { Client } = require('./clientModule/models');
 require("./clientModule/clientController/clientCrud");
 
 
@@ -9,19 +9,23 @@ const JSON_FILE_FOR_PROJECTS = require('./data/ProjectData.json');
 
 const JSON_PROJECTS = JSON_FILE_FOR_PROJECTS.projects;
 
-let divMainClass = document.getElementById('cards-content'); 
-let divClientHTML = document.getElementById('client-container');
+let divMainClass = document.getElementById('cards-content');
+
 
 let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
 let clientBtn = document.getElementById('btnClients');
 
-clientBtn.addEventListener('click',()=>{
-    divMainClass.insertAdjacentHTML('beforebegin',divClientHTML);
+clientBtn.addEventListener('click', () => {
+    cleanHtml();
+    Client.prototype.getClients();
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("button-openSideBar").style.display = 'block';
 });
 
-homeBtn.addEventListener('click',()=>{
-       
+homeBtn.addEventListener('click', () => {
+
     console.log("the bar is close");
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
@@ -30,6 +34,7 @@ homeBtn.addEventListener('click',()=>{
 
 let projectFunctions = new ProjectFunctions();
 document.getElementById('btnProject').addEventListener('click', () => {
+    cleanHtml();
     projectFunctions.showAllProjects(JSON_PROJECTS);
     console.log("the bar is close");
     document.getElementById("main").style.marginLeft = "0%";
@@ -52,3 +57,7 @@ document.getElementById("button-closeSideBar").addEventListener("click", () => {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
 });
+
+function  cleanHtml() {
+    divMainClass.innerHTML = " ";
+}
