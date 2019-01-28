@@ -7,4 +7,5 @@
 // });
 
 require("./model/SofkianFunctions.js");
+require("./model/SofkianClases.js");
 require("./HtmlController");

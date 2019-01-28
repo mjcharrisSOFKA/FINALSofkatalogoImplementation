@@ -201,8 +201,7 @@ function agregarSokfiano(){
                   document.getElementById('beforeSofkaExperienced_Updt').value,
                   document.getElementById('tecnologias_Updt').value,
                   document.getElementById('tecnologias_Updt').value,
-                  document.getElementById('proyecto1_Updt').value,
-                  document.getElementById('proyecto2_Updt').value)
+)
       tecnologia = new Tecnologias("1.5","xamarin")
       sofkiano.tecnologias = new Array(tecnologia,tecnologia);
       sofkianosArray.push(sofkiano);

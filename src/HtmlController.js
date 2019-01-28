@@ -39,3 +39,9 @@ document.addEventListener('click',function(e){
 document.getElementById("agregarSofkianBoton").addEventListener('click', () => {
     sofkianFunctions.incluirHtmlParaAgregar();
 });
+
+document.addEventListener('click',function(e){
+    if(e.target && e.target.id === "agregarSofkian"){
+        sofkianFunctions.agregarSokfiano();
+    }
+});
