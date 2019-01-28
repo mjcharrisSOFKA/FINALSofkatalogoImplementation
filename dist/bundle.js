@@ -81,19 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/HTMLController.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/home.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/HTMLController.js":
-/*!*******************************!*\
-  !*** ./src/HTMLController.js ***!
-  \*******************************/
+/***/ "./src/home.js":
+/*!*********************!*\
+  !*** ./src/home.js ***!
+  \*********************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\r\ndocument.getElementById(\"button-openSideBar\").addEventListener(\"click\", () => {\r\n    console.log(\"the bar is open\");\r\n    document.getElementById(\"main\").style.marginLeft = \"25%\";\r\n    document.getElementById(\"mySidebar\").style.width = \"25%\";\r\n    document.getElementById(\"mySidebar\").style.display = \"block\";\r\n    document.getElementById(\"cards-content\").style.display = 'none';\r\n});\r\ndocument.getElementById(\"button-closeSideBar\").addEventListener(\"click\", () => {\r\n    console.log(\"the bar is close\");\r\n    document.getElementById(\"main\").style.marginLeft = \"0%\";\r\n    document.getElementById(\"mySidebar\").style.display = \"none\";\r\n    document.getElementById(\"cards-content\").style.display = \"inline-block\";\r\n    document.getElementById(\"cards-content\").style.display = 'block';\r\n});\r\n\n\n//# sourceURL=webpack:///./src/HTMLController.js?");
+eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\asunt\\\\inCaseOf\\\\src\\\\home.js'\");\n\n//# sourceURL=webpack:///./src/home.js?");
 
 /***/ })
 
