@@ -1,94 +1,101 @@
-
 'use strict';
 
-let projectCards = document.getElementById('projects')
+class ProjectFunctions {
 
-function findValueByAnyAttributeInArray(value, attribute, projects) {
-  try {
+  constructor() {
+    this.projectCards = document.getElementById('cards-content');
+  }
 
-    let results = [];
-    Object.keys(projects).map(key => {
-      if (projects[key][attribute] === value) {
-        results.push(projects[key]);
+  findValueByAnyAttributeInArray(value, attribute, projects) {
+    try {
+
+      let results = [];
+      Object.keys(projects).map(key => {
+        if (projects[key][attribute] === value) {
+          results.push(projects[key]);
+        }
+      });
+      return results;
+
+    } catch (error) {
+      console.log("Error: " + error);
+    }
+  };
+
+  showAllProjects(jsonArray) {
+    for (let index = 0; index < jsonArray.length; index++) {
+      this.printCardHtml(jsonArray[index].img,
+        jsonArray[index].name,
+        jsonArray[index].description);
+    }
+  };
+
+  printSearchResults(resultsArray) {
+    for (let i = 0; i < resultsArray.length; i++) {
+      printCardHtml(resultsArray[i].img, resultsArray[i].name, resultsArray[i].description);
+    }
+  };
+
+  getCheckedRadioButton(radioButtons) {
+    for (let index = 0; index < radioButtons.length; index++) {
+      if (radioButtons[index].checked) {
+        return radioButtons[index].value;
       }
-    });
-    return results;
-
-  } catch (error) {
-    console.log("Error: " + error);
-  }
-};
-
-function showAllProjects(jsonArray) {
-  for (let index = 0; index < jsonArray.length; index++) {
-    printCardHtml(jsonArray[index].img,
-      jsonArray[index].name,
-      jsonArray[index].description);
-  }
-};
-
-function printSearchResults(resultsArray) {
-  for (let i = 0; i < resultsArray.length; i++) {
-    printCardHtml(resultsArray[i].img, resultsArray[i].name, resultsArray[i].description);
-  }
-};
-
-function getCheckedRadioButton(radioButtons) {
-  for (let index = 0; index < radioButtons.length; index++) {
-    if (radioButtons[index].checked) {
-      return radioButtons[index].value;
     }
-  }
-};
+  };
 
-function printCardHtml(image, title, description) {
-  let div = document.createElement('div');
+  printCardHtml(image, title, description) {
 
-  div.className = 'card';
-  div.style = 'width: 18rem; float: left';
-  div.innerHTML = "<img src=" + image + " class='card-img-top'>"
-    + "<div class='card-body'>"
+    let cardToPrint = document.getElementById('cards-content');
+
+    let div = document.createElement('div');
+
+    div.className = 'card';
+    div.id = 'card'
+    div.style = 'padding: 1%; margin: 2%; width: 20rem';
+    div.innerHTML = 
+    "<img src=" + image + " class='card-img-top' style = 'height: 20rem; width: 18rem' >"
+    + ""
+    + "<div class='card-body'  id='card-body' >"
     + "<h5 class='card-title'> " + title + " </h5> "
-    + "<p class='card-text'> " + description + " </p>";
+    + "<p class='card-text'> " + description + " </p>"
+    + "<button class='btn btn-warning' id='edit'>Editar</button>"
+    + "<button class='btn btn-danger' id='delete' style='float:right'>Borrar</button>";
 
-  projectCards.appendChild(div);
-};
+    cardToPrint.appendChild(div);
+  };
 
-function addOptionsToSelectFromJson(select, jsonArray) {
-  for (let index = 0; index < jsonArray.length; index++) {
-    let option = document.createElement('option');
-    option.id = 'project-client';
-    option.innerText = jsonArray[index].name;
-    select.insertAdjacentElement("beforeend", option);
-  }
-};
-
-function addInputsToDivFromJsonWithName(div, jsonArray, name) {
-  for (let index = 0; index < jsonArray.length; index++) {
-    let label = document.createElement('label');
-    label.innerText = jsonArray[index].name;
-    let input = document.createElement('input');
-    input.type = 'checkbox';
-    input.name = name;
-    input.id = jsonArray[index].name;
-    label.appendChild(input);
-    div.appendChild(label);
-  }
-};
-
-function getCheckedBoxes(checkboxArray) {
-  let checkedBoxes = [];
-  for (let index = 0; index < checkboxArray.length; index++) {
-    if (checkboxArray[index].checked) {
-      checkedBoxes.push(checkboxArray[index].id);
+  addOptionsToSelectFromJson(select, jsonArray) {
+    for (let index = 0; index < jsonArray.length; index++) {
+      let option = document.createElement('option');
+      option.id = 'project-client';
+      option.innerText = jsonArray[index].name;
+      select.insertAdjacentElement("beforeend", option);
     }
-  }
-  return checkedBoxes;
-};
+  };
 
-module.exports = {
-  findValueByAnyAttributeInArray, showAllProjects,
-  printSearchResults, getCheckedRadioButton,
-  addOptionsToSelectFromJson, addInputsToDivFromJsonWithName,
-  getCheckedBoxes
-};
+  addInputsToDivFromJsonWithName(div, jsonArray, name) {
+    for (let index = 0; index < jsonArray.length; index++) {
+      let label = document.createElement('label');
+      label.innerText = jsonArray[index].name;
+      let input = document.createElement('input');
+      input.type = 'checkbox';
+      input.name = name;
+      input.id = jsonArray[index].name;
+      label.appendChild(input);
+      div.appendChild(label);
+    }
+  };
+
+  getCheckedBoxes(checkboxArray) {
+    let checkedBoxes = [];
+    for (let index = 0; index < checkboxArray.length; index++) {
+      if (checkboxArray[index].checked) {
+        checkedBoxes.push(checkboxArray[index].id);
+      }
+    }
+    return checkedBoxes;
+  };
+}
+
+module.exports = ProjectFunctions;
