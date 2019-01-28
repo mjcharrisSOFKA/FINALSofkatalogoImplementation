@@ -11,7 +11,7 @@ let cedulaPersona = document.getElementById("cedulaP");
 
 let { divRow, cleanHtml } = require('../clientController/clientFunctions');
 
-(function createEnterprise() {
+function createEnterprise() {
     try {
         document.getElementById("saveEnterprise").addEventListener("click", () => {
 
@@ -30,9 +30,9 @@ let { divRow, cleanHtml } = require('../clientController/clientFunctions');
     } catch (error) {
         console.log(error);
     }
-}());
+};
 
-(function createPerson() {
+function createPerson() {
     try {
         document.getElementById("savePerson").addEventListener("click", () => {
             if (namePersona.value === "" || cedulaPersona.value === "") {
@@ -49,7 +49,7 @@ let { divRow, cleanHtml } = require('../clientController/clientFunctions');
     } catch (error) {
         console.log(error);
     }
-}());
+};
 
 
 Client.prototype.editClient = (client) => {

@@ -38,35 +38,36 @@ Client.prototype.getClientsPerson = (type) => {
     console.log(filterPersona);
 }
 
-(Client.prototype.getAllEnterprises = () => {
+try {
+    document.getElementById("enterprises").addEventListener('click', () => {
+        Client.prototype.getAllEnterprises();
+    });
+} catch (error) {
+    console.log("Ha ocurrido un error: " + error);
+}
 
-    try {
-        document.getElementById("enterprises").addEventListener('click', () => {
-            var showEnterprise = arr[0].map((enterprise) => {
-                return cardEnterprise(enterprise);
-            });
-            divRow.innerHTML = showEnterprise;
-        });
-    } catch (error) {
-        console.log("Ha ocurrido un error: " + error);
-    }
+try {
+    document.getElementById("persons").addEventListener('click', () => {
+        Client.prototype.getAllPersons();
+    });
+} catch (error) {
+    console.log("Ha ocurrido un error: " + error);
+}
 
-})();
 
-(Client.prototype.getAllPersons = () => {
+Client.prototype.getAllEnterprises = () => {
+    var showEnterprise = arr[0].map((enterprise) => {
+        return cardEnterprise(enterprise);
+    });
+    divRow.innerHTML = showEnterprise;
+}
 
-    try {
-        document.getElementById("persons").addEventListener('click', () => {
-            cleanHtml();
-            var showPerson = arr[1].map((person) => {
-                return cardGeneric(person);
-            });
-        });
-    } catch (error) {
-        console.log("Ha ocurrido un error: " + error);
-    }
-
-})();
+Client.prototype.getAllPersons = () => {
+    cleanHtml();
+    var showPerson = arr[1].map((person) => {
+        return cardGeneric(person);
+    });
+}
 
 (Client.prototype.getClientsByName = () => {
 
