@@ -40,7 +40,7 @@ try {
 }
 
 try {
-  document.getElementById('open-modal').addEventListener('click', () => {
+  document.getElementById('open-create-modal').addEventListener('click', () => {
     let clientsSelect = document.getElementById('select-clients');
     let technologies = document.getElementById('technologies');
     let sofkianos = document.getElementById('sofkianos');
@@ -64,6 +64,7 @@ try {
 
 function createProject(jsonProjects) {
   try {
+    let id = 4;
     let name = document.getElementById('project-name').value;
     let description = document.getElementById('project-description').value;
     let starDate = document.getElementById('project-start-date').value;
@@ -74,26 +75,10 @@ function createProject(jsonProjects) {
     let projectSofkianos = document.getElementsByName('sofkiano');
     let technologies = getCheckedBoxes(projectTechnologies);
     let sofkianos = getCheckedBoxes(projectSofkianos);
-    let projectToCreate = new Project(name, 0, description, starDate, endDate, image, client, technologies, sofkianos);
+    let projectToCreate = new Project(name, 0, description, starDate, endDate, image, client, technologies, sofkianos, id);
     JSON.stringify(jsonProjects.push(projectToCreate));
     addOptionsToSelectFromJson(projectsSelect, JSON_PROJECTS);
+    id++;
   } catch (error) {
   }
 };
-
-
-//Get name for specified project, send the data to modal, trigger it with the button!!
-try {
-  document.getElementById('go-to-crud').addEventListener('click', () => {
-    let name = projectsSelect.value;
-    let crudProject = {};
-    for (let index = 0; index < JSON_PROJECTS.length; index++) {
-      if (JSON_PROJECTS[index].name === name) {
-        window.location.href = "file:///C:/Users/SOFKA/Documents/SokfaImp/FINALSofkatalogoImplementation/src/views/crudView.html";
-        crudProject = JSON_PROJECTS[index];
-        console.log(JSON_PROJECTS[index]);
-      }
-    }
-  });
-} catch (error) {
-}

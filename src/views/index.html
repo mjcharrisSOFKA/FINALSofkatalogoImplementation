@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <div>
         <div class="form-group">
             Buscar por:
@@ -20,19 +21,12 @@
             <button class="btn-success" id="searching-trigger">Buscar</button>
         </div>
     </div>
-    <div>
-        Ver Proyecto:
-        <select name="projects" id="all-projects">
-
-        </select>
-        <button class="btn btn-warning" id="go-to-crud">Ir</button>
-    </div>
     <button class="btn-info" id="show-all-projects">Mostrar todos los Proyectos</button>
-    <button type="button" class="btn-info" data-toggle="modal" data-target="#myModal" id="open-modal">Crear
+    <button type="button" class="btn-info" data-toggle="modal" data-target="#createModal" id="open-create-modal">Crear
         Proyecto</button>
     <div id="projects"></div>
 
-    <div id="myModal" class="modal fade" role="dialog">
+    <div id="createModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <div class="modal-content">
@@ -43,7 +37,7 @@
                     <form>
                         <label>Nombre: <input type="text" id="project-name">
                         </label>
-                        <label>Descripción: <input type="text" id="project-description">
+                        <label>Descripción: <textarea type="text" id="project-description"></textarea>
                         </label>
                         <label>Fecha de inicio: <input type="date" id="project-start-date">
                         </label>
@@ -52,7 +46,7 @@
                         <label>Imagen <input type="file" id="project-image">
                         </label>
                         <hr>
-                        <label>Cliente: <select id="select-clients" id="project-client">
+                        <label>Cliente: <select id="select-clients">
 
                             </select>
                         </label>
@@ -76,7 +70,6 @@
 
         </div>
     </div>
-
     <script src="../../dist/bundle.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"

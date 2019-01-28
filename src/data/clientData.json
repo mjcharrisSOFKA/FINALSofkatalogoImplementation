@@ -2,16 +2,16 @@
 {
   "clients" : [
       {
-          "name" : "Quinto",
-          "status" : "100"
+          "name" : "Quinto"
       },
       {
-          "name" : "Mane",
-          "status" : "100"
+          "name" : "Mane"
       },
       {
-          "name" : "Alex",
-          "status" : "100"
+          "name" : "Alex"
+      },
+      {
+          "name": "Sofka"
       }
   ]
 }

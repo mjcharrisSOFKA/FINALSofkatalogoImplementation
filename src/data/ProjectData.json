@@ -1,29 +1,100 @@
-
 {
-    "projects" : [
+    "projects": [
         {
-            "name" : "pertrinum",
-            "status" : "100",
+            "id": "1",
+            "name": "pertrinum",
+            "status": "Done",
             "description": "PerTrinum incrementa sus clientes por medio de comunicados, promocionando e interactuando de manera efectiva con sus clientes. ",
             "startDate": "2016-08-12",
-            "endDate" : "2016-08-12",
-            "img": "http://www.sofka.com.co/wp-content/uploads/sofka-pretrinum-logo-ajax.png"
+            "endDate": "2016-08-12",
+            "image": "http://www.sofka.com.co/wp-content/uploads/sofka-pretrinum-logo-ajax.png",
+            "client": "Sofka",
+            "technologies": [
+                {
+                    "name": "Javascript",
+                    "version": "1.0"
+                },
+                {
+                    "name": "Java",
+                    "version": "15"
+                },
+                {
+                    "name": "Quinto",
+                    "version": "1.0.1"
+                }
+            ],
+            "sofkianos": [
+                {
+                    "name": "Quinto"
+                },
+                {
+                    "name": "Mariana"
+                }
+            ]
         },
         {
-            "name" : "hibot",
-            "status" : "100",
+            "id": "2",
+            "name": "hibot",
+            "status": "WIP",
             "description": "HIBOT es el módulo que le faltaba a su Centro de Contactos para convertirlo en una herramienta aún más competitiva.",
             "startDate": "2015-01-15",
-            "endDate" : "2018-01-15",
-            "img" : "http://www.sofka.com.co/wp-content/uploads/hibot-1.png"
+            "endDate": "2018-01-15",
+            "image": "http://www.sofka.com.co/wp-content/uploads/hibot-1.png",
+            "client": "Sofka",
+            "technologies": [
+                {
+                    "name": "Ruby",
+                    "version": "1.0"
+                },
+                {
+                    "name": "PHP",
+                    "version": "15"
+                },
+                {
+                    "name": "Quinto",
+                    "version": "1.0.1"
+                }
+            ],
+            "sofkianos": [
+                {
+                    "name": "Manuel"
+                },
+                {
+                    "name": "Alex"
+                }
+            ]
         },
         {
-            "name" : "frow",
-            "status" : "59",
+            "id": "3",
+            "name": "frow",
+            "status": "To Do",
             "description": "es una plataforma digital (app móvil + website) para la Industria Fashion y Retail en Colombia.",
             "startDate": "2017-08-05",
-            "endDate" : "2019-08-15",
-            "img" : "http://www.sofka.com.co/wp-content/uploads/frow-3.png"
+            "endDate": "2019-08-15",
+            "image": "http://www.sofka.com.co/wp-content/uploads/frow-3.png",
+            "client": "Sofka",
+            "technologies": [
+                {
+                    "name": "Python",
+                    "version": "1.0"
+                },
+                {
+                    "name": "MySql",
+                    "version": "15"
+                },
+                {
+                    "name": "Quinto",
+                    "version": "1.0.1"
+                }
+            ],
+            "sofkianos": [
+                {
+                    "name": "Leyner"
+                },
+                {
+                    "name": "Oscar"
+                }
+            ]
         }
     ]
 }
