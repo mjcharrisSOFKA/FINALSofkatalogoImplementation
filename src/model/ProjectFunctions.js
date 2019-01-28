@@ -52,7 +52,7 @@ class ProjectFunctions {
 
     div.className = 'card';
     div.id = 'card'
-    div.style = 'width: 10rem; padding: 0.2%; margin: 2%';
+    div.style = 'padding: 1%; margin: 2%; width: 20rem';
     div.innerHTML = 
     "<img src=" + image + " class='card-img-top' style = 'height: 20rem; width: 18rem' >"
     + ""

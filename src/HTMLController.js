@@ -1,15 +1,34 @@
-
 import ProjectFunctions from './model/ProjectFunctions';
+import { ClientRequest } from 'http';
 
 
 const JSON_FILE_FOR_PROJECTS = require('./data/ProjectData.json');
-const JSON_FILE_FOR_CLIENTS = require('./data/clientData.json');
 
 const JSON_PROJECTS = JSON_FILE_FOR_PROJECTS.projects;
-const JSON_CLIENTS = JSON_FILE_FOR_CLIENTS;
 
 let controllerName = document.getElementById('controllerName');
-let cards_view = document.getElementById('cards-content');
+let homeBtn = document.getElementById('btnHome');
+
+
+homeBtn.addEventListener('click',()=>{
+    let div = document.getElementById('cards-content'); 
+    
+    console.log("the bar is close");
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("button-openSideBar").style.display = 'block';
+});
+
+let projectFunctions = new ProjectFunctions();
+document.getElementById('btnProject').addEventListener('click', () => {
+    projectFunctions.showAllProjects(JSON_PROJECTS);
+    console.log("the bar is close");
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("button-openSideBar").style.display = 'block';
+});
+
+controllerName.innerText = "Sofkatalogo";
 
 document.getElementById("button-openSideBar").addEventListener("click", () => {
     console.log("the bar is open");
@@ -24,9 +43,3 @@ document.getElementById("button-closeSideBar").addEventListener("click", () => {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
 });
-
-controllerName.innerText="Sofkatalogos";
-
-let projectFunctions = new ProjectFunctions();
-
-projectFunctions.showAllProjects(JSON_PROJECTS);

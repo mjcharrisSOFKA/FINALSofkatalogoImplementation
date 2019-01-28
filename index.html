@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sofkatalogo</title>
@@ -18,30 +19,42 @@
             &times;
         </button>
 
-        <a href="" class="w3-bar-item w3-button">Projects</a>
-        <a href="" class="w3-bar-item w3-button">Clients</a>
-        <a href="" class="w3-bar-item w3-button">Sofkianos</a>
-        <a href="" class="w3-bar-item w3-button">Abut us</a>
+        <ul style="
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden">
+            <li class="w3-bar-item w3-button" id="btnHome"> Home</li>
+            <li class="w3-bar-item w3-button" id="btnProject">Projects</li>
+            <li class="w3-bar-item w3-button" id="btnClients">Clients</li>
+            <li class="w3-bar-item w3-button" id="btnSofkianos">Sofkian People</li>
+            <li class="w3-bar-item w3-button" id="btnAboutUs">About Us</li>
+        </ul>
+
 
     </div>
 
     <div id="main" style="background-color: #FF7521">
         <div>
             <button id="button-openSideBar" class="w3-button w3-xlarge">&#9776;</button>
-            <h1 class="display-1" 
-                style="padding-left: 5%; padding-bottom: 2%; font-weight: 400"
-                id="controllerName"    
-            > 
+            <h1 class="display-1" style="padding-left: 5%; padding-bottom: 2%; font-weight: 400" id="controllerName">
             </h1>
         </div>
-    </div>
 
-    <div style="padding: 3%">
-        <div class="row" id="cards-content">
-
+        <div class="form-group" id="search-bar" style="display: none">
+            Buscar por:
+            <label><input type="radio" name="search" value="name" checked> Nombre</label>
+            <label><input type="radio" name="search" value="status"> Estado</label>
+            <input type="text" id="search-by" placeholder=". . .">
+            <button class="btn-success" id="searching-trigger">Buscar</button>
         </div>
     </div>
 
+    <div style="margin-left: 10%; margin-right: 5%" class="col-lg">
+        <div id="cards-content" class="row">
+
+        </div>
+    </div>
     </div>
     <script src="./dist/bundle.js"></script>
 </body>
