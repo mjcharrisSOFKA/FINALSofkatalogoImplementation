@@ -12,23 +12,37 @@
             "technologies": [
                 {
                     "name": "Javascript",
-                    "version": "1.0"
+                    "version": "10.0.1"
                 },
                 {
                     "name": "Java",
-                    "version": "15"
-                },
-                {
-                    "name": "Quinto",
-                    "version": "1.0.1"
+                    "version": "8.0"
                 }
             ],
             "sofkianos": [
                 {
-                    "name": "Quinto"
+                    "name": "Leyner",
+                    "id": "1",
+                    "characteristics": "sociable, proactivo, servicial",
+                    "sofkaExperience": "0",
+                    "beforeSofkaExperience": "1.5",
+                    "proyecto1": "Skynet",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "sofkatalogos",
+                    "img": "Leyner.jpeg",
+                    "tecnologiasManejadas": "angular 5, python 3.7, pytorch 1"
                 },
                 {
-                    "name": "Mariana"
+                    "name": "Alex",
+                    "id": "2",
+                    "characteristics": "lider, sociable, leal",
+                    "sofkaExperience": "3",
+                    "beforeSofkaExperience": "5",
+                    "proyecto1": "Hibot",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "snapchat_2.0",
+                    "img": "Alex.jpeg",
+                    "tecnologiasManejadas": "xamarin 2, c# 5"
                 }
             ]
         },
@@ -43,24 +57,38 @@
             "client": "Sofka",
             "technologies": [
                 {
-                    "name": "Ruby",
-                    "version": "1.0"
+                    "name": "Java",
+                    "version": "8.0"
                 },
                 {
-                    "name": "PHP",
-                    "version": "15"
-                },
-                {
-                    "name": "Quinto",
-                    "version": "1.0.1"
+                    "name": "C#",
+                    "version": "2.0"
                 }
             ],
             "sofkianos": [
                 {
-                    "name": "Manuel"
+                    "name": "Alex",
+                    "id": "2",
+                    "characteristics": "lider, sociable, leal",
+                    "sofkaExperience": "3",
+                    "beforeSofkaExperience": "5",
+                    "proyecto1": "Hibot",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "snapchat_2.0",
+                    "img": "Alex.jpeg",
+                    "tecnologiasManejadas": "xamarin 2, c# 5"
                 },
                 {
-                    "name": "Alex"
+                    "name": "Quinto",
+                    "id": "2",
+                    "characteristics": "lider, sociable, leal",
+                    "sofkaExperience": "6",
+                    "beforeSofkaExperience": "1",
+                    "proyecto1": "alexa sr",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "cortana jr",
+                    "img": "Quinto.jpeg",
+                    "tecnologiasManejadas": "dialogflow 2"
                 }
             ]
         },
@@ -75,24 +103,38 @@
             "client": "Sofka",
             "technologies": [
                 {
-                    "name": "Python",
-                    "version": "1.0"
+                    "name": "C#",
+                    "version": "2.0"
                 },
                 {
-                    "name": "MySql",
-                    "version": "15"
-                },
-                {
-                    "name": "Quinto",
-                    "version": "1.0.1"
+                    "name": "Javascript",
+                    "version": "10.0.1"
                 }
             ],
             "sofkianos": [
                 {
-                    "name": "Leyner"
+                    "name": "Quinto",
+                    "id": "2",
+                    "characteristics": "lider, sociable, leal",
+                    "sofkaExperience": "6",
+                    "beforeSofkaExperience": "1",
+                    "proyecto1": "alexa sr",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "cortana jr",
+                    "img": "Quinto.jpeg",
+                    "tecnologiasManejadas": "dialogflow 2"
                 },
                 {
-                    "name": "Oscar"
+                    "name": "Leyner",
+                    "id": "1",
+                    "characteristics": "sociable, proactivo, servicial",
+                    "sofkaExperience": "0",
+                    "beforeSofkaExperience": "1.5",
+                    "proyecto1": "Skynet",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "sofkatalogos",
+                    "img": "Leyner.jpeg",
+                    "tecnologiasManejadas": "angular 5, python 3.7, pytorch 1"
                 }
             ]
         }
