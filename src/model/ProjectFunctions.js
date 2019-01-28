@@ -48,11 +48,13 @@ class ProjectFunctions {
 
     let cardToPrint = document.getElementById('cards-content');
 
+    cardToPrint.className = 'row'; 
+
     let div = document.createElement('div');
 
-    div.className = 'card';
+    div.className = 'card col-md-3';
     div.id = 'card'
-    div.style = 'padding: 1%; margin: 2%; width: 20rem';
+    div.style = 'padding: 1%; margin: 2%; width: 300px';
     div.innerHTML = 
     "<img src=" + image + " class='card-img-top' style = 'height: 20rem; width: 18rem' >"
     + ""
