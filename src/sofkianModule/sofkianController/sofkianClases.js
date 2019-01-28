@@ -1,8 +1,9 @@
 
 class Sofkiano {
-    constructor(name,id,characteristics,sofkaExperience,beforeSofkaExperience) {
+    constructor(name,id,foto,characteristics,sofkaExperience,beforeSofkaExperience) {
         this.name = name;
         this.id = id;
+        this.foto = foto;
         this.characteristics = characteristics;
         this.sofkaExperience = sofkaExperience;
         this.beforeSofkaExperience = beforeSofkaExperience;
