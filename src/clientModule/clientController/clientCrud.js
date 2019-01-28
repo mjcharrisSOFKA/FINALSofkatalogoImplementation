@@ -16,7 +16,7 @@ let { divRow, cleanHtml } = require('../clientController/clientFunctions');
         document.getElementById("saveEnterprise").addEventListener("click", () => {
 
             if (nameEmpresa.value === "" || nitEmpresa.value === "") {
-                alert("Todos lo campos soon requridos");
+                alert("Todos lo campos soon requeridos");
             } else {
                 let newEnterprise = new Enterprise(nameEmpresa.value.toUpperCase(), nitEmpresa.value, size.value, sector.value, "../imgs/clients/enterpriseDefault.jpg");
                 clientsCollection.enterprises.push(newEnterprise);
@@ -72,7 +72,7 @@ Client.prototype.editClient = (client) => {
                 let nitEnterprise = document.getElementById("nitEnterp").value;
                 let sizeEnterprise = document.getElementById("sizeEnterp").value;
                 let sectorEnterprise = document.getElementById("sectorEnterp").value;
-
+                
                 for (let i = 0; i < clientsCollection.enterprises.length; i++) {
 
                     if (clientsCollection.enterprises[i].nit === client.nit) {

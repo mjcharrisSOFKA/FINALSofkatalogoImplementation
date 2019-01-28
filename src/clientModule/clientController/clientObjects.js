@@ -15,6 +15,8 @@ let metroM = new Enterprise("METRO DE MEDELLIN", "890.923.668-1", "51-200 emplea
 let sas = new Enterprise("SAS", "No Aplica", "Más de 10.000 empleados", "Software y servicios informáticos", "../imgs/clients/sas.png", "https://www.sas.com");
 let tecnoquimicas = new Enterprise("TECNOQUIMICAS", "890.300.466", "5,001-10,000 empleados", "Quimico y farmacéutico", "../imgs/clients/tecnoquimicas.jpg", "https://www.tqconfiable.com");
 let teleperformance = new Enterprise("TELEFORMANCE", "900.323.853-7", "Más de 10.000 empleados", "Telecomunicaciones", "../imgs/clients/teleperformance.png", "http://www.teleperformance.co");
+let amadeus2 = new Enterprise("AMADEUS", "na", "1.001-5.000 empleados", "Software y servicios informáticos", "../imgs/clients/amadeus.png", "https://amadeus.com/es" );
+
 
 let juan = new Person("JUAN MONTOYA", "1.038.435,932", "../imgs/clients/personaHombre.png")
 let liza = new Person("LIZA", "42.813.784", "../imgs/clients/personaMujer.png")
@@ -25,7 +27,7 @@ let diego = new Person("DIEGO", "1.053.773.244", "../imgs/clients/personaHombre.
 let luisa = new Person("LUISA", "1.036.389.136", "../imgs/clients/personaMujer.png");
 
 let clientsCollection = {
-    "enterprises": [alpina, proteccion, sura, coordinadora, alfaPeople, amadeus, exito, infocorp, iteriaUS, metroM, sas, tecnoquimicas, teleperformance ],
+    "enterprises": [alpina, proteccion, sura, coordinadora, alfaPeople, amadeus, exito, infocorp, iteriaUS, metroM, sas, tecnoquimicas, teleperformance, amadeus2 ],
     "persons": [juan, liza, roxana, martha, gustavo, diego, luisa]
 }
 

@@ -70,6 +70,38 @@ Client.prototype.getClientsPerson = (type) => {
 
 (Client.prototype.getClientsEnterpriseByName = () => {
 
+
+
+    document.getElementById("searchButton").addEventListener('click', () => {
+    var find;
+    let cliSearched = document.getElementById("clientToSearch").value;
+    let lista= clientList.enterprises;
+    console.log(lista);
+
+    const filterItems = query => {
+        return lista.filter((el) =>
+          el.toLowerCase.indexOf(query.toLowerCase) > -1
+        );
+      }
+
+    find =  filterItems(cliSearched.toUpperCase());
+
+    console.log(find);
+
+    if (find.length !== 0) {
+        cleanHtml();
+        for (let i=0; i<find.length; i++){
+            divRow.innerHTML += cardEnterprise(find[i]);
+        }
+    }
+    else {
+        divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
+    }
+
+});
+    /*
+
+
     try {
         document.getElementById("searchButton").addEventListener('click', () => {
             let cliSearched = document.getElementById("clientToSearch").value;
@@ -107,7 +139,7 @@ Client.prototype.getClientsPerson = (type) => {
     } catch (error) {
         console.log("Ha ocurrido un error: " + error);
     }
-
+*/
 })();
 
 
