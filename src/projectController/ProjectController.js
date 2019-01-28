@@ -1,7 +1,7 @@
 
 import {
   findValueByAnyAttributeInArray, showAllProjects,
-  printSearchResults, getCheckedRadioButton, addTechnologiesToDiv,
+  printSearchResults, getCheckedRadioButton,
   addClientOptions, addPropertiesToDiv,
   createProject
 } from "./../model/ProjectFunctions"
@@ -38,7 +38,7 @@ try {
     const persons = "persons";
     const tech = "technologies";
     const sofks = "sofkianos";
-    let clientsSelect = document.getElementById('select-clients');
+    let clientsSelect = document.getElementById('project-client-select');
     let technologies = document.getElementById('technologies');
     let sofkianos = document.getElementById('sofkianos');
     clientsSelect.innerHTML = " ";
@@ -55,7 +55,6 @@ try {
 try {
   document.getElementById('create-project').addEventListener('click', () => {
     createProject();
-    showAllProjects();
   });
 } catch (error) {
 }

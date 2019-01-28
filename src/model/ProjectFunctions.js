@@ -7,7 +7,7 @@ const JSON_PERSONS = JSON_CLIENTS.persons;
 const JSON_SOFKIANOS = require('./../data/SofkianosData.json').sofkianos;
 const JSON_PROJECTS = require('./../data/ProjectData.json').projects;
 const JSON_TECHNOLOGIES = require('./../data/TechnologiesData.json').technologies;
-let project = require('./ProjectClass');
+let Project = require('./ProjectClass');
 
 
 var projectCards = document.getElementById('projects');
@@ -64,7 +64,7 @@ function showProject(project) {
   <p>Fecha de inicio: ${project.startDate}</p>
   <p>Fecha de fin: ${project.endDate}</p>
   <div>Cliente:
-      <p>${project.client}</p>
+      <p>${project.client.name.toUpperCase()}</p>
   </div>
   <div>Tecnologías:
       <p id="actual-technologies"></p>
@@ -101,7 +101,7 @@ function updateProject(project) {
       <input type="date" value="${project.endDate}" id="projectEndDate">
   </label><br>
   <br>
-  <label>Cliente: ${project.client} <br>
+  <label>Cliente: ${project.client.name.toUpperCase()}<br>
       <select id="clients-options"></select>
   </label><br>
   <br>
@@ -120,39 +120,56 @@ function updateProject(project) {
     project.description = document.getElementById('projectDescription').value;
     project.startDate = document.getElementById('projectStartDate').value;
     project.endDate = document.getElementById('projectEndDate').value;
-    project.client = document.getElementById('clients-options').value;
+    let newClient = document.getElementById('clients-options');
+    let typeName = newClient.getElementsByTagName('option')[newClient.selectedIndex].id;
+    project.client = getClientObject(newClient.value, typeName);
+    console.log(project);
     let checkBoxesTechnologies = document.getElementsByName('cbtechnologies');
     let checkBoxesSofkianos = document.getElementsByName('cbsofkianos');
     project.technologies = getCheckedBoxes(checkBoxesTechnologies);
     project.sofkianos = getCheckedBoxes(checkBoxesSofkianos);
-    showAllProjects(JSON_PROJECTS.projects);
+    //showAllProjects(JSON_PROJECTS.projects);
   });
   buttonEditProject.innerText = ("Aceptar Cambios");
   divEditingPRoject.appendChild(buttonEditProject);
   let selectClients = document.getElementById('clients-options');
-  addOptionsToSelectFromArray(selectClients, JSON_CLIENTS);
+  addClientOptions(selectClients, "enterprises");
+  addClientOptions(selectClients, "persons");
   let tech = document.getElementById('actual-technologies');
   let sofkianos = document.getElementById('actual-sofkianos');
   getPropertiesToEdit(tech, 'technologies');
   getPropertiesToEdit(sofkianos, 'sofkianos');
 
-  function getPropertiesToEdit(div, propertyName) {
-    for (let i = 0; i < JSON_CLIENTS.length; i++) {
+  function getPropertiesToEdit(div, jsonName) {
+    let tempArray = [];
+    jsonName === "technologies" ? tempArray = JSON_TECHNOLOGIES : tempArray = JSON_SOFKIANOS;
+    for (let i = 0; i < tempArray.length; i++) {
       let label = document.createElement('label');
-      label.innerText = JSON_CLIENTS[i].name;
-      let techCheckBox = document.createElement('input');
-      techCheckBox.type = 'checkbox';
-      techCheckBox.id = JSON_CLIENTS[i].name;
-      techCheckBox.value = JSON_CLIENTS[i].name;
-      techCheckBox.name = `cb${propertyName}`;
-      for (let j = 0; j < project[propertyName].length; j++) {
-        if (project[propertyName][j].name === JSON_CLIENTS[i].name) {
-          techCheckBox.checked = true;
+      label.innerText = tempArray[i].name;
+      let input = document.createElement('input');
+      input.type = 'checkbox';
+      input.name = name;
+      input.id = tempArray[i].name;
+      for (let j = 0; j < project[jsonName].length; j++) {
+        if (project[jsonName][j].name === tempArray[i].name) {
+          input.checked = true;
         }
       }
-      label.appendChild(techCheckBox);
+      label.appendChild(input);
       div.appendChild(label);
     }
+  }
+
+  function getClientObject(name, jsonName) {
+    let propertyObject = {};
+    let tempArray = [];
+    jsonName === `enterprises` ? tempArray = JSON_ENTERPRISES : tempArray = JSON_PERSONS;
+    for (let index = 0; index < tempArray.length; index++) {
+      if (name === tempArray[index].name) {
+        propertyObject = tempArray[index];
+      }
+    }
+    return propertyObject;
   }
 };
 
@@ -185,6 +202,7 @@ function addClientOptions(select, type) {
   select.add(optgroup);
   for (let i = 0; i < tempArray.length; i++) {
     let option = document.createElement('option');
+    option.id = type;
     option.innerText = tempArray[i].name;
     select.add(option);
   }
@@ -197,16 +215,18 @@ function createProject() {
     let description = document.getElementById('project-description').value;
     let starDate = document.getElementById('project-start-date').value;
     let endDate = document.getElementById('project-end-date').value;
-    let image = document.getElementById('project-image').value;
-    let client = document.getElementById('project-client').value;
+    let image = "https://s3-ap-south-1.amazonaws.com/static.awfis.com/wp-content/uploads/2017/07/07184649/ProjectManagement.jpg";
+    let client = document.getElementById('project-client-select').value;
     let projectTechnologies = document.getElementsByName('technology');
     let projectSofkianos = document.getElementsByName('sofkiano');
     let technologies = getCheckedBoxes(projectTechnologies);
     let sofkianos = getCheckedBoxes(projectSofkianos);
-    let projectToCreate = new Project(name, 0, description, starDate, endDate, image, client, technologies, sofkianos, id);
+    let projectToCreate = new Project(name, "To Do", description, starDate, endDate, image, client, technologies, sofkianos, id);
     JSON.stringify(JSON_PROJECTS.push(projectToCreate));
+    showAllProjects();
     id++;
   } catch (error) {
+    console.log(error);
   }
 };
 
