@@ -11,46 +11,42 @@ let cedulaPersona = document.getElementById("cedulaP");
 
 let { divRow, cleanHtml } = require('../clientController/clientFunctions');
 
+try {
+    document.getElementById("saveEnterprise").addEventListener("click", () => {
+        createEnterprise();
+    });
+    document.getElementById("savePerson").addEventListener("click", () => {
+        createPerson();
+    });
+} catch (error) {
+    console.log(error);
+}
+
 function createEnterprise() {
-    try {
-        document.getElementById("saveEnterprise").addEventListener("click", () => {
-
-            if (nameEmpresa.value === "" || nitEmpresa.value === "") {
-                alert("Todos lo campos soon requeridos");
-            } else {
-                let newEnterprise = new Enterprise(nameEmpresa.value.toUpperCase(), nitEmpresa.value, size.value, sector.value, "../imgs/clients/enterpriseDefault.jpg");
-                clientsCollection.enterprises.push(newEnterprise);
-                cleanFormEnterprise();
-                showMessageEnterprise();
-                cleanHtml();
-                getClients();
-            }
-
-        });
-    } catch (error) {
-        console.log(error);
+    if (nameEmpresa.value === "" || nitEmpresa.value === "") {
+        alert("Todos lo campos soon requeridos");
+    } else {
+        let newEnterprise = new Enterprise(nameEmpresa.value.toUpperCase(), nitEmpresa.value, size.value, sector.value, "../imgs/clients/enterpriseDefault.jpg");
+        clientsCollection.enterprises.push(newEnterprise);
+        cleanFormEnterprise();
+        showMessageEnterprise();
+        cleanHtml();
+        getClients();
     }
-};
+}
 
 function createPerson() {
-    try {
-        document.getElementById("savePerson").addEventListener("click", () => {
-            if (namePersona.value === "" || cedulaPersona.value === "") {
-                alert("Todos lo campos soon requridos");
-            } else {
-                let newPerson = new Person(namePersona.value.toUpperCase(), cedulaPersona.value, "../imgs/clients/personDefault.png");
-                clientsCollection.persons.push(newPerson);
-                cleanFormPerson();
-                showMessagePerson();
-                cleanHtml();
-                getClients();
-            }
-        });
-    } catch (error) {
-        console.log(error);
+    if (namePersona.value === "" || cedulaPersona.value === "") {
+        alert("Todos lo campos soon requridos");
+    } else {
+        let newPerson = new Person(namePersona.value.toUpperCase(), cedulaPersona.value, "../imgs/clients/personDefault.png");
+        clientsCollection.persons.push(newPerson);
+        cleanFormPerson();
+        showMessagePerson();
+        cleanHtml();
+        getClients();
     }
-};
-
+}
 
 Client.prototype.editClient = (client) => {
 
@@ -72,7 +68,7 @@ Client.prototype.editClient = (client) => {
                 let nitEnterprise = document.getElementById("nitEnterp").value;
                 let sizeEnterprise = document.getElementById("sizeEnterp").value;
                 let sectorEnterprise = document.getElementById("sectorEnterp").value;
-                
+
                 for (let i = 0; i < clientsCollection.enterprises.length; i++) {
 
                     if (clientsCollection.enterprises[i].nit === client.nit) {
