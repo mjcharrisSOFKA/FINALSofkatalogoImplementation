@@ -63,6 +63,35 @@ class SofkianFunctions {
             }
       }  
 }
+      eliminarSokfian(jsonArray){
+            if(this.hayUnSofkianoBuscado()){
+                  this.eliminarSofkianoPorNombre(jsonArray)
+                  console.log(jsonArray)
+                  document.getElementById('sofkianDiv').innerHTML = " ";
+           }
+           else{
+                 alert("no hay un sofkiano especificado para eliminar")
+           }
+      }
+
+      hayUnSofkianoBuscado(){
+            var sofkianoEncontrado = false;
+            if(document.getElementById('sofkianDiv').innerHTML !== "NaN"){
+                  sofkianoEncontrado = true;
+            }
+            return sofkianoEncontrado;
+      }
+
+      eliminarSofkianoPorNombre(jsonArray){
+            var nombreDelEliminado = document.getElementById('divConSofkianName').innerHTML;
+            for( var index = 0; index <  jsonArray.length; index++){ 
+                  if (jsonArray[index].name === nombreDelEliminado) {
+                        jsonArray.splice(index, 1); 
+                  }
+            }
+      }
+
+
 }
 
 module.exports = SofkianFunctions;

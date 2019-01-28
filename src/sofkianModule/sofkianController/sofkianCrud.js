@@ -51,6 +51,7 @@ function buscarSofkianoSofkianoPorNombre(){
             }
       }  
 }
+
 function pasarSofkianoAlHtml(StringDelHtml){
 let div = document.getElementById('sofkianDiv');
       div.className = "class";
