@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/client.css">
+
+    <title>Sofkatalon</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" style="color:white">Clientes Potenciales</a>
+        <div class="form-inline" action="">
+            <input class="form-control mr-sm-2" id="clientToSearch" type="" placeholder="Nombre de la empresa"
+                aria-label="Search" required>
+            <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar</button>
+        </div>
+    </nav>
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div id="optionsClient">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Opciones de busqueda
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="enterprises" style="cursor:pointer">Ver Empresas</a>
+                        <a class="dropdown-item" id="persons" style="cursor:pointer">Ver Personas asociadas</a>
+                        <a class="dropdown-item" id="allClients" style="cursor:pointer">Ver todos</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="createClient">
+                <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Crear cliente
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" id="createEmpresa" data-toggle="modal" data-target="#modalE" style="cursor:pointer">Empresa</a>
+                        <a class="dropdown-item" id="createPerson" data-toggle="modal" data-target="#personaModal"
+                            style="cursor:pointer">Persona</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Enterprise -->
+            <div class="modal fade" id="modalE" tabindex="-1" role="dialog" aria-labelledby="modalEnterprise"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalEnterprise">Creando Empresa</h5>
+                            <br>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" id="nameEnterprise" placeholder="Nombre">
+                            <br>
+                            <input type="text" class="form-control" id="nitEnterprise" placeholder="Nit">
+                            <br>
+                            <label for="sizeEnterprise">Tamaño de la empresa</label>
+                            <select class="form-control" id="sizeEnterprise">
+                                <option>0-10 Empleados</option>
+                                <option>11-50 Empleados</option>
+                                <option>51-200 Empleados</option>
+                                <option>201-500 Empleados</option>
+                                <option>1.001-5.000 Empleados</option>
+                                <option>5.001-10.000 Empleados</option>
+                                <option>Más de 10.000 Empleados</option>
+                            </select>
+                            <br>
+                            <label for="sectorEnterprise">Sector de la empresa</label>
+                            <select class="form-control" id="sectorEnterprise">
+                                <option>Agropecuario</option>
+                                <option>Alimentos y bébidas</option>
+                                <option>Arquitectura y construcción</option>
+                                <option>Automotor</option>
+                                <option>Comercio</option>
+                                <option>Consultoría</option>
+                                <option>Cosméticos y productos médicos</option>
+                                <option>Energía, gas y agua</option>
+                                <option>Electrodomésticos</option>
+                                <option>Empaques</option>
+                                <option>Materiales de construcción</option>
+                                <option>Petróleo</option>
+                                <option>Productos de cuidado personal y del hogar</option>
+                                <option>Quimico y farmacéutico</option>
+                                <option>Servicios de tecnología</option>
+                                <option>Servicios financieros</option>
+                                <option>Software y servicios informáticos</option>
+                                <option>Tabaco</option>
+                                <option>Telecomunicaciones</option>
+                                <option>Transporte de mercancia</option>
+                                <option>Transporte y movilidad</option>
+                                <option>Turismo y ocio</option>
+                            </select>
+
+
+
+                        </div>
+                        <div id="messageEnterprise" style="padding-left: 18px"></div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" id="saveEnterprise" class="btn btn-primary">Guardar</button>
+                        </div>
+
+                    
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Enterprise -->
+
+            <div class="modal fade" id="personaModal" tabindex="-1" role="dialog" aria-labelledby="personaModalTitle"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class  ="modal-header">
+                            <h5 class="modal-title" id="personaModalTitle">Creando Persona</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" id="nameP" placeholder="Nombre">
+                            <br>
+                            <input type="text" class="form-control" id="cedulaP" placeholder="Cédula">
+                            <br>
+                        </div>
+                        <div id="messagePerson" style="padding-left: 18px"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" id="savePerson">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="row" id="client">
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../../../dist/bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
