@@ -269,6 +269,7 @@ document.addEventListener('click',function(e){
                   agregarSokfiano();
                   document.getElementById('sofkianoEspecificoDiv').innerHTML =  " ";
                   alert("se ha creado un nuevo sofkiano");
+                  getAllSokfianosAlCargar()
       }
 })
 
@@ -285,23 +286,28 @@ function agregarSokfiano(){
       sofkianosArray.push(sofkiano);
 }
 
-// (Sofkiano.prototype.getAllSokfianosAlCargarTryCatch = () => {
-//       try {
-//             getAllSokfianosAlCargar(sofkianosArray);
-//       } catch (error) {
-//             console.log("Ha ocurrido un error: " + error);
-//       }
-//   })();
 
-//   function getAllSokfianosAlCargar(sofkianosArray){
-//       document.addEventListener("DOMContentLoaded", () => {
-//             let div = document.getElementById('sofkianoEspecificoDiv');
-//             for (var i = 0; i < sofkianosArray.length; i++) {
-//                   StringDelHtmlConcatenado =+ cardSofkian(sofkianosArray[i]);    
-//             }
-//             div.innerHTML = StringDelHtmlConcatenado;
-//       })
-//   }
+
+
+
+(Sofkiano.prototype.getAllSokfianosAlCargarTryCatch = () => {
+      try {
+            getAllSokfianosAlCargar();
+      } catch (error) {
+            console.log("Ha ocurrido un error: " + error);
+      }
+  })();
+
+  function getAllSokfianosAlCargar(){
+      document.addEventListener("DOMContentLoaded", () => {
+            let div = document.getElementById('sofkianoEspecificoDiv');
+            var StringDelHtmlConcatenado = '';
+            for (var i = 0; i < sofkianosArray.length; i++) {
+                  StringDelHtmlConcatenado += cardSofkian(sofkianosArray[i]);  
+            }
+            div.innerHTML = StringDelHtmlConcatenado;
+      })
+  }
 
 //   (Sofkiano.prototype.getAllSokfianosAlClickear = () => {
 //       try {
