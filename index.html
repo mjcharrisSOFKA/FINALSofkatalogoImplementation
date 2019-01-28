@@ -20,7 +20,7 @@
 
         <a href="#" class="w3-bar-item w3-button">Projects</a>
         <a href="#" class="w3-bar-item w3-button">Clients</a>
-        <a href="./src/sofkianModule/views/sofkian.html" class="w3-bar-item w3-button" id="clientModule">Sofkianos</a>
+        <a href="#" class="w3-bar-item w3-button" id="btnSofkian">Sofkianos</a>
         <a href="#" class="w3-bar-item w3-button">Abut us</a>
 
     </div>
@@ -31,20 +31,33 @@
             <h1 class="display-1" style="padding-left: 5%; padding-bottom: 2% "> Sofkatalogos</h1>
         </div>
     </div>
-
-    <div>
-        <div class="card" style="width: 18rem; padding: 0.2%; margin: 2%">
-            <img src="https://scontent-bog1-1.cdninstagram.com/vp/8fc08ca2e697df83a87fc8d0f48d1f7c/5D008FB3/t51.2885-15/e35/44497515_191274545127444_4674992303067103232_n.jpg?_nc_ht=scontent-bog1-1.cdninstagram.com" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">@Manchabla</h5>
-                <p class="card-text">
-                    Like it, Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ipsa nulla, necessitatibus adipisci qui nam doloribus expedita fugiat quos saepe asperiores. Quod vero eveniet nostrum sequi rem amet deleniti soluta!
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Sofkianos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="agregarSofkianBoton" href="#">Agregar</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" id="eliminarSofkianBoton" href="#">Eliminar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="editarSofkianBoton" href="#">Editar</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Escribe Aqui el nombre"id="nombreSofkianoBuscado" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" id="sofkianoEspecificoBoton" type="button">Buscar Sofkiano</button>
+          </form>
         </div>
-    </div>
-
+      </nav>
+      
+    <div class="row" id="sofkianDiv"></div>
+                
     <script>
         function w3_open() {
             document.getElementById("main").style.marginLeft = "25%";
@@ -59,7 +72,7 @@
             document.getElementById("openNav").style.display = "inline-block";
         }
     </script>
-
+    <script src="./dist/bundle.js"></script>
 </body>
 
 </html>

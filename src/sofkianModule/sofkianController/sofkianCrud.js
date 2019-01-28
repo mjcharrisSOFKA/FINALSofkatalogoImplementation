@@ -12,15 +12,15 @@ sofkiano3.tecnologias = new Array(tecnologia1, tecnologia3);
 var sofkianosArray = [sofkiano1,sofkiano2,sofkiano3];
 
 
-(Sofkiano.prototype.tryCatch_getEspecificSokfian = () => {
+(Sofkiano.prototype.tryCatch_showEspecificSokfian = () => {
       try {
-            getEspecificSokfian();
+            showEspecificSokfian();
       } catch (error) {
             console.log("Ha ocurrido un error: " + error);
       }
   })();
 
-function getEspecificSokfian(){
+function showEspecificSokfian(){
       document.getElementById("sofkianoEspecificoBoton").addEventListener('click', () => {
             if (indicarSiExisteElSofkiano()){
                   buscarSofkianoSofkianoPorNombre()
@@ -46,13 +46,13 @@ function buscarSofkianoSofkianoPorNombre(){
       nombreDeSofianoBuscado = document.getElementById('nombreSofkianoBuscado').value;
       for (var i = 0; i < sofkianosArray.length; i++) { 
             if (sofkianosArray[i].name === nombreDeSofianoBuscado){
-                  document.getElementById('sofkianoEspecificoDiv').innerHTMLL = cardSofkian(sofkianosArray[i]);
+                  document.getElementById('sofkianDiv').innerHTMLL = cardSofkian(sofkianosArray[i]);
                   pasarSofkianoAlHtml(cardSofkian(sofkianosArray[i]))
             }
       }  
 }
 function pasarSofkianoAlHtml(StringDelHtml){
-let div = document.getElementById('sofkianoEspecificoDiv');
+let div = document.getElementById('sofkianDiv');
       div.className = "class";
       div.innerHTML = StringDelHtml;
 }
@@ -72,7 +72,7 @@ function eliminarSokfianos(){
             if(hayUnSofkianoBuscado()){
                    eliminarSofkianoPorNombre()
                    console.log(sofkianosArray)
-                   document.getElementById('sofkianoEspecificoDiv').innerHTML = " ";
+                   document.getElementById('sofkianDiv').innerHTML = " ";
             }
             else{
                   alert("no hay un sofkiano especificado para eliminar")
@@ -91,7 +91,7 @@ function eliminarSofkianoPorNombre(){
 
 function hayUnSofkianoBuscado(){
       var sofkianoEncontrado = false;
-      if(document.getElementById('sofkianoEspecificoDiv').innerHTML !== "NaN"){
+      if(document.getElementById('sofkianDiv').innerHTML !== "NaN"){
             sofkianoEncontrado = true;
       }
       return sofkianoEncontrado;
@@ -107,7 +107,7 @@ function hayUnSofkianoBuscado(){
 
 function incluirHtmlParaEditar(){
       document.getElementById("editarSofkianBoton").addEventListener('click', () => {
-            document.getElementById('sofkianoEspecificoDiv').innerHTML =  formEdicionSofkian(devolverSofkiano());
+            document.getElementById('sofkianDiv').innerHTML =  formEdicionSofkian(devolverSofkiano());
       })
 }
 
@@ -177,14 +177,14 @@ function devolverPocisionEnSofkiano(){
 
 function incluirHtmlParaAgregar(){
       document.getElementById("agregarSofkianBoton").addEventListener('click', () => {
-            document.getElementById('sofkianoEspecificoDiv').innerHTML =  formAgregarSofkian();
+            document.getElementById('sofkianDiv').innerHTML =  formAgregarSofkian();
       })
 }
 
 document.addEventListener('click',function(e){
       if(e.target && e.target.id === "agregarSofkian"){
                   agregarSokfiano();
-                  document.getElementById('sofkianoEspecificoDiv').innerHTML =  " ";
+                  document.getElementById('sofkianDiv').innerHTML =  " ";
                   alert("se ha creado un nuevo sofkiano");
                   getAllSokfianosAlCargar()
       }
@@ -218,7 +218,7 @@ function agregarSokfiano(){
 
   function getAllSokfianosAlCargar(){
       document.addEventListener("DOMContentLoaded", () => {
-            let div = document.getElementById('sofkianoEspecificoDiv');
+            let div = document.getElementById('sofkianDiv');
             var StringDelHtmlConcatenado = '';
             for (var i = 0; i < sofkianosArray.length; i++) {
                   StringDelHtmlConcatenado += cardSofkian(sofkianosArray[i]);  

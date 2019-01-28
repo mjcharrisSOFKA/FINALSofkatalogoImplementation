@@ -6,5 +6,5 @@
 //     document.getElementById("mySidebar").style.display = "none";
 // });
 
-require("./sofkianModule/sofkianController/sofkianCrud");
-require("./sofkianModule/sofkianController/sofkianClases");
+require("./model/SofkianFunctions.js");
+require("./HtmlController");
