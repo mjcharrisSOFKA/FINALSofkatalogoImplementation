@@ -29,8 +29,6 @@ for (let i in clientList) {
 
 })();
 
-
-
 Client.prototype.getClientsPerson = (type) => {
     var filterPersona = arr.filter(function (client) {
         return (client.type === "Persona")
@@ -42,18 +40,16 @@ try {
     document.getElementById("enterprises").addEventListener('click', () => {
         Client.prototype.getAllEnterprises();
     });
-} catch (error) {
-    console.log("Ha ocurrido un error: " + error);
-}
-
-try {
     document.getElementById("persons").addEventListener('click', () => {
         Client.prototype.getAllPersons();
     });
+    document.getElementById("searchButton").addEventListener('click', () => {
+        Client.prototype.getClientsByName();
+    });
+
 } catch (error) {
     console.log("Ha ocurrido un error: " + error);
 }
-
 
 Client.prototype.getAllEnterprises = () => {
     var showEnterprise = arr[0].map((enterprise) => {
@@ -69,98 +65,49 @@ Client.prototype.getAllPersons = () => {
     });
 }
 
-(Client.prototype.getClientsByName = () => {
+Client.prototype.getClientsByName = () => {
 
-    document.getElementById("searchButton").addEventListener('click', () => {
-        
-        let cliSearched = document.getElementById("clientToSearch").value.toUpperCase();
-        var foundPerson;
-        var foundEnterprise;
-        let personsList= clientList.persons;
-        let enterpriseList= clientList.enterprises;
-       
-       
-        foundEnterprise = enterpriseList.filter( (client) => {
-            return client.name.includes(cliSearched);
-        });
-        
-        foundPerson = personsList.filter(function (client) {
-            return client.name.includes(cliSearched);
-        });
-    
-        if (foundEnterprise.length !== 0 && foundPerson.length !== 0) {
-            cleanHtml();
-            for (let i = 0; i < foundEnterprise.length; i++) {
-                divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
-            }
-            for (let i = 0; i < foundPerson.length; i++) {
-                divRow.innerHTM += cardGeneric(foundPerson[i]);
-            }
+    let cliSearched = document.getElementById("clientToSearch").value.toUpperCase();
+    var foundPerson;
+    var foundEnterprise;
+    let personsList = clientList.persons;
+    let enterpriseList = clientList.enterprises;
 
+
+    foundEnterprise = enterpriseList.filter((client) => {
+        return client.name.includes(cliSearched);
+    });
+
+    foundPerson = personsList.filter(function (client) {
+        return client.name.includes(cliSearched);
+    });
+
+    if (foundEnterprise.length !== 0 && foundPerson.length !== 0) {
+        cleanHtml();
+        for (let i = 0; i < foundEnterprise.length; i++) {
+            divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
         }
-        else if (foundEnterprise.length !== 0) {
-            cleanHtml();
-            for (let i = 0; i < foundEnterprise.length; i++) {
-                divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
-            }
+        for (let i = 0; i < foundPerson.length; i++) {
+            divRow.innerHTM += cardGeneric(foundPerson[i]);
         }
-        else if (foundPerson.length !== 0) {
-            cleanHtml();
-            for (let i = 0; i < foundPerson.length; i++) {
-                divRow.innerHTM += cardGeneric(foundPerson[i]);
-            }
-        }
-        else {
-            divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
-        }
-    }); 
-<<<<<<< Updated upstream
-=======
 
-    /*
-
-
-    try {
-        document.getElementById("searchButton").addEventListener('click', () => {
-            let cliSearched = document.getElementById("clientToSearch").value;
-            let foundCliente;
-            let foundPersona;
-            let actual;
-            let actualClient;
-
-            var show = arr[0].map((client) => {
-                foundCliente = client.name === cliSearched.toUpperCase();
-                if (foundCliente) {
-                    actual = client;
-                }
-            });
-
-            var show = arr[1].map((client) => {
-                foundPersona = client.name === cliSearched.toUpperCase();
-                if (foundPersona) {
-                    actualClient = client;
-                }
-            });
-
-            if (actual !== undefined) {
-                divRow.innerHTML = cardEnterprise(actual);
-            }
-            else if (actualClient !== undefined) {
-                cleanHtml();
-                return cardGeneric(actualClient);
-            }
-            else {
-                divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
-            }
-
-        });
-    } catch (error) {
-        console.log("Ha ocurrido un error: " + error);
     }
-*/
->>>>>>> Stashed changes
-})();
-
+    else if (foundEnterprise.length !== 0) {
+        cleanHtml();
+        for (let i = 0; i < foundEnterprise.length; i++) {
+            divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
+        }
+    }
+    else if (foundPerson.length !== 0) {
+        cleanHtml();
+        for (let i = 0; i < foundPerson.length; i++) {
+            divRow.innerHTM += cardGeneric(foundPerson[i]);
+        }
+    }
+    else {
+        divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
+    }
+}
 
 function cardGeneric(client) {
 
