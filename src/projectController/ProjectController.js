@@ -11,6 +11,7 @@ const JSON_FILE_FOR_PROJECTS = require('../data/ProjectData.json');
 const JSON_PROJECTS = JSON_FILE_FOR_PROJECTS.projects;
 const JSON_FILE_FOR_CLIENTS = require('../data/clientData.json');
 const JSON_CLIENTS = JSON_FILE_FOR_CLIENTS.clients;
+
 let projectCards = document.getElementById('projects')
 let projectsSearched = [];
 let projectTechnologies = [];
