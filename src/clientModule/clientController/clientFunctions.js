@@ -73,32 +73,28 @@ Client.prototype.getClientsPerson = (type) => {
 
 
     document.getElementById("searchButton").addEventListener('click', () => {
-    var find;
-    let cliSearched = document.getElementById("clientToSearch").value;
-    let lista= clientList.enterprises;
-    console.log(lista);
+        var find;
+        let cliSearched = document.getElementById("clientToSearch").value.toUpperCase();
+        let lista = clientList.enterprises;
+        console.log(lista);
 
-    const filterItems = query => {
-        return lista.filter((el) =>
-          el.toLowerCase.indexOf(query.toLowerCase) > -1
-        );
-      }
+        find = lista.filter( (client) => {
+            return client.name.includes(cliSearched);
+        });
 
-    find =  filterItems(cliSearched.toUpperCase());
+        console.log(find);
 
-    console.log(find);
-
-    if (find.length !== 0) {
-        cleanHtml();
-        for (let i=0; i<find.length; i++){
-            divRow.innerHTML += cardEnterprise(find[i]);
+        if (find.length !== 0) {
+            cleanHtml();
+            for (let i = 0; i < find.length; i++) {
+                divRow.innerHTML += cardEnterprise(find[i]);
+            }
         }
-    }
-    else {
-        divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
-    }
+        else {
+            divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
+        }
 
-});
+    });
     /*
 
 
@@ -192,4 +188,4 @@ function cleanHtml() {
     divRow.innerHTML = " ";
 }
 
-module.exports = {divRow, cleanHtml};
+module.exports = { divRow, cleanHtml };
