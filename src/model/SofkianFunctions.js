@@ -36,37 +36,33 @@ class SofkianFunctions {
     }
 
     showEspecificSokfian(jsonArray){
-        document.getElementById("sofkianoEspecificoBoton").addEventListener('click', () => {
-                if (indicarSiExisteElSofkiano(jsonArray)){
-                      buscarSofkianoSofkianoPorNombre(jsonArray)
-                }
-                else{
-                      alert("no existe el sofkiano buscado")
-                }
-        })
+            if (this.indicarSiExisteElSofkiano(jsonArray)){
+                  this.buscarSofkianoSofkianoPorNombre(jsonArray)
+            }
+            else{
+                  alert("no existe el sofkiano buscado")
+            }
     }
 
     indicarSiExisteElSofkiano(jsonArray){
         var sofkianoFueEncontrado = false;
         var nombreDeSofianoBuscado = document.getElementById('nombreSofkianoBuscado').value;
-        for (var index = 0; index < sofkianosArray.length; i++) { 
-              if (sofkianosArray[index].name === nombreDeSofianoBuscado){
+        for (var index = 0; index < jsonArray.length; index++) { 
+              if (jsonArray[index].name === nombreDeSofianoBuscado){
                     sofkianoFueEncontrado = true
               }
         }
         return sofkianoFueEncontrado
     }
 
-    indicarSiExisteElSofkiano(jsonArray){
-      var sofkianoFueEncontrado = false;
+    buscarSofkianoSofkianoPorNombre(jsonArray){
       var nombreDeSofianoBuscado = document.getElementById('nombreSofkianoBuscado').value;
-      for (var index = 0; index < sofkianosArray.length; i++) { 
-            if (sofkianosArray[index].name === nombreDeSofianoBuscado){
-                  sofkianoFueEncontrado = true
+      for (var index = 0; index < jsonArray.length; index++) { 
+            if (jsonArray[index].name === nombreDeSofianoBuscado){
+                  this.printCardHtml(this.cardSofkian(jsonArray[index])) ;
             }
-      }
-      return sofkianoFueEncontrado
-  }
+      }  
+}
 }
 
 module.exports = SofkianFunctions;

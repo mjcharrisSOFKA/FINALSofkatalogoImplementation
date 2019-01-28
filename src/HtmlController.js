@@ -21,4 +21,8 @@ document.getElementById('btnSofkian').addEventListener('click', () => {
     sofkianFunctions.showAllSofkians(JSON_SOFKIANS);
 });
 
+document.getElementById('buscarSofkianBoton').addEventListener('click', () => {
+    sofkianFunctions.showEspecificSokfian(JSON_SOFKIANS);
+});
+
 
