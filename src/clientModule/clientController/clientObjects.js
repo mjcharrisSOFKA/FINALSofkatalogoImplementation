@@ -17,7 +17,7 @@ let tecnoquimicas = new Enterprise("TECNOQUIMICAS", "890.300.466", "5,001-10,000
 let teleperformance = new Enterprise("TELEFORMANCE", "900.323.853-7", "Más de 10.000 empleados", "Telecomunicaciones", "../imgs/clients/teleperformance.png", "http://www.teleperformance.co");
 
 let juan = new Person("JUAN MONTOYA", "1.038.435,932", "../imgs/clients/personaHombre.png")
-let liza = new Person("LIZ A", "42.813.784", "../imgs/clients/personaMujer.png")
+let liza = new Person("LIZA", "42.813.784", "../imgs/clients/personaMujer.png")
 let roxana = new Person("ROXANA", "1.020.456.846", "../imgs/clients/personaMujer.png");
 let martha = new Person("MARTHA", "37.080.664", "../imgs/clients/personaMujer.png");
 let gustavo = new Person("GUSTAVO", "1.100.950.935", "../imgs/clients/personaHombre.png");

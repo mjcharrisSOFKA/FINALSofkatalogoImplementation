@@ -61,7 +61,6 @@ Client.prototype.getClientsPerson = (type) => {
             var showPerson = arr[1].map((person) => {
                 return cardGeneric(person);
             });
-            //divRow.innerHTML = showPerson;
         });
     } catch (error) {
         console.log("Ha ocurrido un error: " + error);
@@ -118,16 +117,16 @@ function cardGeneric(client) {
     div.style = "width:400px";
 
     let buttonEdit = document.createElement('button');
-    buttonEdit.innerHTML = "<p>Update</p>";
+    buttonEdit.innerHTML = `<p>Update</p>`;
     buttonEdit.style = "height: 40px";
     buttonEdit.className = "btn btn-primary mb-3";
-    buttonEdit.onclick = () => { editClient(client) };
+    buttonEdit.onclick = () => { Client.prototype.editClient(client) };
 
     let buttonDelete = document.createElement('button');
     buttonDelete.innerHTML = "<p>Delete</p>";
     buttonDelete.style = "height: 40px";
     buttonDelete.className = "btn btn-danger mb-3";
-    buttonDelete.onclick = () => { deleteClient(client) };
+    buttonDelete.onclick = () => { Client.prototype.deleteClient(client) };
 
     div.innerHTML = `<img src="${client.img}" alt="Card image" style="width:100%">
         <div class="card-body">
@@ -143,6 +142,7 @@ function cardGeneric(client) {
 }
 
 function cardEnterprise(clientEnterprise) {
+
     return `<div class="card col-md-3 mr-5 mb-3" style="width:400px">
         <img src="${clientEnterprise.img}" alt="Card image" style="width:100%">
         <div class="card-body">
@@ -155,18 +155,8 @@ function cardEnterprise(clientEnterprise) {
         </div>`
 }
 
-function editClient(client) {
-    //Buscar cliente y editarlo
-    console.log("Cliente a editar: ");
-    console.log(client);
-}
-
-function  deleteClient(client) {
-    //Buscar cliente y eliminarlo
-    console.log("Cliente a eliminar: ");
-    console.log(client);
-}
-
 function cleanHtml() {
     divRow.innerHTML = " ";
 }
+
+module.exports = {divRow, cleanHtml};
