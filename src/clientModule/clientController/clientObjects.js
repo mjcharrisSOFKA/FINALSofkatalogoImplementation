@@ -3,8 +3,8 @@
 var { Enterprise, Person } = require('../models.js');
 
 let alpina = new Enterprise("ALPINA", "860.025.900-2", "5.500-10.000 empleados", "Alimentos y bébidas", "../imgs/clients/alpina.jpg", "https://www.alpina.com/");
-let proteccion = new Enterprise("PROTECCION", "800.229.739-0", "1.001-5.000 empleados", "Servicios Financiero", "../imgs/clients/proteccion.jpg", "https://www.proteccion.com");
-let sura = new Enterprise("SURA", "900.847.380 ", "51-200 employees", "Servicios Financieroos", "../imgs/clients/sura.png", "https://www.segurossura.com.co");
+let proteccion = new Enterprise("PROTECCION", "800.229.739-0", "1.001-5.000 empleados", "Servicios Financieros", "../imgs/clients/proteccion.jpg", "https://www.proteccion.com");
+let sura = new Enterprise("SURA", "900.847.380 ", "51-200 employees", "Servicios Financieros", "../imgs/clients/sura.png", "https://www.segurossura.com.co");
 let coordinadora = new Enterprise("COORDINADORA", "890.904.713", "1.001-5.000 empleados", "Transporte de mercancia", "../imgs/clients/coordinadora.png", "http://www.coordinadora.com/");
 let alfaPeople = new Enterprise("ALFAPEOPLE", "830.013.988-9", "1.001-5.000 empleados", "Software y servicios informáticos", "../imgs/clients/alfapeople.png", "https://alfapeople.com/co/" );
 let amadeus = new Enterprise("AMADEUS", "800-159-527", "1.001-5.000 empleados", "Software y servicios informáticos", "../imgs/clients/amadeus.png", "https://amadeus.com/es" );
