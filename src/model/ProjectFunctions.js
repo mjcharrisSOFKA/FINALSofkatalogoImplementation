@@ -44,6 +44,7 @@ function printCardHtml(projectToPrint) {
 };
 
 function showProject(project) {
+  console.log(project);
   let div = document.getElementById('projects');
   let buttonUpdateProject = document.createElement('button');
   let buttonDeleteProject = document.createElement('button');
@@ -123,12 +124,15 @@ function updateProject(project) {
     let newClient = document.getElementById('clients-options');
     let typeName = newClient.getElementsByTagName('option')[newClient.selectedIndex].id;
     project.client = getClientObject(newClient.value, typeName);
-    console.log(project);
     let checkBoxesTechnologies = document.getElementsByName('cbtechnologies');
     let checkBoxesSofkianos = document.getElementsByName('cbsofkianos');
-    project.technologies = getCheckedBoxes(checkBoxesTechnologies);
-    project.sofkianos = getCheckedBoxes(checkBoxesSofkianos);
-    //showAllProjects(JSON_PROJECTS.projects);
+    let selectedTechnologies = getCheckedBoxes(checkBoxesTechnologies);
+    let selectedSofkianos = getCheckedBoxes(checkBoxesSofkianos);
+    getPropertiesArrayObject(selectedTechnologies, "technologies");
+    getPropertiesArrayObject(selectedSofkianos, "sofkianos");
+    project.technologies = getPropertiesArrayObject(selectedTechnologies, "technologies");
+    project.sofkianos = getPropertiesArrayObject(selectedSofkianos, "sofkianos");
+    showAllProjects(JSON_PROJECTS.projects);
   });
   buttonEditProject.innerText = ("Aceptar Cambios");
   divEditingPRoject.appendChild(buttonEditProject);
@@ -148,7 +152,7 @@ function updateProject(project) {
       label.innerText = tempArray[i].name;
       let input = document.createElement('input');
       input.type = 'checkbox';
-      input.name = name;
+      input.name = `cb${jsonName}`;
       input.id = tempArray[i].name;
       for (let j = 0; j < project[jsonName].length; j++) {
         if (project[jsonName][j].name === tempArray[i].name) {
@@ -161,15 +165,29 @@ function updateProject(project) {
   }
 
   function getClientObject(name, jsonName) {
-    let propertyObject = {};
+    let propertyObject;
     let tempArray = [];
     jsonName === `enterprises` ? tempArray = JSON_ENTERPRISES : tempArray = JSON_PERSONS;
-    for (let index = 0; index < tempArray.length; index++) {
-      if (name === tempArray[index].name) {
-        propertyObject = tempArray[index];
+    for (let i = 0; i < tempArray.length; i++) {
+      if (name === tempArray[i].name) {
+        propertyObject = tempArray[i];
       }
     }
     return propertyObject;
+  }
+
+  function getPropertiesArrayObject(namesArray, jsonName) {
+    let tempArray = [];
+    let resultArray = [];
+    jsonName === `sofkianos` ? tempArray = JSON_SOFKIANOS : tempArray = JSON_TECHNOLOGIES;
+    for (let i = 0; i < namesArray.length; i++) {
+      for (let j = 0; j < tempArray.length; j++) {
+        if (namesArray[i] === tempArray[j].name) {
+          resultArray.push(tempArray[j]);
+        }
+      }
+    }
+    return resultArray;
   }
 };
 

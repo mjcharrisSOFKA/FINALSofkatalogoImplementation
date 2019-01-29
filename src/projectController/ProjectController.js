@@ -6,7 +6,7 @@ import {
   createProject
 } from "./../model/ProjectFunctions"
 
-let projectCards = document.getElementById('projects')
+let projectCards = document.getElementById('projects');
 
 try {
   showAllProjects();
