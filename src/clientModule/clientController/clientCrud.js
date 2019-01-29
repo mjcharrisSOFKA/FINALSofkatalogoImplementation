@@ -3,7 +3,7 @@ let { Client, Enterprise, Person } = require("../models");
 let clientsCollection = require("./clientObjects");
 let nameEmpresa, nitEmpresa, size, sector, namePersona, cedulaPersona;
 
-let { divRow, cleanHtml } = require('../clientController/clientFunctions');
+let { divRow, cleanHtmlClient } = require('../clientController/clientFunctions');
 
 Client.prototype.createClients = () => {
     nameEmpresa = document.getElementById("nameEnterprise");
@@ -33,7 +33,7 @@ function createEnterprise() {
         clientsCollection.enterprises.push(newEnterprise);
         cleanFormEnterprise();
         showMessageEnterprise();
-        cleanHtml();
+        cleanHtmlClient();
         getClients();
     }
 }
@@ -46,7 +46,7 @@ function createPerson() {
         clientsCollection.persons.push(newPerson);
         cleanFormPerson();
         showMessagePerson();
-        cleanHtml();
+        cleanHtmlClient();
         getClients();
     }
 }
@@ -59,7 +59,7 @@ Client.prototype.editClient = (client) => {
     buttonEdit.style = "height: 40px";
     buttonEdit.className = "btn btn-success mb-3";
 
-    cleanHtml();
+    cleanHtmlClient();
 
     if (client.type === "Empresa") {
         divCreated = createDiv();
@@ -237,13 +237,13 @@ function showMessagePerson() {
 
 function returnBackUpdate() {
     alert('Actualizando cliente');
-    cleanHtml();
+    cleanHtmlClient();
     getClients();
 }
 
 function returnBackDelete() {
     alert('Eliminando cliente');
-    cleanHtml();
+    cleanHtmlClient();
     getClients();
 }
 

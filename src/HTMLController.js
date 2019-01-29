@@ -5,11 +5,9 @@ let { createDivOptionsClient } = require('./clientModule/clientController/client
 
 var { Client } = require('./clientModule/models');
 require("./clientModule/clientController/clientCrud");
+require('./clientModule/clientController/clientFunctions');
 
-
-const JSON_FILE_FOR_PROJECTS = require('./projectModule/data/ProjectData.json');
-
-const JSON_PROJECTS = JSON_FILE_FOR_PROJECTS.projects;
+let viewName;
 
 let divMainClass = document.getElementById('cards-content');
 let divOptions = document.getElementById('options');
@@ -18,8 +16,10 @@ let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
 let clientBtn = document.getElementById('btnClients');
 
-//let projectFunctions = new ProjectFunctions();
+let projectFunctions = new ProjectFunctions();
 let home = new HomeView();
+
+let searchbtn = document.getElementById('searchButton');
 
 clientBtn.addEventListener('click', () => {
     cleanHtml();
@@ -30,6 +30,9 @@ clientBtn.addEventListener('click', () => {
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
+    viewName = 'client';
+    console.log(viewName);
+    
 });
 
 homeBtn.addEventListener('click', () => {
@@ -39,15 +42,19 @@ homeBtn.addEventListener('click', () => {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
     home.showHome();
+    viewName = 'home';
 });
 
 document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();
-    projectFunctions.showAllProjects(JSON_PROJECTS);
+    projectFunctions.showAllProjects();
     console.log("the bar is close");
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
+    viewName = 'project';
+    console.log(viewName);
+    
 });
 
 controllerName.innerText = "Sofkatalogo";
@@ -69,6 +76,23 @@ document.getElementById("button-closeSideBar").addEventListener("click", () => {
 function cleanHtml() {
     divMainClass.innerHTML = " ";
     divOptions.innerHTML = " ";
+}
+
+
+function searchInProject(){
+    switch (valueName) {
+        case 'client':
+
+            break;
+        case 'project':
+            break;
+        case 'sofkian':
+            break;
+        case 'about us':
+        break;
+        default:
+            return 'case';
+    }
 }
 
 home.showHome();
