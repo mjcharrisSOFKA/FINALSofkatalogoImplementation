@@ -1,0 +1,43 @@
+{
+    "projects": [{
+            "name": "pertrinum",
+            "status": "100",
+            "description": "PerTrinum incrementa sus clientes por medio de comunicados, promocionando e interactuando de manera efectiva con sus clientes. ",
+            "startDate": "2016-08-12",
+            "endDate": "2016-08-12",
+            "img": "http://www.sofka.com.co/wp-content/uploads/sofka-pretrinum-logo-ajax.png"
+        },
+        {
+            "name": "hibot",
+            "status": "100",
+            "description": "HIBOT es el módulo que le faltaba a su Centro de Contactos para convertirlo en una herramienta aún más competitiva.",
+            "startDate": "2015-01-15",
+            "endDate": "2018-01-15",
+            "img": "http://www.sofka.com.co/wp-content/uploads/hibot-1.png"
+        },
+        {
+            "name": "frow",
+            "status": "59",
+            "description": "es una plataforma digital (app móvil + website) para la Industria Fashion y Retail en Colombia.",
+            "startDate": "2017-08-05",
+            "endDate": "2019-08-15",
+            "img": "http://www.sofka.com.co/wp-content/uploads/frow-3.png"
+        },
+        {
+            "name": "LabINN",
+            "status": "60",
+            "description": "Nuestro laboratorio de innovación dedicado a investigar y crear soluciones simples de alto impacto para clientes. Nuestro objetivo, por medio de la tecnología, mejorar la forma en que las personas viven y trabajan.",
+            "startDate": "2017-08-05",
+            "endDate": "2019-08-15",
+            "img": "http://www.sofka.com.co/wp-content/uploads/sofka-labinn-logo-ajax.png"
+        },
+        {
+            "name": "Facebook",
+            "status": "100",
+            "description": "Red social de alto impacto.",
+            "startDate": "2017-08-05",
+            "endDate": "2019-08-15",
+            "img": "https://www.america-retail.com/static//2018/04/facebook-1.jpg"
+        }
+    ]
+}

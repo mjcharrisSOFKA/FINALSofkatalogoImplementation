@@ -1,6 +1,6 @@
 module.exports = {
     mode: 'development',
-    entry: "./src/HtmlController.js",
+    entry: "./src/HTMLController.js",
     output: {
       filename: './bundle.js',
     },
