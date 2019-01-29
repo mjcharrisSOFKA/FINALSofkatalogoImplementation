@@ -1,7 +1,7 @@
 import ProjectFunctions from './projectModule/model/ProjectFunctions';
 import HomeView from './HomeModule/homeView';
-let { createDiv } = require('./clientModule/clientController/clientFunctions');
 
+let { createDivOptionsClient } = require('./clientModule/clientController/clientFunctions');
 
 var { Client } = require('./clientModule/models');
 require("./clientModule/clientController/clientCrud");
@@ -12,16 +12,20 @@ const JSON_FILE_FOR_PROJECTS = require('./projectModule/data/ProjectData.json');
 const JSON_PROJECTS = JSON_FILE_FOR_PROJECTS.projects;
 
 let divMainClass = document.getElementById('cards-content');
+let divOptions = document.getElementById('options');
 
 let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
 let clientBtn = document.getElementById('btnClients');
 
-let projectFunctions = new ProjectFunctions();
+//let projectFunctions = new ProjectFunctions();
 let home = new HomeView();
 
 clientBtn.addEventListener('click', () => {
     cleanHtml();
+    createDivOptionsClient();
+    Client.prototype.functionClients();
+    Client.prototype.createClients();
     Client.prototype.getClients();
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
@@ -64,6 +68,7 @@ document.getElementById("button-closeSideBar").addEventListener("click", () => {
 
 function cleanHtml() {
     divMainClass.innerHTML = " ";
+    divOptions.innerHTML = " ";
 }
 
 home.showHome();
