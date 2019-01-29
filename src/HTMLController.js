@@ -1,5 +1,6 @@
 import ProjectFunctions from './projectModule/model/ProjectFunctions';
-import HomeComponent from './HomeModule/homeView';
+let { createDiv, cleanHtml } = require('./clientModule/clientController/clientFunctions');
+
 
 var { Client } = require('./clientModule/models');
 require("./clientModule/clientController/clientCrud");
@@ -10,7 +11,6 @@ const JSON_FILE_FOR_PROJECTS = require('./projectModule/data/ProjectData.json');
 const JSON_PROJECTS = JSON_FILE_FOR_PROJECTS.projects;
 
 let divMainClass = document.getElementById('cards-content');
-
 
 let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
