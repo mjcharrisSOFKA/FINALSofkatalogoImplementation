@@ -5,6 +5,8 @@ var { Client } = require('../models.js');
 var showClient = [];
 var arr = [];
 let divRow = document.getElementById('cards-content');
+let divOptions = document.getElementById('options');
+
 
 for (let i in clientList) {
     arr.push(clientList[i]);
@@ -13,8 +15,9 @@ for (let i in clientList) {
 Client.prototype.getClients = () => {
 
     try {
+
         cleanHtml();
-        createDiv();
+        createDiv()
         for (let j = 0; j < arr.length; j++) {
             showClient += arr[j].map((client) => {
                 return cardGeneric(client);
@@ -26,11 +29,6 @@ Client.prototype.getClients = () => {
     }
 
 };
-
-let cardToPrint = document.getElementById('cards-content');
-console.log(cardToPrint);
-
-
 
 Client.prototype.getClientsPerson = (type) => {
     var filterPersona = arr.filter(function (client) {
@@ -44,12 +42,14 @@ try {
         Client.prototype.getClients();
     });
     document.getElementById("enterprises").addEventListener('click', () => {
+        createDiv();
         Client.prototype.getAllEnterprises();
     });
     document.getElementById("persons").addEventListener('click', () => {
+        createDiv();
         Client.prototype.getAllPersons();
     });
-    document.getElementById("searchButton").addEventListener('click', () => {
+    document.getElementById("searchButton").addEventListener('click', () => {   
         Client.prototype.getClientsByName();
     });
 
@@ -58,6 +58,7 @@ try {
 }
 
 Client.prototype.getAllEnterprises = () => {
+
     var showEnterprise = arr[0].map((enterprise) => {
         return cardEnterprise(enterprise);
     });
@@ -152,10 +153,11 @@ function cardEnterprise(clientEnterprise) {
 
 function createDiv() {
 
+
     let div = document.createElement('div');
-    div.className = 'col-md-12';
-    div.style = "padding-left: 0px; margin-bottom: 8px";
-    div.innerHTML = `<div class="dropdown">
+    div.className = "col-md-12";
+    div.style = "width:400px";
+    div.innerHTML = `<div class="dropdown col-md-12" style="padding-left: 0px; margin-bottom: 8px">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Opciones de busqueda
@@ -165,13 +167,15 @@ function createDiv() {
         <a class="dropdown-item" id="persons" style="cursor:pointer">Ver Personas asociadas</a>
         <a class="dropdown-item" id="allClients" style="cursor:pointer">Ver todos</a>
     </div>
-    </div>`;
+</div>`;
 
-    divRow.appendChild(div);
+    divOptions.appendChild(div);
+
 }
 
 function cleanHtml() {
     divRow.innerHTML = " ";
+    divOptions.innerHTML = " ";
 }
 
-module.exports = { divRow, cleanHtml };
+module.exports = { divRow, cleanHtml, createDiv };
