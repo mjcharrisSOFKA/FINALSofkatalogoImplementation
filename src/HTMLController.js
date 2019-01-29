@@ -1,6 +1,5 @@
 import ProjectFunctions from './projectModule/model/ProjectFunctions';
 import HomeView from './HomeModule/homeView';
-let { createDiv } = require('./clientModule/clientController/clientFunctions');
 
 
 var { Client } = require('./clientModule/models');
