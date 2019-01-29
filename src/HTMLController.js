@@ -1,43 +1,69 @@
-import SofkianFunctions from './model/SofkianFunctions';
-
-const JSON_FILE_FOR_SOFKIANS = require('./data/SofkianData.json');
-const JSON_SOFKIANS = JSON_FILE_FOR_SOFKIANS.sofkians;
-
-let divMainClass = document.getElementById('cards-content'); 
-let divClientHTML = document.getElementById('client-container');
+import ProjectFunctions from './projectModule/model/ProjectFunctions';
+import HomeView from './HomeModule/homeView';
+let { createDiv } = require('./clientModule/clientController/clientFunctions');
 
 
+var { Client } = require('./clientModule/models');
+require("./clientModule/clientController/clientCrud");
+
+
+const JSON_FILE_FOR_PROJECTS = require('./projectModule/data/ProjectData.json');
+
+const JSON_PROJECTS = JSON_FILE_FOR_PROJECTS.projects;
+
+let divMainClass = document.getElementById('cards-content');
+
+let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
 let clientBtn = document.getElementById('btnClients');
 
+let projectFunctions = new ProjectFunctions();
+let home = new HomeView();
 
-
-let sofkianFunctions = new SofkianFunctions();
-document.getElementById('btnSofkian').addEventListener('click', () => {
-    sofkianFunctions.showAllSofkians(JSON_SOFKIANS);
-});
-document.getElementById('buscarSofkianBoton').addEventListener('click', () => {
-    sofkianFunctions.showEspecificSokfian(JSON_SOFKIANS);
-});
-document.getElementById("eliminarSofkianBoton").addEventListener('click', () => {
-    sofkianFunctions.eliminarSokfian(JSON_SOFKIANS);
-});
-document.getElementById("editarSofkianBoton").addEventListener('click', () => {
-    sofkianFunctions.incluirHtmlParaEditar(JSON_SOFKIANS);
+clientBtn.addEventListener('click', () => {
+    cleanHtml();
+    Client.prototype.getClients();
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("button-openSideBar").style.display = 'block';
 });
 
-document.addEventListener('click',function(e){
-    if(e.target && e.target.id === "actualizarSofkian"){
-        sofkianFunctions.editarSokfiano(JSON_SOFKIANS)
-    }
+homeBtn.addEventListener('click', () => {
+    console.log("the bar is close");
+    cleanHtml();
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("button-openSideBar").style.display = 'block';
+    home.showHome();
 });
 
-document.getElementById("agregarSofkianBoton").addEventListener('click', () => {
-    sofkianFunctions.incluirHtmlParaAgregar();
+document.getElementById('btnProject').addEventListener('click', () => {
+    cleanHtml();
+    projectFunctions.showAllProjects(JSON_PROJECTS);
+    console.log("the bar is close");
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("button-openSideBar").style.display = 'block';
 });
 
-document.addEventListener('click',function(e){
-    if(e.target && e.target.id === "agregarSofkian"){
-        sofkianFunctions.agregarSokfiano();
-    }
+controllerName.innerText = "Sofkatalogo";
+
+document.getElementById("button-openSideBar").addEventListener("click", () => {
+    console.log("the bar is open");
+    document.getElementById("main").style.marginLeft = "25%";
+    document.getElementById("mySidebar").style.width = "25%";
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("button-openSideBar").style.display = 'none';
 });
+document.getElementById("button-closeSideBar").addEventListener("click", () => {
+    console.log("the bar is close");
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("button-openSideBar").style.display = 'block';
+});
+
+function cleanHtml() {
+    divMainClass.innerHTML = " ";
+}
+
+home.showHome();
