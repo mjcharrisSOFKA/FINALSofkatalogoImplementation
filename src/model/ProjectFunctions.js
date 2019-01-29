@@ -44,7 +44,6 @@ function printCardHtml(projectToPrint) {
 };
 
 function showProject(project) {
-  console.log(project);
   let div = document.getElementById('projects');
   let buttonUpdateProject = document.createElement('button');
   let buttonDeleteProject = document.createElement('button');
@@ -192,7 +191,15 @@ function updateProject(project) {
 };
 
 function deleteProject(project) {
-  console.log(project);
+  let answer = confirm(`Esta seguro que desea eliminar el proyecto ${project.name}`);
+  if (answer) {
+    for (let index = 0; index < JSON_PROJECTS.length; index++) {
+      if (project.name === JSON_PROJECTS[index].name) {
+        JSON_PROJECTS.splice(index, 1);
+      }
+    }
+    showAllProjects();
+  }
 };
 
 function printArrayPropertyFromProjectWithPropertyName(project, element, propertyName) {
