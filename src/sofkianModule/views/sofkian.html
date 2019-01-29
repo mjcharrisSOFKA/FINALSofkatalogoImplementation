@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sofkatalogo</title>
+</head>
+
+<body>
+
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; align-self: flex-end" id="SofkianSidebar">
+
+        <button class="w3-bar-item w3-button w3-large" onclick="w3_close()" style="text-align: right">
+            &times;
+        </button>
+
+        <a href="#" class="w3-bar-item w3-button">Projects</a>
+        <a href="#" class="w3-bar-item w3-button">Clients</a>
+        <a href="./src/sofkianModule/views/sofkian.html" class="w3-bar-item w3-button" id="clientModule">Sofkianos</a>
+        <a href="#" class="w3-bar-item w3-button">Abut us</a>
+
+    </div>
+
+    <div id="main" style="background-color: #FF7521">
+        <div>
+            <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+            <h1 class="display-1" style="padding-left: 5%; padding-bottom: 2% "> Sofkatalogos</h1>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Sofkianos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" id="agregarSofkianBoton" href="#">Agregar</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" id="eliminarSofkianBoton" href="#">Eliminar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="editarSofkianBoton" href="#">Editar</a>
+              </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Escribe Aqui el nombre"id="nombreSofkianoBuscado" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" id="sofkianoEspecificoBoton" type="button">Buscar Sofkiano</button>
+          </form>
+        </div>
+      </nav>
+
+    <div class="row" id="sofkianDiv">
+                
+    </div>
+
+    <script>
+        function w3_open() {
+            document.getElementById("main").style.marginLeft = "25%";
+            document.getElementById("mySidebar").style.width = "25%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = 'none';
+        }
+
+        function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
+        }
+        </script>
+        <script src="../../../dist/bundle.js"></script>
+</body>
+
+</html>
