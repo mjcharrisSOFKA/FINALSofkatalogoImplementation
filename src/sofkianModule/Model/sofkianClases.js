@@ -1,25 +1,26 @@
-
 class Sofkiano {
-    constructor(name,id,foto,characteristics,sofkaExperience,beforeSofkaExperience,proyecto1,proyecto2,dedicacionProyecto1) {
+    constructor(name, id, characteristics, sofkaExperience, beforeSofkaExperience, proyecto1, dedicacion1, proyecto2, img, tecnologiasManejadas) {
         this.name = name;
         this.id = id;
-        this.foto = foto;
         this.characteristics = characteristics;
         this.sofkaExperience = sofkaExperience;
         this.beforeSofkaExperience = beforeSofkaExperience;
-        this.dedicacion = [proyecto1,proyecto2];
-        this.porcentajeEnProyecto1 = parseInt(dedicacionProyecto1);
-        this.porcentajeEnProyecto2 = 100 - parseInt(dedicacionProyecto1);
-        this.tecnologias = Array();
-      }
+        this.proyecto1 = proyecto1
+        this.dedicacion1 = dedicacion1;
+        this.proyecto2 = proyecto2
+        this.img = img
+        this.tecnologiasManejadas = tecnologiasManejadas;
+    }
 }
 
 class Tecnologias {
-    constructor(version,name) {
+    constructor(version, name) {
         this.version = version;
         this.name = name;
-      }
+    }
 }
 
-module.exports = {Sofkiano, Tecnologias};
-
+module.exports = {
+    Sofkiano,
+    Tecnologias
+};

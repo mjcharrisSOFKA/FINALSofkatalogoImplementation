@@ -2,7 +2,7 @@
   "name": "ProjectSofka",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/HTMLController.js",
+  "main": "./src/HtmlController.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -w"

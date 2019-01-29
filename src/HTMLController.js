@@ -1,9 +1,5 @@
 import SofkianFunctions from './model/SofkianFunctions';
 
-
-
-
-
 const JSON_FILE_FOR_SOFKIANS = require('./data/SofkianData.json');
 const JSON_SOFKIANS = JSON_FILE_FOR_SOFKIANS.sofkians;
 
