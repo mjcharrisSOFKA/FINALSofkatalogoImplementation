@@ -1,5 +1,6 @@
 import ProjectFunctions from './projectModule/model/ProjectFunctions';
-let { createDiv, cleanHtml } = require('./clientModule/clientController/clientFunctions');
+import HomeView from './HomeModule/homeView';
+let { createDiv } = require('./clientModule/clientController/clientFunctions');
 
 
 var { Client } = require('./clientModule/models');
@@ -16,6 +17,9 @@ let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
 let clientBtn = document.getElementById('btnClients');
 
+let projectFunctions = new ProjectFunctions();
+let home = new HomeView();
+
 clientBtn.addEventListener('click', () => {
     cleanHtml();
     Client.prototype.getClients();
@@ -25,14 +29,14 @@ clientBtn.addEventListener('click', () => {
 });
 
 homeBtn.addEventListener('click', () => {
-
     console.log("the bar is close");
+    cleanHtml();
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
+    home.showHome();
 });
 
-let projectFunctions = new ProjectFunctions();
 document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();
     projectFunctions.showAllProjects(JSON_PROJECTS);
@@ -58,8 +62,8 @@ document.getElementById("button-closeSideBar").addEventListener("click", () => {
     document.getElementById("button-openSideBar").style.display = 'block';
 });
 
-//HomeComponent;
-
 function cleanHtml() {
     divMainClass.innerHTML = " ";
 }
+
+home.showHome();
