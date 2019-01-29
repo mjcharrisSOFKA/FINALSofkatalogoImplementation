@@ -201,8 +201,8 @@ function formPerson(person) {
 
 function createDiv() {
     let div = document.createElement('div');
-    div.className = "card col-md-12 mr-5 mb-5";
-    div.style = "width:200px";
+    div.className = "card col-md-10 mr-5 mb-5";
+    div.style = "width:300px";
 
     return div
 }

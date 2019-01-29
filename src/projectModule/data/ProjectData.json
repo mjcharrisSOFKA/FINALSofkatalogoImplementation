@@ -1,0 +1,160 @@
+{
+    "projects": [
+        {
+            "id": "1",
+            "name": "pertrinum",
+            "status": "Done",
+            "description": "PerTrinum incrementa sus clientes por medio de comunicados, promocionando e interactuando de manera efectiva con sus clientes. ",
+            "startDate": "2016-08-12",
+            "endDate": "2016-08-12",
+            "image": "http://www.sofka.com.co/wp-content/uploads/sofka-pretrinum-logo-ajax.png",
+            "client": {
+                "name": "alpina",
+                "nit": "860.025.900-2",
+                "size": "5.500-10.000 empleados",
+                "sector": "Alimentos y bebidas",
+                "image": "https://cdn.advantis.co/wp-content/uploads/2018/06/Alpina-864x675.png",
+                "webPage": "https://www.alpina.com/"
+            },
+            "technologies": [
+                {
+                    "name": "Javascript",
+                    "version": "10.0.1"
+                },
+                {
+                    "name": "Java",
+                    "version": "8.0"
+                }
+            ],
+            "sofkianos": [
+                {
+                    "name": "Leyner",
+                    "id": "1",
+                    "characteristics": "sociable, proactivo, servicial",
+                    "sofkaExperience": "0",
+                    "beforeSofkaExperience": "1.5",
+                    "proyecto1": "Skynet",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "sofkatalogos",
+                    "img": "Leyner.jpeg",
+                    "tecnologiasManejadas": "angular 5, python 3.7, pytorch 1"
+                },
+                {
+                    "name": "Alex",
+                    "id": "2",
+                    "characteristics": "lider, sociable, leal",
+                    "sofkaExperience": "3",
+                    "beforeSofkaExperience": "5",
+                    "proyecto1": "Hibot",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "snapchat_2.0",
+                    "img": "Alex.jpeg",
+                    "tecnologiasManejadas": "xamarin 2, c# 5"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "hibot",
+            "status": "WIP",
+            "description": "HIBOT es el módulo que le faltaba a su Centro de Contactos para convertirlo en una herramienta aún más competitiva.",
+            "startDate": "2015-01-15",
+            "endDate": "2018-01-15",
+            "image": "http://www.sofka.com.co/wp-content/uploads/hibot-1.png",
+            "client": {
+                "name": "JUAN ESTEBAN MONTOYA",
+                "id": "1.038.435,932",
+                "image": "https://examapplication.com/public/img/user.png"
+            },
+            "technologies": [
+                {
+                    "name": "Java",
+                    "version": "8.0"
+                },
+                {
+                    "name": "C#",
+                    "version": "2.0"
+                }
+            ],
+            "sofkianos": [
+                {
+                    "name": "Alex",
+                    "id": "2",
+                    "characteristics": "lider, sociable, leal",
+                    "sofkaExperience": "3",
+                    "beforeSofkaExperience": "5",
+                    "proyecto1": "Hibot",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "snapchat_2.0",
+                    "img": "Alex.jpeg",
+                    "tecnologiasManejadas": "xamarin 2, c# 5"
+                },
+                {
+                    "name": "Quinto",
+                    "id": "2",
+                    "characteristics": "lider, sociable, leal",
+                    "sofkaExperience": "6",
+                    "beforeSofkaExperience": "1",
+                    "proyecto1": "alexa sr",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "cortana jr",
+                    "img": "Quinto.jpeg",
+                    "tecnologiasManejadas": "dialogflow 2"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "name": "frow",
+            "status": "To Do",
+            "description": "es una plataforma digital (app móvil + website) para la Industria Fashion y Retail en Colombia.",
+            "startDate": "2017-08-05",
+            "endDate": "2019-08-15",
+            "image": "http://www.sofka.com.co/wp-content/uploads/frow-3.png",
+            "client": {
+                "name": "sura",
+                "nit": "900.847.380",
+                "size": "51-200 empleados",
+                "sector": "Servicios Financieros",
+                "image": "https://mazkomazda.com/wp-content/uploads/2018/04/SURA_logo-16-9-728-2.jpg",
+                "webPage": "https://www.segurossura.com.co"
+            },
+            "technologies": [
+                {
+                    "name": "C#",
+                    "version": "2.0"
+                },
+                {
+                    "name": "Javascript",
+                    "version": "10.0.1"
+                }
+            ],
+            "sofkianos": [
+                {
+                    "name": "Quinto",
+                    "id": "2",
+                    "characteristics": "lider, sociable, leal",
+                    "sofkaExperience": "6",
+                    "beforeSofkaExperience": "1",
+                    "proyecto1": "alexa sr",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "cortana jr",
+                    "img": "Quinto.jpeg",
+                    "tecnologiasManejadas": "dialogflow 2"
+                },
+                {
+                    "name": "Leyner",
+                    "id": "1",
+                    "characteristics": "sociable, proactivo, servicial",
+                    "sofkaExperience": "0",
+                    "beforeSofkaExperience": "1.5",
+                    "proyecto1": "Skynet",
+                    "dedicacionProyecto1": "90",
+                    "proyecto2": "sofkatalogos",
+                    "img": "Leyner.jpeg",
+                    "tecnologiasManejadas": "angular 5, python 3.7, pytorch 1"
+                }
+            ]
+        }
+    ]
+}
