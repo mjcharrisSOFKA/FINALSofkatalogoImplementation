@@ -1,0 +1,17 @@
+
+{
+  "clients" : [
+      {
+          "name" : "Quinto",
+          "status" : "100"
+      },
+      {
+          "name" : "Mane",
+          "status" : "100"
+      },
+      {
+          "name" : "Alex",
+          "status" : "100"
+      }
+  ]
+}
