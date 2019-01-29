@@ -23,7 +23,7 @@ let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
 let clientBtn = document.getElementById('btnClients');
 
-let projectFunctions = new ProjectFunctions();
+
 let sofkianPeople = new Sofkian();
 let home = new HomeView();
 
@@ -66,8 +66,8 @@ document.getElementById('btnSofkianos').addEventListener('click',() => {
 
 document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();
-    projectFunctions.showAllProjects();
-    console.log("the bar is close");
+    let projectFunctions = new ProjectFunctions();
+    projectFunctions.mainFunctionalities();
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';

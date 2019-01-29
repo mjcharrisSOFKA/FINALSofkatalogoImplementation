@@ -8,15 +8,72 @@ const JSON_TECHNOLOGIES = require('./../data/TechnologiesData.json').technologie
 
 let Project = require('./ProjectClass');
 let projectCards = document.getElementById('cards-content');
+let options = document.getElementById('options');
 
 class ProjectFunctions {
+
+  constructor() {
+    this.showAllProjects();
+  }
+
+  mainFunctionalities() {
+    try {
+      document.getElementById('open-create-modal').addEventListener('click', () => {
+        const enterprises = "enterprises";
+        const persons = "persons";
+        const tech = "technologies";
+        const sofks = "sofkianos";
+        let clientsSelect = document.getElementById('project-client-select');
+        let technologies = document.getElementById('technologies');
+        let sofkianos = document.getElementById('sofkianos');
+        clientsSelect.innerHTML = " ";
+        technologies.innerHTML = " ";
+        sofkianos.innerHTML = " ";
+        this.addClientOptions(clientsSelect, enterprises);
+        this.addClientOptions(clientsSelect, persons);
+        this.addPropertiesToDiv(technologies, tech);
+        this.addPropertiesToDiv(sofkianos, sofks);
+      });
+
+      document.getElementById('create-project').addEventListener('click', () => {
+        this.createProject();
+      });
+
+      document.getElementById('show-all-projects').addEventListener('click', () => {
+        this.showAllProjects();
+      });
+
+      document.getElementById('searching-trigger').addEventListener('click', () => {
+        let value = document.getElementById('search-by').value;
+        let radioButtons = document.getElementsByName('search');
+        let checkedRadioButtonValue = getCheckedRadioButton(radioButtons);
+        let projectsSearched = findValueByAnyAttributeInArray(value, checkedRadioButtonValue);
+        projectCards.innerHTML = "";
+        this.printSearchResults(projectsSearched);
+      });
+    }
+    catch (error) {
+    }
+  }
 
   showAllProjects() {
     try {
       projectCards.innerHTML = "";
+      let createButton = document.createElement(`button`);
+      createButton.className = `btn btn-success`;
+      createButton.innerText = `Agregar Proyecto`;
+      createButton.setAttribute(`data-target`, `#createModal`);
+      createButton.setAttribute(`data-toggle`, `modal`);
+      createButton.id = `open-create-modal`;
+      let showAllProjects = document.createElement(`button`);
+      showAllProjects.className = `btn btn-info`;
+      showAllProjects.innerText = `Mostrar todos los proyectos`;
+      showAllProjects.id = `show-all-projects`;
       for (let index = 0; index < JSON_PROJECTS.length; index++) {
         this.printCardHtml(JSON_PROJECTS[index]);
       }
+      options.appendChild(createButton);
+      options.appendChild(showAllProjects);
     } catch (error) { }
   };
 
@@ -24,7 +81,7 @@ class ProjectFunctions {
 
     let divCard = document.createElement('div');
     let buttonShowProject = document.createElement('button');
-
+    buttonShowProject.className = `btn btn-sm btn-info`;
     buttonShowProject.innerText = "Ver Proyecto";
     buttonShowProject.addEventListener('click', () => {
       this.showProject(projectToPrint);
@@ -52,10 +109,10 @@ class ProjectFunctions {
     buttonUpdateProject.style = `width: 10rem`;
     buttonDeleteProject.style = `width: 10rem`;
     buttonDeleteProject.addEventListener('click', () => {
-      deleteProject(project);
+      this.deleteProject(project);
     });
     buttonUpdateProject.addEventListener('click', () => {
-      updateProject(project);
+      this.updateProject(project);
     });
     div.innerHTML = `<div style="display:grid" id="grid-project-view"><h1>${project.name}</h1><span><img src="${project.image}"></span>
         <br>
@@ -84,8 +141,8 @@ class ProjectFunctions {
   };
 
   updateProject(project) {
-    div = document.getElementById('projects');
-    buttonEditProject = document.createElement('button');
+    let div = document.getElementById('cards-content');
+    let buttonEditProject = document.createElement('button');
     div.innerHTML = `<h1>Editando ${project.name}</h1>
         <div id="editing-project">
         <label>Nombre:
@@ -116,44 +173,44 @@ class ProjectFunctions {
         <br>
         </div>
         </div>`;
-    divEditingPRoject = document.getElementById('editing-project');
+    let divEditingProject = document.getElementById('editing-project');
     buttonEditProject.addEventListener('click', () => {
       project.name = document.getElementById('projectName').value;
       project.status = document.getElementById('projectStatus').value;
       project.description = document.getElementById('projectDescription').value;
       project.startDate = document.getElementById('projectStartDate').value;
       project.endDate = document.getElementById('projectEndDate').value;
-      newClient = document.getElementById('clients-options');
-      typeName = newClient.getElementsByTagName('option')[newClient.selectedIndex].id;
-      project.client = getClientObject(newClient.value, typeName);
-      checkBoxesTechnologies = document.getElementsByName('cbtechnologies');
-      checkBoxesSofkianos = document.getElementsByName('cbsofkianos');
-      selectedTechnologies = getCheckedBoxes(checkBoxesTechnologies);
-      selectedSofkianos = getCheckedBoxes(checkBoxesSofkianos);
-      getPropertiesArrayObject(selectedTechnologies, "technologies");
-      getPropertiesArrayObject(selectedSofkianos, "sofkianos");
-      project.technologies = getPropertiesArrayObject(selectedTechnologies, "technologies");
-      project.sofkianos = getPropertiesArrayObject(selectedSofkianos, "sofkianos");
-      showAllProjects(JSON_PROJECTS.projects);
+      let newClient = document.getElementById('clients-options');
+      let typeName = newClient.getElementsByTagName('option')[newClient.selectedIndex].id;
+      project.client = this.getClientObject(newClient.value, typeName);
+      let checkBoxesTechnologies = document.getElementsByName('cbtechnologies');
+      let checkBoxesSofkianos = document.getElementsByName('cbsofkianos');
+      let selectedTechnologies = this.getCheckedBoxes(checkBoxesTechnologies);
+      let selectedSofkianos = this.getCheckedBoxes(checkBoxesSofkianos);
+      this.getPropertiesArrayObject(selectedTechnologies, "technologies", project);
+      this.getPropertiesArrayObject(selectedSofkianos, "sofkianos", project);
+      project.technologies = this.getPropertiesArrayObject(selectedTechnologies, "technologies");
+      project.sofkianos = this.getPropertiesArrayObject(selectedSofkianos, "sofkianos");
+      this.showAllProjects(JSON_PROJECTS.projects);
     });
     buttonEditProject.innerText = ("Aceptar Cambios");
-    divEditingPRoject.appendChild(buttonEditProject);
+    divEditingProject.appendChild(buttonEditProject);
     let selectClients = document.getElementById('clients-options');
-    addClientOptions(selectClients, "enterprises");
-    addClientOptions(selectClients, "persons");
+    this.addClientOptions(selectClients, "enterprises");
+    this.addClientOptions(selectClients, "persons");
     let tech = document.getElementById('actual-technologies');
     let sofkianos = document.getElementById('actual-sofkianos');
-    getPropertiesToEdit(tech, 'technologies');
-    getPropertiesToEdit(sofkianos, 'sofkianos');
+    this.getPropertiesToEdit(tech, 'technologies', project);
+    this.getPropertiesToEdit(sofkianos, 'sofkianos', project);
   }
 
-  getPropertiesToEdit(div, jsonName) {
-    tempArray = [];
+  getPropertiesToEdit(div, jsonName, project) {
+    let tempArray = [];
     jsonName === "technologies" ? tempArray = JSON_TECHNOLOGIES : tempArray = JSON_SOFKIANOS;
     for (let i = 0; i < tempArray.length; i++) {
-      label = document.createElement('label');
+      let label = document.createElement('label');
       label.innerText = tempArray[i].name;
-      input = document.createElement('input');
+      let input = document.createElement('input');
       input.type = 'checkbox';
       input.name = `cb${jsonName}`;
       input.id = tempArray[i].name;
@@ -168,8 +225,8 @@ class ProjectFunctions {
   }
 
   getPropertiesArrayObject(namesArray, jsonName) {
-    tempArray = [];
-    resultArray = [];
+    let tempArray = [];
+    let resultArray = [];
     jsonName === `sofkianos` ? tempArray = JSON_SOFKIANOS : tempArray = JSON_TECHNOLOGIES;
     for (let i = 0; i < namesArray.length; i++) {
       for (let j = 0; j < tempArray.length; j++) {
@@ -182,8 +239,8 @@ class ProjectFunctions {
   }
 
   getClientObject(name, jsonName) {
-    propertyObject;
-    tempArray = [];
+    let propertyObject;
+    let tempArray = [];
     jsonName === `enterprises` ? tempArray = JSON_ENTERPRISES : tempArray = JSON_PERSONS;
     for (let i = 0; i < tempArray.length; i++) {
       if (name === tempArray[i].name) {
@@ -194,14 +251,14 @@ class ProjectFunctions {
   }
 
   deleteProject(project) {
-    answer = confirm(`Esta seguro que desea eliminar el proyecto ${project.name}`);
+    let answer = confirm(`Esta seguro que desea eliminar el proyecto ${project.name}`);
     if (answer) {
       for (let index = 0; index < JSON_PROJECTS.length; index++) {
         if (project.name === JSON_PROJECTS[index].name) {
           JSON_PROJECTS.splice(index, 1);
         }
       }
-      showAllProjects();
+      this.showAllProjects();
     }
   };
 
@@ -246,14 +303,14 @@ class ProjectFunctions {
       let image = "https://s3-ap-south-1.amazonaws.com/static.awfis.com/wp-content/uploads/2017/07/07184649/ProjectManagement.jpg";
       let clientName = document.getElementById('project-client-select');
       let typeName = clientName.getElementsByTagName('option')[clientName.selectedIndex].id;
-      let clientObject = getClientObject(clientName.value, typeName);
+      let clientObject = this.getClientObject(clientName.value, typeName);
       let projectTechnologies = document.getElementsByName('technology');
       let projectSofkianos = document.getElementsByName('sofkiano');
-      let technologies = getCheckedBoxes(projectTechnologies);
-      let sofkianos = getCheckedBoxes(projectSofkianos);
+      let technologies = this.getCheckedBoxes(projectTechnologies);
+      let sofkianos = this.getCheckedBoxes(projectSofkianos);
       let projectToCreate = new Project(name, "To Do", description, starDate, endDate, image, clientObject, technologies, sofkianos, id);
       JSON.stringify(JSON_PROJECTS.push(projectToCreate));
-      showAllProjects();
+      this.showAllProjects();
       id++;
     } catch (error) {
       console.log(error);
