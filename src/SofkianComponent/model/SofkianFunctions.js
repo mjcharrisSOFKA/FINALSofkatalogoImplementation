@@ -1,42 +1,43 @@
 var {
       Sofkiano
 } = require('./sofkianClases.js');
+
 const JSON_SOFKIANS = require('./../data/SofkianData.json').sofkians;
+let div = document.getElementById('cards-content');
 
 class SofkianFunctions {
 
       constructor() {
-            this.sofkianCards = document.getElementById('sofkianDiv');
+            this.sofkianCards = document.getElementById('cards-content');
       }
 
       showAllSofkians(jsonArray) {
-            var StringHtmlCardConcatenado;
+            let stringHtmlCardConcatenado = '';
             for (let index = 0; index < jsonArray.length; index++) {
-                  StringHtmlCardConcatenado += this.cardSofkian(jsonArray[index]);
+                  stringHtmlCardConcatenado += this.cardSofkian(jsonArray[index]);
             }
-            this.printCardHtml(StringHtmlCardConcatenado)
+            this.printCardHtml(stringHtmlCardConcatenado)
       };
 
       printCardHtml(StringHtmlCard) {
-            let div = document.getElementById('sofkianDiv');
             div.innerHTML = StringHtmlCard;
       };
 
       cardSofkian(sofkian) {
-            return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
-                  '<img src="imgs/' + sofkian.img + '" class="card-img-top" alt="...">' +
-                  '<div class="card-body">' +
-                  '<h5 id="divConSofkianName" class="card-title" id="enterpriseName">' + sofkian.name + '</h5>' +
-                  '<p id="divConSofkianCedula" class="card-text">cedula: ' + sofkian.id + '</p>' +
-                  '<p id="divConSofkianCaracteristicas" class="card-text">caracteristicas: ' + sofkian.characteristics + '</p>' +
-                  '<p id="divConSofkianExperiencia" class="card-text">Experiencia en Sofka: ' + sofkian.sofkaExperience + '</p>' +
-                  '<p id="divConBeforeSofkianExperiencia" class="card-text">Experiencia pre-Sofka: ' + sofkian.beforeSofkaExperience + '</p>' +
-                  '<p id="divConTecnologia1" class="card-text">tecnologias manejadas: ' + sofkian.tecnologiasManejadas + '</p>' +
-                  '<p id="divConTecnologia1" class="card-text">proyecto 1: ' + sofkian.proyecto1 + '</p>' +
-                  '<p id="divConTecnologia1" class="card-text">dedicacion: ' + sofkian.dedicacionProyecto1 + '%</p>' +
-                  '<p id="divConTecnologia1" class="card-text">proyecto 2: ' + sofkian.proyecto2 + '</p>' +
-                  '</div>' +
-                  '</div>';
+            return `<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">
+                  <img src="${sofkian.img}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                  <h5 id="divConSofkianName" class="card-title" id="enterpriseName"> ${sofkian.name} </h5>
+                  <p id="divConSofkianCedula" class="card-text">cedula: ${sofkian.id} </p>
+                  <p id="divConSofkianCaracteristicas" class="card-text">caracteristicas: ${sofkian.characteristics} </p>
+                  <p id="divConSofkianExperiencia" class="card-text">Experiencia en Sofka:  ${sofkian.sofkaExperience} </p>
+                  <p id="divConBeforeSofkianExperiencia" class="card-text">Experiencia pre-Sofka: ${sofkian.beforeSofkaExperience} </p>
+                  <p id="divConTecnologia1" class="card-text">tecnologias manejadas:  ${sofkian.tecnologiasManejadas} </p>
+                  <p id="divConTecnologia1" class="card-text">proyecto 1:  ${sofkian.proyecto1 }</p>
+                  <p id="divConTecnologia1" class="card-text">dedicacion:  ${sofkian.dedicacionProyecto1 }%</p>
+                  <p id="divConTecnologia1" class="card-text">proyecto 2:  ${sofkian.proyecto2 }</p>
+                  </div>
+                  </div>`;
       }
 
       showEspecificSokfian(jsonArray) {
@@ -250,7 +251,7 @@ class SofkianFunctions {
                   document.getElementById('proyecto2_Updt').value,
                   "no_avatar.jpeg",
                   document.getElementById('tecnologias_Updt').value);
-                  console.log(JSON_SOFKIANS);
+            console.log(JSON_SOFKIANS);
             JSON.stringify(JSON_SOFKIANS.push(sofkianoToCreate));
       }
 
