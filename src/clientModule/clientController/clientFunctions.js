@@ -66,7 +66,7 @@ Client.prototype.getClientsByName = () => {
     });
 
     if (foundEnterprise.length !== 0 || foundPerson.length !== 0) {
-        cleanHtml();
+        cleanHtmlClient();
         for (let i = 0; i < foundEnterprise.length; i++) {
             divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
         }
@@ -82,15 +82,15 @@ Client.prototype.getClientsByName = () => {
 
 Client.prototype.functionClients = () => {
     document.getElementById("allClients").addEventListener('click', () => {
-        cleanHtml();
+        cleanHtmlClient();
         Client.prototype.getClients();
     });
     document.getElementById("enterprises").addEventListener('click', () => {
-        cleanHtml();
+        cleanHtmlClient();
         Client.prototype.getAllEnterprises();
     });
     document.getElementById("persons").addEventListener('click', () => {
-        cleanHtml();
+        cleanHtmlClient();
         Client.prototype.getAllPersons();
     });
     /*document.getElementById("searchButton").addEventListener('click', () => {
@@ -274,8 +274,8 @@ function createDivOptionsClient() {
     divOptionsClient.appendChild(divCreate);
 }
 
-function cleanHtml() {
+function cleanHtmlClient() {
     divRow.innerHTML = " ";
 }
 
-module.exports = { divRow, cleanHtml, createDivOptionsClient };
+module.exports = { divRow, cleanHtmlClient, createDivOptionsClient };

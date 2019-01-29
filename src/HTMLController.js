@@ -12,6 +12,7 @@ const JSON_FILE_FOR_PROJECTS = require('./projectModule/data/ProjectData.json');
 const JSON_PROJECTS = JSON_FILE_FOR_PROJECTS.projects;
 
 let divMainClass = document.getElementById('cards-content');
+let divOptions = document.getElementById('options');
 
 let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
@@ -67,6 +68,7 @@ document.getElementById("button-closeSideBar").addEventListener("click", () => {
 
 function cleanHtml() {
     divMainClass.innerHTML = " ";
+    divOptions.innerHTML = " ";
 }
 
 home.showHome();
