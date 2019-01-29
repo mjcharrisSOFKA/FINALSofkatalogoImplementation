@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/projectController/ProjectController.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/HTMLController.js");
 /******/ })
 /************************************************************************/
 /******/ ({

@@ -1,8 +1,7 @@
 module.exports = {
     mode: 'development',
-    entry: "./src/projectController/ProjectController.js",
-    target: "node",
+    entry: "./src/HTMLController.js",
     output: {
       filename: './bundle.js',
     },
-  };
+};
