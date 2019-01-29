@@ -1,32 +1,35 @@
 let { Client, Enterprise, Person } = require("../models");
 
 let clientsCollection = require("./clientObjects");
-let nameEmpresa = document.getElementById("nameEnterprise");
-let nitEmpresa = document.getElementById("nitEnterprise");
-let size = document.getElementById("sizeEnterprise");
-let sector = document.getElementById("sectorEnterprise");
-
-let namePersona = document.getElementById("nameP");
-let cedulaPersona = document.getElementById("cedulaP");
+let nameEmpresa, nitEmpresa, size, sector, namePersona, cedulaPersona;
 
 let { divRow, cleanHtml } = require('../clientController/clientFunctions');
 
-try {
-    document.getElementById("saveEnterprise").addEventListener("click", () => {
-        createEnterprise();
-    });
-    document.getElementById("savePerson").addEventListener("click", () => {
-        createPerson();
-    });
-} catch (error) {
-    console.log(error);
+Client.prototype.createClients = () => {
+    nameEmpresa = document.getElementById("nameEnterprise");
+    nitEmpresa = document.getElementById("nitEnterprise");
+    size = document.getElementById("sizeEnterprise");
+    sector = document.getElementById("sectorEnterprise");
+
+    namePersona = document.getElementById("nameP");
+    cedulaPersona = document.getElementById("cedulaP");
+    try {
+        document.getElementById("saveEnterprise").addEventListener("click", () => {
+            createEnterprise();
+        });
+        document.getElementById("savePerson").addEventListener("click", () => {
+            createPerson();
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function createEnterprise() {
     if (nameEmpresa.value === "" || nitEmpresa.value === "") {
-        alert("Todos lo campos soon requeridos");
+        validate();
     } else {
-        let newEnterprise = new Enterprise(nameEmpresa.value.toUpperCase(), nitEmpresa.value, size.value, sector.value, "../imgs/clients/enterpriseDefault.jpg");
+        let newEnterprise = new Enterprise(nameEmpresa.value.toUpperCase(), nitEmpresa.value, size.value, sector.value, "https://cdn.onlinewebfonts.com/svg/img_67309.png");
         clientsCollection.enterprises.push(newEnterprise);
         cleanFormEnterprise();
         showMessageEnterprise();
@@ -37,9 +40,9 @@ function createEnterprise() {
 
 function createPerson() {
     if (namePersona.value === "" || cedulaPersona.value === "") {
-        alert("Todos lo campos soon requridos");
+        validate();
     } else {
-        let newPerson = new Person(namePersona.value.toUpperCase(), cedulaPersona.value, "../imgs/clients/personDefault.png");
+        let newPerson = new Person(namePersona.value.toUpperCase(), cedulaPersona.value, "https://universpiti.foititikanea.gr/oc-content/themes/vrisko/images/no_user.png");
         clientsCollection.persons.push(newPerson);
         cleanFormPerson();
         showMessagePerson();
@@ -69,20 +72,23 @@ Client.prototype.editClient = (client) => {
                 let sizeEnterprise = document.getElementById("sizeEnterp").value;
                 let sectorEnterprise = document.getElementById("sectorEnterp").value;
 
-                for (let i = 0; i < clientsCollection.enterprises.length; i++) {
+                if (nameEnterprise === "" || nitEnterprise === "") {
+                    validate();
+                } else {
+                    for (let i = 0; i < clientsCollection.enterprises.length; i++) {
 
-                    if (clientsCollection.enterprises[i].nit === client.nit) {
-                        clientsCollection.enterprises[i].name = nameEnterprise;
-                        clientsCollection.enterprises[i].nit = nitEnterprise;
-                        clientsCollection.enterprises[i].size = sizeEnterprise;
-                        clientsCollection.enterprises[i].sector = sectorEnterprise;
+                        if (clientsCollection.enterprises[i].nit === client.nit) {
+                            clientsCollection.enterprises[i].name = nameEnterprise;
+                            clientsCollection.enterprises[i].nit = nitEnterprise;
+                            clientsCollection.enterprises[i].size = sizeEnterprise;
+                            clientsCollection.enterprises[i].sector = sectorEnterprise;
 
-                        returnBackUpdate();
+                            returnBackUpdate();
+                        }
+
                     }
-
                 }
 
-                console.log(nameEnterprise, nitEnterprise, sizeEnterprise, sectorEnterprise);
             } catch (error) {
                 console.log(error);
             }
@@ -99,15 +105,18 @@ Client.prototype.editClient = (client) => {
             let namePerson = document.getElementById("namePerson").value.toUpperCase();
             let cedulaPerson = document.getElementById("cedulaPerson").value;
 
-            for (let i = 0; i < clientsCollection.persons.length; i++) {
-                if (clientsCollection.persons[i].cedula === cedulaPerson) {
-                    clientsCollection.persons[i].name = namePerson;
-                    clientsCollection.persons[i].cedula = cedulaPerson;
+            if (namePerson === "" || cedulaPerson === "") {
+                validate();
+            } else {
+                for (let i = 0; i < clientsCollection.persons.length; i++) {
+                    if (clientsCollection.persons[i].cedula === cedulaPerson) {
+                        clientsCollection.persons[i].name = namePerson;
+                        clientsCollection.persons[i].cedula = cedulaPerson;
 
-                    returnBackUpdate();
+                        returnBackUpdate();
+                    }
                 }
             }
-
         };
 
         divCreated.appendChild(buttonEdit);
@@ -227,17 +236,21 @@ function showMessagePerson() {
 }
 
 function returnBackUpdate() {
-    alert('Cliente actualizado');
+    alert('Actualizando cliente');
     cleanHtml();
     getClients();
 }
 
 function returnBackDelete() {
-    alert('Cliente eliminado');
+    alert('Eliminando cliente');
     cleanHtml();
     getClients();
 }
 
 function getClients() {
     Client.prototype.getClients();
+}
+
+function validate() {
+    alert("Todos lo campos son requeridos");
 }

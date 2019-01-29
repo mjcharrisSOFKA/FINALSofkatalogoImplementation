@@ -1,5 +1,5 @@
 import ProjectFunctions from './model/ProjectFunctions';
-let { createDiv, cleanHtml } = require('./clientModule/clientController/clientFunctions');
+let { createDivOptionsClient, cleanHtml } = require('./clientModule/clientController/clientFunctions');
 
 var { Client } = require('./clientModule/models');
 require("./clientModule/clientController/clientCrud");
@@ -17,6 +17,9 @@ let clientBtn = document.getElementById('btnClients');
 
 clientBtn.addEventListener('click', () => {
     cleanHtml();
+    createDivOptionsClient();
+    Client.prototype.functionClients();
+    Client.prototype.createClients();
     Client.prototype.getClients();
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
