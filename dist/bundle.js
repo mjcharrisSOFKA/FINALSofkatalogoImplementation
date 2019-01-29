@@ -81,31 +81,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/HtmlController.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/projectController/ProjectController.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/HtmlController.js":
-/*!*******************************!*\
-  !*** ./src/HtmlController.js ***!
-  \*******************************/
+/***/ "./src/projectController/ProjectController.js":
+/*!****************************************************!*\
+  !*** ./src/projectController/ProjectController.js ***!
+  \****************************************************/
 /*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module './model/SofkianFunctions'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\r\n\r\nconst JSON_FILE_FOR_SOFKIANS = __webpack_require__(/*! ./data/SofkianData.json */ \"./src/data/SofkianData.json\");\r\nconst JSON_SOFKIANS = JSON_FILE_FOR_SOFKIANS.sofkians;\r\n\r\nlet divMainClass = document.getElementById('cards-content'); \r\nlet divClientHTML = document.getElementById('client-container');\r\n\r\n\r\nlet homeBtn = document.getElementById('btnHome');\r\nlet clientBtn = document.getElementById('btnClients');\r\n\r\n\r\n\r\nlet sofkianFunctions = new !(function webpackMissingModule() { var e = new Error(\"Cannot find module './model/SofkianFunctions'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();\r\ndocument.getElementById('btnSofkian').addEventListener('click', () => {\r\n    sofkianFunctions.showAllSofkians(JSON_SOFKIANS);\r\n});\r\ndocument.getElementById('buscarSofkianBoton').addEventListener('click', () => {\r\n    sofkianFunctions.showEspecificSokfian(JSON_SOFKIANS);\r\n});\r\ndocument.getElementById(\"eliminarSofkianBoton\").addEventListener('click', () => {\r\n    sofkianFunctions.eliminarSokfian(JSON_SOFKIANS);\r\n});\r\ndocument.getElementById(\"editarSofkianBoton\").addEventListener('click', () => {\r\n    sofkianFunctions.incluirHtmlParaEditar(JSON_SOFKIANS);\r\n});\r\n\r\ndocument.addEventListener('click',function(e){\r\n    if(e.target && e.target.id === \"actualizarSofkian\"){\r\n        sofkianFunctions.editarSokfiano(JSON_SOFKIANS)\r\n    }\r\n});\r\n\r\ndocument.getElementById(\"agregarSofkianBoton\").addEventListener('click', () => {\r\n    sofkianFunctions.incluirHtmlParaAgregar();\r\n});\r\n\r\ndocument.addEventListener('click',function(e){\r\n    if(e.target && e.target.id === \"agregarSofkian\"){\r\n        sofkianFunctions.agregarSokfiano();\r\n    }\r\n});\n\n//# sourceURL=webpack:///./src/HtmlController.js?");
-
-/***/ }),
-
-/***/ "./src/data/SofkianData.json":
-/*!***********************************!*\
-  !*** ./src/data/SofkianData.json ***!
-  \***********************************/
-/*! exports provided: sofkians, default */
-/***/ (function(module) {
-
-eval("module.exports = {\"sofkians\":[{\"name\":\"Leyner\",\"id\":\"1\",\"characteristics\":\"sociable, proactivo, servicial\",\"sofkaExperience\":\"0\",\"beforeSofkaExperience\":\"1.5\",\"proyecto1\":\"Skynet\",\"dedicacionProyecto1\":\"90\",\"proyecto2\":\"sofkatalogos\",\"img\":\"Leyner.jpeg\",\"tecnologiasManejadas\":\"angular 5, python 3.7, pytorch 1\"},{\"name\":\"Alex\",\"id\":\"2\",\"characteristics\":\"lider, sociable, leal\",\"sofkaExperience\":\"3\",\"beforeSofkaExperience\":\"5\",\"proyecto1\":\"Hibot\",\"dedicacionProyecto1\":\"90\",\"proyecto2\":\"snapchat_2.0\",\"img\":\"Alex.jpeg\",\"tecnologiasManejadas\":\"xamarin 2, c# 5\"},{\"name\":\"Quinto\",\"id\":\"2\",\"characteristics\":\"lider, sociable, leal\",\"sofkaExperience\":\"6\",\"beforeSofkaExperience\":\"1\",\"proyecto1\":\"alexa sr\",\"dedicacionProyecto1\":\"90\",\"proyecto2\":\"cortana jr\",\"img\":\"Quinto.jpeg\",\"tecnologiasManejadas\":\"dialogflow 2\"}]};\n\n//# sourceURL=webpack:///./src/data/SofkianData.json?");
+eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\SOFKA\\\\Documents\\\\SokfaImp\\\\FINALSofkatalogoImplementation\\\\src\\\\projectController\\\\ProjectController.js'\");\n\n//# sourceURL=webpack:///./src/projectController/ProjectController.js?");
 
 /***/ })
 
