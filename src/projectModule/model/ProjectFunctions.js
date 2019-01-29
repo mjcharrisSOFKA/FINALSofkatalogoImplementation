@@ -70,10 +70,10 @@ class ProjectFunctions {
       <div>Sofkianos:
           <p id="actual-sofkianos"></p>
       </div>`;
-    actualTechnologies = document.getElementById('actual-technologies');
-    actualSofkianos = document.getElementById('actual-sofkianos');
-    printArrayPropertyFromProjectWithPropertyName(project, actualTechnologies, "technologies");
-    printArrayPropertyFromProjectWithPropertyName(project, actualSofkianos, "sofkianos");
+    let actualTechnologies = document.getElementById('actual-technologies');
+    let actualSofkianos = document.getElementById('actual-sofkianos');
+    this.printArrayPropertyFromProjectWithPropertyName(project, actualTechnologies, "technologies");
+    this.printArrayPropertyFromProjectWithPropertyName(project, actualSofkianos, "sofkianos");
     div.appendChild(buttonUpdateProject);
     div.appendChild(buttonDeleteProject);
   };
