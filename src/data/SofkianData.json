@@ -1,0 +1,39 @@
+{
+  "sofkians": [{
+      "name": "Leyner",
+      "id": "1",
+      "characteristics": "sociable, proactivo, servicial",
+      "sofkaExperience": "0",
+      "beforeSofkaExperience": "1.5",
+      "proyecto1": "Skynet",
+      "dedicacionProyecto1": "90",
+      "proyecto2": "sofkatalogos",
+      "img": "Leyner.jpeg",
+      "tecnologiasManejadas": "angular 5, python 3.7, pytorch 1"
+    },
+    {
+      "name": "Alex",
+      "id": "2",
+      "characteristics": "lider, sociable, leal",
+      "sofkaExperience": "3",
+      "beforeSofkaExperience": "5",
+      "proyecto1": "Hibot",
+      "dedicacionProyecto1": "90",
+      "proyecto2": "snapchat_2.0",
+      "img": "Alex.jpeg",
+      "tecnologiasManejadas": "xamarin 2, c# 5"
+    },
+    {
+      "name": "Quinto",
+      "id": "2",
+      "characteristics": "lider, sociable, leal",
+      "sofkaExperience": "6",
+      "beforeSofkaExperience": "1",
+      "proyecto1": "alexa sr",
+      "dedicacionProyecto1": "90",
+      "proyecto2": "cortana jr",
+      "img": "Quinto.jpeg",
+      "tecnologiasManejadas": "dialogflow 2"
+    }
+  ]
+}

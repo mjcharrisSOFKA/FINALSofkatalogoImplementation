@@ -25,7 +25,6 @@ class Enterprise extends Client {
         this.size = size;
         this.sector = sector;
         this.web = web;
-       
     }
 };
 

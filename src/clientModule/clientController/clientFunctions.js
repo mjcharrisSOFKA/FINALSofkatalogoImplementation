@@ -5,6 +5,8 @@ var { Client } = require('../models.js');
 var showClient = [];
 var arr = [];
 let divRow = document.getElementById('cards-content');
+let divOptions = document.getElementById('options');
+
 
 for (let i in clientList) {
     arr.push(clientList[i]);
@@ -13,26 +15,20 @@ for (let i in clientList) {
 Client.prototype.getClients = () => {
 
     try {
+
+        cleanHtml();
+        createDiv()
         for (let j = 0; j < arr.length; j++) {
             showClient += arr[j].map((client) => {
                 return cardGeneric(client);
             });
         }
-        document.getElementById("allClients").addEventListener('click', () => {
-            cleanHtml();
-            Client.prototype.getClients();
-        });
 
     } catch (error) {
         console.log("Ha ocurrido un error: " + error);
     }
 
 };
-
-let cardToPrint = document.getElementById('cards-content');
-console.log(cardToPrint);
-
-
 
 Client.prototype.getClientsPerson = (type) => {
     var filterPersona = arr.filter(function (client) {
@@ -42,13 +38,18 @@ Client.prototype.getClientsPerson = (type) => {
 }
 
 try {
+    document.getElementById("allClients").addEventListener('click', () => {
+        Client.prototype.getClients();
+    });
     document.getElementById("enterprises").addEventListener('click', () => {
+        createDiv();
         Client.prototype.getAllEnterprises();
     });
     document.getElementById("persons").addEventListener('click', () => {
+        createDiv();
         Client.prototype.getAllPersons();
     });
-    document.getElementById("searchButton").addEventListener('click', () => {
+    document.getElementById("searchButton").addEventListener('click', () => {   
         Client.prototype.getClientsByName();
     });
 
@@ -57,6 +58,7 @@ try {
 }
 
 Client.prototype.getAllEnterprises = () => {
+
     var showEnterprise = arr[0].map((enterprise) => {
         return cardEnterprise(enterprise);
     });
@@ -87,7 +89,7 @@ Client.prototype.getClientsByName = () => {
         return client.name.includes(cliSearched);
     });
 
-    if (foundEnterprise.length !== 0 && foundPerson.length !== 0) {
+    if (foundEnterprise.length !== 0 || foundPerson.length !== 0) {
         cleanHtml();
         for (let i = 0; i < foundEnterprise.length; i++) {
             divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
@@ -95,20 +97,8 @@ Client.prototype.getClientsByName = () => {
         for (let i = 0; i < foundPerson.length; i++) {
             divRow.innerHTM += cardGeneric(foundPerson[i]);
         }
+    }
 
-    }
-    else if (foundEnterprise.length !== 0) {
-        cleanHtml();
-        for (let i = 0; i < foundEnterprise.length; i++) {
-            divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
-        }
-    }
-    else if (foundPerson.length !== 0) {
-        cleanHtml();
-        for (let i = 0; i < foundPerson.length; i++) {
-            divRow.innerHTM += cardGeneric(foundPerson[i]);
-        }
-    }
     else {
         divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
     }
@@ -142,6 +132,7 @@ function cardGeneric(client) {
     div.appendChild(buttonEdit);
     div.appendChild(buttonDelete);
 
+
     return divRow.appendChild(div);
 }
 
@@ -159,8 +150,32 @@ function cardEnterprise(clientEnterprise) {
         </div>`
 }
 
-function cleanHtml() {
-    divRow.innerHTML = " ";
+
+function createDiv() {
+
+
+    let div = document.createElement('div');
+    div.className = "col-md-12";
+    div.style = "width:400px";
+    div.innerHTML = `<div class="dropdown col-md-12" style="padding-left: 0px; margin-bottom: 8px">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Opciones de busqueda
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" id="enterprises" style="cursor:pointer">Ver Empresas</a>
+        <a class="dropdown-item" id="persons" style="cursor:pointer">Ver Personas asociadas</a>
+        <a class="dropdown-item" id="allClients" style="cursor:pointer">Ver todos</a>
+    </div>
+</div>`;
+
+    divOptions.appendChild(div);
+
 }
 
-module.exports = { divRow, cleanHtml};
+function cleanHtml() {
+    divRow.innerHTML = " ";
+    divOptions.innerHTML = " ";
+}
+
+module.exports = { divRow, cleanHtml, createDiv };
