@@ -17,7 +17,7 @@ class ProjectFunctions {
       for (let index = 0; index < JSON_PROJECTS.length; index++) {
         this.printCardHtml(JSON_PROJECTS[index]);
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   printCardHtml(projectToPrint) {
@@ -45,15 +45,19 @@ class ProjectFunctions {
     let div = document.getElementById('cards-content');
     let buttonUpdateProject = document.createElement('button');
     let buttonDeleteProject = document.createElement('button');
-    buttonUpdateProject.innerText = "Editar";
-    buttonDeleteProject.innerText = "Eliminar";
+    buttonUpdateProject.className = `btn btn-sm btn-info`;
+    buttonDeleteProject.className = `btn btn-sm btn-danger`;
+    buttonUpdateProject.innerText = `Editar`;
+    buttonDeleteProject.innerText = `Eliminar`;
+    buttonUpdateProject.style = `width: 10rem`;
+    buttonDeleteProject.style = `width: 10rem`;
     buttonDeleteProject.addEventListener('click', () => {
       deleteProject(project);
     });
     buttonUpdateProject.addEventListener('click', () => {
       updateProject(project);
     });
-    div.innerHTML = `<h1>${project.name}</h1><span><img src="${project.image}"></span>
+    div.innerHTML = `<div style="display:grid" id="grid-project-view"><h1>${project.name}</h1><span><img src="${project.image}"></span>
         <br>
       <span>Estado: ${project.status}</span>
       <p>Description:
@@ -69,13 +73,14 @@ class ProjectFunctions {
       </div>
       <div>Sofkianos:
           <p id="actual-sofkianos"></p>
-      </div>`;
+      </div></div>`;
+    let projectView = document.getElementById('grid-project-view');
     let actualTechnologies = document.getElementById('actual-technologies');
     let actualSofkianos = document.getElementById('actual-sofkianos');
     this.printArrayPropertyFromProjectWithPropertyName(project, actualTechnologies, "technologies");
     this.printArrayPropertyFromProjectWithPropertyName(project, actualSofkianos, "sofkianos");
-    div.appendChild(buttonUpdateProject);
-    div.appendChild(buttonDeleteProject);
+    projectView.appendChild(buttonUpdateProject);
+    projectView.appendChild(buttonDeleteProject);
   };
 
   updateProject(project) {
@@ -265,7 +270,7 @@ class ProjectFunctions {
         }
       });
       return results;
-    } catch (error) {}
+    } catch (error) { }
   };
 
   printSearchResults(resultsArray) {
