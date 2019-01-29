@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import ProjectFunctions from './model/ProjectFunctions';
-let { createDivOptionsClient, cleanHtml } = require('./clientModule/clientController/clientFunctions');
-=======
 import ProjectFunctions from './projectModule/model/ProjectFunctions';
 import HomeView from './HomeModule/homeView';
 
->>>>>>> master
+let { createDivOptionsClient } = require('./clientModule/clientController/clientFunctions');
 
 var { Client } = require('./clientModule/models');
 require("./clientModule/clientController/clientCrud");
@@ -21,7 +17,7 @@ let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
 let clientBtn = document.getElementById('btnClients');
 
-let projectFunctions = new ProjectFunctions();
+//let projectFunctions = new ProjectFunctions();
 let home = new HomeView();
 
 clientBtn.addEventListener('click', () => {
