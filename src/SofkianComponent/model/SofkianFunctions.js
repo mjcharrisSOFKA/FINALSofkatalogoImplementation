@@ -248,7 +248,7 @@ class SofkianFunctions {
                   document.getElementById('proyecto1_Updt').value,
                   document.getElementById('proyecto1_porcentaje_Updt').value,
                   document.getElementById('proyecto2_Updt').value,
-                  "no_avatar",
+                  "no_avatar.jpeg",
                   document.getElementById('tecnologias_Updt').value);
                   console.log(JSON_SOFKIANS);
             JSON.stringify(JSON_SOFKIANS.push(sofkianoToCreate));

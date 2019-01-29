@@ -6,6 +6,6 @@
 //     document.getElementById("mySidebar").style.display = "none";
 // });
 
-require("./model/SofkianFunctions.js");
-require("./model/SofkianClases.js");
+require("./SofkianComponent/model/SofkianFunctions.js");
+require("./SofkianComponent/model/SofkianClases.js");
 require("./HtmlController");
