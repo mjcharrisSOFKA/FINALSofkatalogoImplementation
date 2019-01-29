@@ -163,17 +163,7 @@ function updateProject(project) {
     }
   }
 
-  function getClientObject(name, jsonName) {
-    let propertyObject;
-    let tempArray = [];
-    jsonName === `enterprises` ? tempArray = JSON_ENTERPRISES : tempArray = JSON_PERSONS;
-    for (let i = 0; i < tempArray.length; i++) {
-      if (name === tempArray[i].name) {
-        propertyObject = tempArray[i];
-      }
-    }
-    return propertyObject;
-  }
+  
 
   function getPropertiesArrayObject(namesArray, jsonName) {
     let tempArray = [];
@@ -189,6 +179,18 @@ function updateProject(project) {
     return resultArray;
   }
 };
+
+function getClientObject(name, jsonName) {
+  let propertyObject;
+  let tempArray = [];
+  jsonName === `enterprises` ? tempArray = JSON_ENTERPRISES : tempArray = JSON_PERSONS;
+  for (let i = 0; i < tempArray.length; i++) {
+    if (name === tempArray[i].name) {
+      propertyObject = tempArray[i];
+    }
+  }
+  return propertyObject;
+}
 
 function deleteProject(project) {
   let answer = confirm(`Esta seguro que desea eliminar el proyecto ${project.name}`);
@@ -241,12 +243,14 @@ function createProject() {
     let starDate = document.getElementById('project-start-date').value;
     let endDate = document.getElementById('project-end-date').value;
     let image = "https://s3-ap-south-1.amazonaws.com/static.awfis.com/wp-content/uploads/2017/07/07184649/ProjectManagement.jpg";
-    let client = document.getElementById('project-client-select').value;
+    let clientName = document.getElementById('project-client-select');
+    let typeName = clientName.getElementsByTagName('option')[clientName.selectedIndex].id;
+    let clientObject = getClientObject(clientName.value, typeName);
     let projectTechnologies = document.getElementsByName('technology');
     let projectSofkianos = document.getElementsByName('sofkiano');
     let technologies = getCheckedBoxes(projectTechnologies);
     let sofkianos = getCheckedBoxes(projectSofkianos);
-    let projectToCreate = new Project(name, "To Do", description, starDate, endDate, image, client, technologies, sofkianos, id);
+    let projectToCreate = new Project(name, "To Do", description, starDate, endDate, image, clientObject, technologies, sofkianos, id);
     JSON.stringify(JSON_PROJECTS.push(projectToCreate));
     showAllProjects();
     id++;
