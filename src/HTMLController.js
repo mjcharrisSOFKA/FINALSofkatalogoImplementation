@@ -1,11 +1,11 @@
-import ProjectFunctions from './model/ProjectFunctions';
-import ClientFunctions from './clientModule/clientController/clientFunctions';
+import ProjectFunctions from './projectModule/model/ProjectFunctions';
+import HomeComponent from './HomeModule/homeView';
 
 var { Client } = require('./clientModule/models');
 require("./clientModule/clientController/clientCrud");
 
 
-const JSON_FILE_FOR_PROJECTS = require('./data/ProjectData.json');
+const JSON_FILE_FOR_PROJECTS = require('./projectModule/data/ProjectData.json');
 
 const JSON_PROJECTS = JSON_FILE_FOR_PROJECTS.projects;
 
@@ -57,6 +57,8 @@ document.getElementById("button-closeSideBar").addEventListener("click", () => {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
 });
+
+//HomeComponent;
 
 function cleanHtml() {
     divMainClass.innerHTML = " ";
