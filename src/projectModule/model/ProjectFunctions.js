@@ -3,7 +3,7 @@ const JSON_CLIENTS = require('./../data/ClientsData.json').clients;
 const JSON_ENTERPRISES = JSON_CLIENTS.enterprises;
 const JSON_PERSONS = JSON_CLIENTS.persons;
 const JSON_SOFKIANOS = require('./../data/SofkianosData.json').sofkianos;
-const JSON_PROJECTS = require('./../data/ProjectData.json').projects;
+const JSON_PROJECTS = require('./../data/ProjectsData.json').projects;
 const JSON_TECHNOLOGIES = require('./../data/TechnologiesData.json').technologies;
 
 let Project = require('./ProjectClass');
@@ -14,7 +14,6 @@ let main = document.getElementById(`main`);
 class ProjectFunctions {
 
   createModal() {
-    console.log(`creatingModal`);
     let modal = document.createElement('div');
     modal.id = `createModal`;
     modal.className = `modal fade`;
@@ -61,7 +60,6 @@ class ProjectFunctions {
 
   </div>`;
     main.insertAdjacentElement(`beforeend`, modal);
-    console.log(`ModalCreated`);
   };
 
   openedCreationModal() {
@@ -132,7 +130,6 @@ class ProjectFunctions {
   }
 
   printCardHtml(projectToPrint) {
-
     let divCard = document.createElement('div');
     let buttonShowProject = document.createElement('button');
     buttonShowProject.className = `btn btn-sm btn-info`;
@@ -147,9 +144,7 @@ class ProjectFunctions {
     divCard.innerHTML = `<img src=${projectToPrint.image} class='card-img-top' style="width:70%; margin: auto;">
     <div class='card-body'>
     <h4 class='card-title'> ${projectToPrint.name} </h4>
-    <p class='card-text'> ${projectToPrint.description} </p>
-
-    <p class='card-text'> <b>Cliente:</b> ${projectToPrint.client.name.toUpperCase()} </p>`;
+    <p class='card-text'> ${projectToPrint.description} </p>`;
 
     divCard.insertAdjacentElement(`beforeend`, buttonShowProject);
     projectCards.appendChild(divCard);

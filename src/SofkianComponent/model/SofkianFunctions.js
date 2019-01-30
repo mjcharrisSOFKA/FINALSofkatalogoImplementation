@@ -12,15 +12,14 @@ class SofkianFunctions {
       }
 
       showAllSofkians(jsonArray) {
-            let stringHtmlCardConcatenado = '';
             for (let index = 0; index < jsonArray.length; index++) {
-                  stringHtmlCardConcatenado += this.cardSofkian(jsonArray[index]);
+                  this.printCardHtml(jsonArray[index]);
             }
-            this.printCardHtml(stringHtmlCardConcatenado)
+
       };
 
-      printCardHtml(StringHtmlCard) {
-            div.innerHTML = StringHtmlCard;
+      printCardHtml(sofkianoObject) {
+            div.insertAdjacentHTML(`beforeend`, this.cardSofkian(sofkianoObject));
       };
 
       cardSofkian(sofkian) {
@@ -33,9 +32,9 @@ class SofkianFunctions {
                   <p id="divConSofkianExperiencia" class="card-text">Experiencia en Sofka:  ${sofkian.sofkaExperience} </p>
                   <p id="divConBeforeSofkianExperiencia" class="card-text">Experiencia pre-Sofka: ${sofkian.beforeSofkaExperience} </p>
                   <p id="divConTecnologia1" class="card-text">tecnologias manejadas:  ${sofkian.tecnologiasManejadas} </p>
-                  <p id="divConTecnologia1" class="card-text">proyecto 1:  ${sofkian.proyecto1 }</p>
-                  <p id="divConTecnologia1" class="card-text">dedicacion:  ${sofkian.dedicacionProyecto1 }%</p>
-                  <p id="divConTecnologia1" class="card-text">proyecto 2:  ${sofkian.proyecto2 }</p>
+                  <p id="divConTecnologia1" class="card-text">proyecto 1:  ${sofkian.proyecto1}</p>
+                  <p id="divConTecnologia1" class="card-text">dedicacion:  ${sofkian.dedicacionProyecto1}%</p>
+                  <p id="divConTecnologia1" class="card-text">proyecto 2:  ${sofkian.proyecto2}</p>
                   </div>
                   </div>`;
       }

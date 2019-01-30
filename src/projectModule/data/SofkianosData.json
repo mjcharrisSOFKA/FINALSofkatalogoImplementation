@@ -9,7 +9,7 @@
       "proyecto1": "Skynet",
       "dedicacionProyecto1": "90",
       "proyecto2": "sofkatalogos",
-      "img": "Leyner.jpeg",
+      "img": "https://scontent-bog1-1.cdninstagram.com/vp/504cd58b02aa61aff9be6398953b978a/5CFF6317/t51.2885-15/e35/25023084_355591118237697_5378031745947926528_n.jpg?_nc_ht=scontent-bog1-1.cdninstagram.com",
       "tecnologiasManejadas": "angular 5, python 3.7, pytorch 1"
     },
     {
@@ -21,7 +21,7 @@
       "proyecto1": "Hibot",
       "dedicacionProyecto1": "90",
       "proyecto2": "snapchat_2.0",
-      "img": "Alex.jpeg",
+      "img": "https://scontent-bog1-1.cdninstagram.com/vp/97efdcd583eeffcd3c815394a7707a72/5CE09F8B/t51.2885-15/e35/44862942_142329026733985_3856319783107934312_n.jpg?_nc_ht=scontent-bog1-1.cdninstagram.com",
       "tecnologiasManejadas": "xamarin 2, c# 5"
     },
     {
@@ -33,7 +33,7 @@
       "proyecto1": "alexa sr",
       "dedicacionProyecto1": "90",
       "proyecto2": "cortana jr",
-      "img": "Quinto.jpeg",
+      "img": "https://scontent-bog1-1.cdninstagram.com/vp/2770b0a30791f618d5e351006a42750b/5CDB2721/t51.2885-15/e35/37761534_287290848689102_3307351733927149568_n.jpg?_nc_ht=scontent-bog1-1.cdninstagram.com",
       "tecnologiasManejadas": "dialogflow 2"
     }
   ]
