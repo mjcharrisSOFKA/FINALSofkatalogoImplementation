@@ -74,6 +74,26 @@ document.addEventListener('click',function(e){
                 console.log("Ha ocurrido un error: " + error);
           }
     }
+
+    if(e.target && e.target.id === "abrir_form_editar_sofkiano"){
+        try{
+              var nombreSofkiano = e.target.parentNode.id;
+              sofkianPeople.incluirHtmlParaEditar(JSON_SOFKIAN.sofkians,nombreSofkiano)
+              console.log(sofkianPeople.devolverSofkiano(JSON_SOFKIAN.sofkians,nombreSofkiano))
+        }catch(error){
+             console.log("Ha ocurrido un error: " + error);
+        }
+  }
+
+  if(e.target && e.target.id === "editar_sofkian"){
+    try{
+          var analizando = e.target.parentNode;
+          console.log(analizando)
+    }catch(error){
+         console.log("Ha ocurrido un error: " + error);
+    }
+    }
+
 })
 
 

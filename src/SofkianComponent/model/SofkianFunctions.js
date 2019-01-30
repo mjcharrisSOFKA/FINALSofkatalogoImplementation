@@ -38,7 +38,7 @@ class SofkianFunctions {
                   <p id="divConTecnologia1" class="card-text">proyecto 1:  ${sofkian.proyecto1 }</p>
                   <p id="divConTecnologia1" class="card-text">dedicacion:  ${sofkian.dedicacionProyecto1 }%</p>
                   <p id="divConTecnologia1" class="card-text">proyecto 2:  ${sofkian.proyecto2 }</p>
-                  <button id="editar_sofkiano" style="height: 40px" class="btn btn-primary mb-3">Editar</button>
+                  <button id="abrir_form_editar_sofkiano" style="height: 40px" class="btn btn-primary mb-3">Editar</button>
                   <button id="borrar_sofkiano" style="height: 40px"  class="btn btn-danger mb-3"  >Borrar</button>
                   </div>
                   </div>`;
@@ -101,14 +101,13 @@ class SofkianFunctions {
             }
             this.showAllSofkians(jsonArray)
       }
-      incluirHtmlParaEditar(jsonArray) {
-            document.getElementById('sofkianDiv').innerHTML = this.formEdicionSofkian(this.devolverSofkiano(jsonArray));
+      incluirHtmlParaEditar(jsonArray,nombreSofkiano) {
+            document.getElementById('cards-content').innerHTML = this.formEdicionSofkian(this.devolverSofkiano(jsonArray,nombreSofkiano));
       }
-      devolverSofkiano(jsonArray) {
+      devolverSofkiano(jsonArray,nombreSofkiano) {
             var sofkiano;
-            var nombreDelEditado = document.getElementById('divConSofkianName').innerHTML;
             for (var index = 0; index < jsonArray.length; index++) {
-                  if (jsonArray[index].name === nombreDelEditado) {
+                  if (jsonArray[index].name === nombreSofkiano) {
                         sofkiano = jsonArray[index];
                   }
             }
@@ -146,7 +145,7 @@ class SofkianFunctions {
 
       formEdicionSofkian(sofkian) {
             return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
-                  '<img src="imgs/' + sofkian.img + '" class="card-img-top" alt="...">' +
+                  '<img src="' + sofkian.img + '" class="card-img-top" alt="...">' +
                   '<h5 id="divConSofkianName" class="card-title" id="enterpriseName">' + sofkian.name + '</h5>' +
                   '<br>' +
                   '<div class="form-group">' +
@@ -190,7 +189,7 @@ class SofkianFunctions {
                   '<label for="exampleInputEmail1"><strong>Proyecto 1:</strong></label>' +
                   '<input type="textarea" class="form-control" id="proyecto2_Updt" aria-describedby="emailHelp" placeholder="' + sofkian.proyecto2 + '" value="' + sofkian.proyecto2 + '">' +
                   '</div>' +
-                  '<a href="#" class="btn btn-primary" id="actualizarSofkian">Actualizar</a>' +
+                  '<a href="#" class="btn btn-primary" id="editar_sofkian">Actualizar</a>' +
                   '</div>';
       }
 
