@@ -73,8 +73,8 @@ document.getElementById('btnSofkianos').addEventListener('click', () => {
 document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();
     showSearchButton();
+    projectFunctions.createModal();
     projectFunctions.addCreateButtonToModal();
-    projectFunctions.createDivOptions();
     projectFunctions.showAllProjects();
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";

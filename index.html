@@ -9,6 +9,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./searchBar/searchBar.css">
+    <link rel="stylesheet" href="./styles.css">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Sofkatalogo</title>
@@ -56,55 +57,12 @@
     <div id="options" class="col-md-12 mb-5 ml-1">
 
     </div>
-    <div id="cards-content" class="row ml-4" style="padding-left: 10px">
+    <div id="cards-content" class="row">
 
     </div>
     </div>
     
-    <div id="createModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Create Project</h4>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <label>Nombre: <input type="text" id="project-name">
-                        </label>
-                        <label>Descripción: <textarea type="text" id="project-description"></textarea>
-                        </label>
-                        <label>Fecha de inicio: <input type="date" id="project-start-date">
-                        </label>
-                        <label>Fecha de fin: <input type="date" id="project-end-date">
-                        </label>
-                        <label>Imagen <input type="file" id="project-image">
-                        </label>
-                        <hr>
-                        <label>Cliente: <select id="project-client-select">
-
-                            </select>
-                        </label>
-                        <br>
-                        <label>Tecnologías: <span id="technologies">
-
-                            </span>
-                        </label>
-                        <br>
-                        <label>Sofkianos: <span id="sofkianos">
-
-                            </span>
-                        </label>
-                    </form>
-                </div>
-                <div class="modal-footer" id="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    
-                </div>
-            </div>
-
-        </div>
-    </div>
+   
 
     <div style="margin: 1%; padding: 1%">
         <footer class="page-footer font-small teal pt-4">
