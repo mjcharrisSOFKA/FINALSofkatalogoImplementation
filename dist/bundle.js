@@ -81,20 +81,20 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/home.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/HTMLController.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/HtmlController.js":
+/***/ "./src/HTMLController.js":
 /*!*******************************!*\
-  !*** ./src/HtmlController.js ***!
+  !*** ./src/HTMLController.js ***!
   \*******************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _model_SofkianFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model/SofkianFunctions */ \"./src/model/SofkianFunctions.js\");\n/* harmony import */ var _model_SofkianFunctions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_model_SofkianFunctions__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nlet { createDivOptionsSofkian } = __webpack_require__(/*! ./model/SofkianFunctions */ \"./src/model/SofkianFunctions.js\");\r\n\r\n\r\n\r\nconst JSON_FILE_FOR_SOFKIANS = __webpack_require__(/*! ./data/SofkianData.json */ \"./src/data/SofkianData.json\");\r\nconst JSON_SOFKIANS = JSON_FILE_FOR_SOFKIANS.sofkians;\r\n\r\nlet divMainClass = document.getElementById('cards-content'); \r\nlet divClientHTML = document.getElementById('client-container');\r\n\r\n\r\nlet homeBtn = document.getElementById('btnHome');\r\nlet clientBtn = document.getElementById('btnClients');\r\n\r\n\r\n\r\nlet sofkianFunctions = new _model_SofkianFunctions__WEBPACK_IMPORTED_MODULE_0___default.a();\r\ndocument.getElementById('btnSofkian').addEventListener('click', () => {\r\n    console.log(createDivOptionsSofkian());\r\n    sofkianFunctions.showAllSofkians(JSON_SOFKIANS);\r\n});\r\n\r\n// document.getElementById('buscarSofkianBoton').addEventListener('click', () => {\r\n//     sofkianFunctions.showEspecificSokfian(JSON_SOFKIANS);\r\n// });\r\n// document.getElementById(\"eliminarSofkianBoton\").addEventListener('click', () => {\r\n//     sofkianFunctions.eliminarSokfian(JSON_SOFKIANS);\r\n// });\r\n// document.getElementById(\"editarSofkianBoton\").addEventListener('click', () => {\r\n//     sofkianFunctions.incluirHtmlParaEditar(JSON_SOFKIANS);\r\n// });\r\n\r\n// document.addEventListener('click',function(e){\r\n//     if(e.target && e.target.id === \"actualizarSofkian\"){\r\n//         sofkianFunctions.editarSokfiano(JSON_SOFKIANS)\r\n//     }\r\n// });\r\n\r\n// document.getElementById(\"agregarSofkianBoton\").addEventListener('click', () => {\r\n//     sofkianFunctions.incluirHtmlParaAgregar();\r\n// });\r\n\r\n// document.addEventListener('click',function(e){\r\n//     if(e.target && e.target.id === \"agregarSofkian\"){\r\n//         sofkianFunctions.agregarSokfiano();\r\n//     }\r\n// });\n\n//# sourceURL=webpack:///./src/HtmlController.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _model_SofkianFunctions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./model/SofkianFunctions */ \"./src/model/SofkianFunctions.js\");\n/* harmony import */ var _model_SofkianFunctions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_model_SofkianFunctions__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\nlet { createDivOptionsSofkian } = __webpack_require__(/*! ./model/SofkianFunctions */ \"./src/model/SofkianFunctions.js\");\r\n\r\n\r\n\r\nconst JSON_FILE_FOR_SOFKIANS = __webpack_require__(/*! ./data/SofkianData.json */ \"./src/data/SofkianData.json\");\r\nconst JSON_SOFKIANS = JSON_FILE_FOR_SOFKIANS.sofkians;\r\n\r\nlet divMainClass = document.getElementById('cards-content'); \r\nlet divClientHTML = document.getElementById('client-container');\r\n\r\n\r\nlet homeBtn = document.getElementById('btnHome');\r\nlet clientBtn = document.getElementById('btnClients');\r\n\r\n\r\n\r\nlet sofkianFunctions = new _model_SofkianFunctions__WEBPACK_IMPORTED_MODULE_0___default.a();\r\ndocument.getElementById('btnSofkian').addEventListener('click', () => {\r\n    console.log(createDivOptionsSofkian());\r\n    sofkianFunctions.showAllSofkians(JSON_SOFKIANS);\r\n});\r\n\r\n// document.getElementById('buscarSofkianBoton').addEventListener('click', () => {\r\n//     sofkianFunctions.showEspecificSokfian(JSON_SOFKIANS);\r\n// });\r\n// document.getElementById(\"eliminarSofkianBoton\").addEventListener('click', () => {\r\n//     sofkianFunctions.eliminarSokfian(JSON_SOFKIANS);\r\n// });\r\n// document.getElementById(\"editarSofkianBoton\").addEventListener('click', () => {\r\n//     sofkianFunctions.incluirHtmlParaEditar(JSON_SOFKIANS);\r\n// });\r\n\r\n// document.addEventListener('click',function(e){\r\n//     if(e.target && e.target.id === \"actualizarSofkian\"){\r\n//         sofkianFunctions.editarSokfiano(JSON_SOFKIANS)\r\n//     }\r\n// });\r\n\r\n// document.getElementById(\"agregarSofkianBoton\").addEventListener('click', () => {\r\n//     sofkianFunctions.incluirHtmlParaAgregar();\r\n// });\r\n\r\n// document.addEventListener('click',function(e){\r\n//     if(e.target && e.target.id === \"agregarSofkian\"){\r\n//         sofkianFunctions.agregarSokfiano();\r\n//     }\r\n// });\n\n//# sourceURL=webpack:///./src/HTMLController.js?");
 
 /***/ }),
 
@@ -106,17 +106,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ (function(module) {
 
 eval("module.exports = {\"sofkians\":[{\"name\":\"Leyner\",\"id\":\"1\",\"characteristics\":\"sociable, proactivo, servicial\",\"sofkaExperience\":\"0\",\"beforeSofkaExperience\":\"1.5\",\"proyecto1\":\"Skynet\",\"dedicacionProyecto1\":\"90\",\"proyecto2\":\"sofkatalogos\",\"img\":\"Leyner.jpeg\",\"tecnologiasManejadas\":\"angular 5, python 3.7, pytorch 1\"},{\"name\":\"Alex\",\"id\":\"2\",\"characteristics\":\"lider, sociable, leal\",\"sofkaExperience\":\"3\",\"beforeSofkaExperience\":\"5\",\"proyecto1\":\"Hibot\",\"dedicacionProyecto1\":\"90\",\"proyecto2\":\"snapchat_2.0\",\"img\":\"Alex.jpeg\",\"tecnologiasManejadas\":\"xamarin 2, c# 5\"},{\"name\":\"Quinto\",\"id\":\"2\",\"characteristics\":\"lider, sociable, leal\",\"sofkaExperience\":\"6\",\"beforeSofkaExperience\":\"1\",\"proyecto1\":\"alexa sr\",\"dedicacionProyecto1\":\"90\",\"proyecto2\":\"cortana jr\",\"img\":\"Quinto.jpeg\",\"tecnologiasManejadas\":\"dialogflow 2\"}]};\n\n//# sourceURL=webpack:///./src/data/SofkianData.json?");
-
-/***/ }),
-
-/***/ "./src/home.js":
-/*!*********************!*\
-  !*** ./src/home.js ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("\r\n// let open_sideBar = document.getElementById(\"button-openSideBar\").addEventListener(\"click\", () => {\r\n//     document.getElementById(\"mySidebar\").style.display = \"block\";\r\n// });\r\n// let close_sideBar = document.getElementById(\"button-closeSideBar\").addEventListener(\"click\", () => {\r\n//     document.getElementById(\"mySidebar\").style.display = \"none\";\r\n// });\r\n\r\n__webpack_require__(/*! ./sofkianModule/Model/SofkianFunctions.js */ \"./src/sofkianModule/Model/SofkianFunctions.js\");\r\n__webpack_require__(/*! ./sofkianModule/Model/SofkianClases.js */ \"./src/sofkianModule/Model/SofkianClases.js\");\r\n__webpack_require__(/*! ./HtmlController */ \"./src/HtmlController.js\");\n\n//# sourceURL=webpack:///./src/home.js?");
 
 /***/ }),
 
@@ -139,28 +128,6 @@ eval("var {\r\n      Sofkiano\r\n} = __webpack_require__(/*! ./sofkianClases.js 
 /***/ (function(module, exports) {
 
 eval("class Sofkiano {\r\n    constructor(name, id, characteristics, sofkaExperience, beforeSofkaExperience, proyecto1, dedicacion1, proyecto2, img, tecnologiasManejadas) {\r\n        this.name = name;\r\n        this.id = id;\r\n        this.characteristics = characteristics;\r\n        this.sofkaExperience = sofkaExperience;\r\n        this.beforeSofkaExperience = beforeSofkaExperience;\r\n        this.proyecto1 = proyecto1\r\n        this.dedicacion1 = dedicacion1;\r\n        this.proyecto2 = proyecto2\r\n        this.img = img\r\n        this.tecnologiasManejadas = tecnologiasManejadas;\r\n    }\r\n}\r\n\r\nclass Tecnologias {\r\n    constructor(version, name) {\r\n        this.version = version;\r\n        this.name = name;\r\n    }\r\n}\r\n\r\nmodule.exports = {\r\n    Sofkiano,\r\n    Tecnologias\r\n};\n\n//# sourceURL=webpack:///./src/model/sofkianClases.js?");
-
-/***/ }),
-
-/***/ "./src/sofkianModule/Model/SofkianClases.js":
-/*!**************************************************!*\
-  !*** ./src/sofkianModule/Model/SofkianClases.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\r\nclass Sofkiano {\r\n    constructor(name,id,foto,characteristics,sofkaExperience,beforeSofkaExperience,proyecto1,proyecto2,dedicacionProyecto1) {\r\n        this.name = name;\r\n        this.id = id;\r\n        this.foto = foto;\r\n        this.characteristics = characteristics;\r\n        this.sofkaExperience = sofkaExperience;\r\n        this.beforeSofkaExperience = beforeSofkaExperience;\r\n        this.dedicacion = [proyecto1,proyecto2];\r\n        this.porcentajeEnProyecto1 = parseInt(dedicacionProyecto1);\r\n        this.porcentajeEnProyecto2 = 100 - parseInt(dedicacionProyecto1);\r\n        this.tecnologias = Array();\r\n      }\r\n}\r\n\r\nclass Tecnologias {\r\n    constructor(version,name) {\r\n        this.version = version;\r\n        this.name = name;\r\n      }\r\n}\r\n\r\nmodule.exports = {Sofkiano, Tecnologias};\r\n\r\n\n\n//# sourceURL=webpack:///./src/sofkianModule/Model/SofkianClases.js?");
-
-/***/ }),
-
-/***/ "./src/sofkianModule/Model/SofkianFunctions.js":
-/*!*****************************************************!*\
-  !*** ./src/sofkianModule/Model/SofkianFunctions.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("let divOptionsClient = document.getElementById('options');\r\nclass ProjectFunctions {\r\n\r\n  constructor() {\r\n    this.projectCards = document.getElementById('sofkianDiv');\r\n  }\r\n\r\n  showAllSofkians(jsonArray) {\r\n    for (let index = 0; index < jsonArray.length; index++) {\r\n      this.printCardHtml(jsonArray[index]);\r\n    }\r\n  };\r\n\r\n  printCardHtml(htmmlString) {\r\n    let cardToPrint = document.getElementById('sofkianDiv');\r\n    let div = document.createElement('div');\r\n    div.innerHTML = htmmlString\r\n    cardToPrint.appendChild(div);\r\n  }\r\n\r\n  cardSofkian(sofkian) {\r\n    return '<div  class=\"card col-md-3 mr-5 mb-3\" style=\"width: 18rem; padding: 0.2%; margin: 2%\">' +\r\n      '<img src=\"imgs/' + sofkian.img + '.jpeg\" class=\"card-img-top\" alt=\"...\">' +\r\n      '<div class=\"card-body\">' +\r\n      '<h5 id=\"divConSofkianName\" class=\"card-title\" id=\"enterpriseName\">' + sofkian.name + '</h5>' +\r\n      '<p id=\"divConSofkianCedula\" class=\"card-text\">cedula: ' + sofkian.id + '</p>' +\r\n      '<p id=\"divConSofkianCaracteristicas\" class=\"card-text\">caracteristicas: ' + sofkian.characteristics + '</p>' +\r\n      '<p id=\"divConSofkianExperiencia\" class=\"card-text\">Experiencia en Sofka: ' + sofkian.sofkaExperience + '</p>' +\r\n      '<p id=\"divConBeforeSofkianExperiencia\" class=\"card-text\">Experiencia pre-Sofka: ' + sofkian.beforeSofkaExperience + '</p>' +\r\n      '<p id=\"divConTecnologia1\" class=\"card-text\">tecnologias manejadas: ' + sofkian.tecnologiasManejadas + '</p>' +\r\n      '<p id=\"divConTecnologia1\" class=\"card-text\">proyecto 1: ' + sofkian.proyecto1 + '</p>' +\r\n      '<p id=\"divConTecnologia1\" class=\"card-text\">dedicacion: ' + sofkian.dedicacionProyecto1 + '%</p>' +\r\n      '<p id=\"divConTecnologia1\" class=\"card-text\">proyecto 2: ' + sofkian.proyecto2 + '</p>' +\r\n      '</div>' +\r\n      '</div>';\r\n  }\r\n\r\n}\r\n\r\nfunction createDivOptionsSofkian() {\r\n  try {\r\n    let divOptions = document.createElement('div');\r\n    console.log(divOptions);\r\n    divOptions.className = \"col-md-6\";\r\n    divOptions.style = \"width:400px\";\r\n    divOptions.innerHTML = `<div class=\"dropdown col-md-12\" style=\"padding-left: 0px; margin-bottom: 8px\">\r\n<button class=\"btn btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\"\r\n    aria-haspopup=\"true\" aria-expanded=\"false\">\r\n    Opciones de busqueda\r\n</button>\r\n<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\r\n    <a class=\"dropdown-item\" id=\"enterprises\" style=\"cursor:pointer\">Ver Empresas</a>\r\n    <a class=\"dropdown-item\" id=\"persons\" style=\"cursor:pointer\">Ver Personas asociadas</a>\r\n    <a class=\"dropdown-item\" id=\"allClients\" style=\"cursor:pointer\">Ver todos</a>\r\n</div>\r\n</div> \r\n</div>`;\r\n    divOptionsClient.appendChild(divOptions);\r\n  } catch (error) {\r\n    console.log(error);\r\n\r\n  }\r\n\r\n}\r\n\r\nmodule.exports = {\r\n  createDivOptionsSofkian\r\n};\n\n//# sourceURL=webpack:///./src/sofkianModule/Model/SofkianFunctions.js?");
 
 /***/ })
 
