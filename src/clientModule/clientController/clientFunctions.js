@@ -17,7 +17,7 @@ Client.prototype.getClients = () => {
 
         for (let j = 0; j < arr.length; j++) {
             showClient += arr[j].map((client) => {
-                return cardGeneric(client);
+                return Client.prototype.printCardHtml(client);
             });
         }
 
@@ -44,40 +44,8 @@ Client.prototype.getAllEnterprises = () => {
 
 Client.prototype.getAllPersons = () => {
     var showPerson = arr[1].map((person) => {
-        return cardGeneric(person);
+        return Client.prototype.printCardHtml(person);
     });
-}
-
-Client.prototype.getClientsByName = () => {
-
-    let cliSearched = document.getElementById("clientToSearch").value.toUpperCase();
-    var foundPerson;
-    var foundEnterprise;
-    let personsList = clientList.persons;
-    let enterpriseList = clientList.enterprises;
-
-
-    foundEnterprise = enterpriseList.filter((client) => {
-        return client.name.includes(cliSearched);
-    });
-
-    foundPerson = personsList.filter(function (client) {
-        return client.name.includes(cliSearched);
-    });
-
-    if (foundEnterprise.length !== 0 || foundPerson.length !== 0) {
-        cleanHtmlClient();
-        for (let i = 0; i < foundEnterprise.length; i++) {
-            divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
-        }
-        for (let i = 0; i < foundPerson.length; i++) {
-            divRow.innerHTM += cardGeneric(foundPerson[i]);
-        }
-    }
-
-    else {
-        divRow.innerHTML = "<h2>Cliente no encontrado</h2>";
-    }
 }
 
 Client.prototype.functionClients = () => {
@@ -98,7 +66,7 @@ Client.prototype.functionClients = () => {
     });*/
 }
 
-function cardGeneric(client) {
+Client.prototype.printCardHtml = (client) => {
 
     let div = document.createElement('div');
     div.className = "card col-md-3 ml-2 mr-5 mb-5";

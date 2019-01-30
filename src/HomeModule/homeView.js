@@ -12,7 +12,7 @@ class HomeView {
         let textToDiv2 = document.createElement('h4');
         let img = document.createElement('img');
 
-        let controllerName = document.getElementById('controllerName');
+        this.controllerName = document.getElementById('controllerName');
 
         homeDiv.className = 'row ';
         homeDiv.style = "margin: 2%,";
