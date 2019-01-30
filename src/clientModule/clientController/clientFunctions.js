@@ -17,7 +17,7 @@ Client.prototype.getClients = () => {
 
         for (let j = 0; j < arr.length; j++) {
             showClient += arr[j].map((client) => {
-                return cardGeneric(client);
+                return Client.prototype.printCardHtml(client);
             });
         }
 
@@ -44,7 +44,7 @@ Client.prototype.getAllEnterprises = () => {
 
 Client.prototype.getAllPersons = () => {
     var showPerson = arr[1].map((person) => {
-        return cardGeneric(person);
+        return Client.prototype.printCardHtml(person);
     });
 }
 
@@ -71,7 +71,7 @@ Client.prototype.getClientsByName = () => {
             divRow.innerHTML += cardEnterprise(foundEnterprise[i]);
         }
         for (let i = 0; i < foundPerson.length; i++) {
-            divRow.innerHTM += cardGeneric(foundPerson[i]);
+            divRow.innerHTM += Client.prototype.printCardHtml(foundPerson[i]);
         }
     }
 
@@ -98,7 +98,7 @@ Client.prototype.functionClients = () => {
     });*/
 }
 
-function cardGeneric(client) {
+Client.prototype.printCardHtml = (client) => {
 
     let div = document.createElement('div');
     div.className = "card col-md-3 ml-2 mr-5 mb-5";

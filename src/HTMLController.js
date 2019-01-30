@@ -5,7 +5,7 @@ import Sofkian from './SofkianComponent/model/SofkianFunctions';
 const JSON_SOFKIAN = require('./SofkianComponent/data/SofkianData.json');
 
 let {
-    createDivOptionsClient
+    createDivOptionsClient,
 } = require('./clientModule/clientController/clientFunctions');
 
 var {
@@ -46,7 +46,7 @@ homeBtn.addEventListener('click', () => {
 
 clientBtn.addEventListener('click', () => {
     viewName = `Clients`;
-    controller = Client;
+    controller = Client.prototype.printCardHtml;
     cleanHtml();
     showSearchButton();
     createDivOptionsClient();
@@ -110,14 +110,52 @@ searchbtn.addEventListener(`click`, () => {
     let arrayName = viewName;
     let property = arrayName.toLocaleLowerCase();
     const TEMP_JSON = require(`./projectModule/data/${arrayName}Data.json`)[property];
-    let foundObject = TEMP_JSON.filter(object => compareValues(searchTxt, object));
-    divMainClass.innerHTML = " ";
-    console.log(foundObject[0]);
-    controller.printCardHtml(foundObject[0]);
+    let foundObject;
+    let sizeJson = Object.keys(TEMP_JSON).length;
+    if (sizeJson === 2) {
+        console.log('Lo hago para clientes');
+        var arrClients = [];
+        for (let i in TEMP_JSON) {
+            arrClients.push(TEMP_JSON[i]);
+        }
+        let client = compareClient(arrClients, searchTxt);
+        divMainClass.innerHTML = " ";
+        try {
+            controller(client);
+        } catch (error) {
+            validateSearch();
+        }
+
+    } else {
+        foundObject = TEMP_JSON.filter(object => compareValues(searchTxt, object));
+        divMainClass.innerHTML = " ";
+        try {
+            controller.printCardHtml(foundObject[0]);
+        } catch (error) {
+            validateSearch();
+        }
+
+    }
 });
 
-function compareValues(inputValue, jsonObject){
-    if(inputValue.toLowerCase() === jsonObject.name.toLowerCase()) return jsonObject;
+function compareClient(clients, inputValue) {
+    let clientFoud;
+    for (let j = 0; j < clients.length; j++) {
+        clients[j].filter((client) => {
+            if (client.name === inputValue.toUpperCase()) {
+                clientFoud = client;
+            }
+        });
+    }
+    return clientFoud
+}
+
+function compareValues(inputValue, jsonObject) {
+    if (inputValue.toLowerCase() === jsonObject.name.toLowerCase()) return jsonObject;
+}
+
+function validateSearch() {
+    divMainClass.innerHTML = '<h2>No hay resultados<h2>'
 }
 
 home.showHome();
