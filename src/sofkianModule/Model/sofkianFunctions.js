@@ -1,5 +1,5 @@
 let divOptionsClient = document.getElementById('options');
-class ProjectFunctions {
+class SofkianFunctions {
 
   constructor() {
     this.projectCards = document.getElementById('sofkianDiv');
@@ -34,6 +34,30 @@ class ProjectFunctions {
       '</div>' +
       '</div>';
   }
+  createDivOptionsSofkian() {
+    try {
+      let divOptions = document.createElement('div');
+      console.log(divOptions);
+      divOptions.className = "col-md-6";
+      divOptions.style = "width:400px";
+      divOptions.innerHTML = `<div class="dropdown col-md-12" style="padding-left: 0px; margin-bottom: 8px">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Opciones de busqueda
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" id="enterprises" style="cursor:pointer">Ver Empresas</a>
+      <a class="dropdown-item" id="persons" style="cursor:pointer">Ver Personas asociadas</a>
+      <a class="dropdown-item" id="allClients" style="cursor:pointer">Ver todos</a>
+  </div>
+  </div> 
+  </div>`;
+      divOptionsClient.appendChild(divOptions);
+    } catch (error) {
+      console.log(error);
+  
+    }
+  }
 
 }
 
@@ -60,7 +84,6 @@ function createDivOptionsSofkian() {
     console.log(error);
 
   }
-
 }
 
 module.exports = {

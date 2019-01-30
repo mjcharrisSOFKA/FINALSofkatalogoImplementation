@@ -1,0 +1,47 @@
+{
+    "clients": {
+        "enterprises": [
+            {
+                "name": "alpina",
+                "nit": "860.025.900-2",
+                "size": "5.500-10.000 empleados",
+                "sector": "Alimentos y bebidas",
+                "image": "https://cdn.advantis.co/wp-content/uploads/2018/06/Alpina-864x675.png",
+                "webPage": "https://www.alpina.com/"
+            },
+            {
+                "name": "proteccion",
+                "nit": "800.229.739-0",
+                "size": "1.001-5.000 empleados",
+                "sector": "Servicios Financieros",
+                "image": "https://www.viviendocali.com/wp-content/uploads/2018/02/Protecci%C3%B3n-en-Cartagena.jpg",
+                "webPage": "https://www.proteccion.com"
+            },
+            {
+                "name": "sura",
+                "nit": "900.847.380",
+                "size": "51-200 empleados",
+                "sector": "Servicios Financieros",
+                "image": "https://mazkomazda.com/wp-content/uploads/2018/04/SURA_logo-16-9-728-2.jpg",
+                "webPage": "https://www.segurossura.com.co"
+            }
+        ],
+        "persons": [
+            {
+                "name": "JUAN ESTEBAN MONTOYA",
+                "id": "1.038.435,932",
+                "image": "https://examapplication.com/public/img/user.png"
+            },
+            {
+                "name": "LIZA",
+                "id": "42.813.784",
+                "image": "https://img.icons8.com/color/1600/administrator-female.png"
+            },
+            {
+                "name": "ROXANA",
+                "id": "1.020.456.846",
+                "image": "https://img.icons8.com/color/1600/administrator-female.png"
+            }
+        ]
+    }
+}

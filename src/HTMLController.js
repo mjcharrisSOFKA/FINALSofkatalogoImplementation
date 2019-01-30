@@ -56,7 +56,6 @@ homeBtn.addEventListener('click', () => {
 document.getElementById('btnSofkianos').addEventListener('click',() => {
     cleanHtml();
     sofkianPeople.showAllSofkians(JSON_SOFKIAN.sofkians);
-    sofkianPeople.createDivOptionsSofkian();
     
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
@@ -64,21 +63,6 @@ document.getElementById('btnSofkianos').addEventListener('click',() => {
     viewName = 'sofkian';
     console.log(viewName);
 });
-
-document.addEventListener('click',function(e){
-    if(e.target && e.target.id === "borrar_sofkiano"){
-          try{
-                var nombreDelEliminado = e.target.parentNode.id;
-                sofkianPeople.eliminarSofkianoPorNombre(JSON_SOFKIAN.sofkians,nombreDelEliminado)
-          }catch(error){
-                console.log("Ha ocurrido un error: " + error);
-          }
-    }
-})
-
-
-
-
 
 document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();

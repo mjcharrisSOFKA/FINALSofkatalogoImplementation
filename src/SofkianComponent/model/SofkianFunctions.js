@@ -1,42 +1,51 @@
 var {
       Sofkiano
 } = require('./sofkianClases.js');
+
 const JSON_SOFKIANS = require('./../data/SofkianData.json').sofkians;
+let div = document.getElementById('cards-content');
+
 
 class SofkianFunctions {
 
       constructor() {
-            this.sofkianCards = document.getElementById('sofkianDiv');
+            this.sofkianCards = document.getElementById('cards-content');
       }
 
       showAllSofkians(jsonArray) {
-            var StringHtmlCardConcatenado;
+            let stringHtmlCardConcatenado = '';
             for (let index = 0; index < jsonArray.length; index++) {
-                  StringHtmlCardConcatenado += this.cardSofkian(jsonArray[index]);
+                  stringHtmlCardConcatenado += this.cardSofkian(jsonArray[index]);
             }
-            this.printCardHtml(StringHtmlCardConcatenado)
+            this.printCardHtml(stringHtmlCardConcatenado)
       };
 
       printCardHtml(StringHtmlCard) {
-            let div = document.getElementById('sofkianDiv');
+
             div.innerHTML = StringHtmlCard;
       };
 
       cardSofkian(sofkian) {
-            return '<div  class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">' +
-                  '<img src="imgs/' + sofkian.img + '" class="card-img-top" alt="...">' +
-                  '<div class="card-body">' +
-                  '<h5 id="divConSofkianName" class="card-title" id="enterpriseName">' + sofkian.name + '</h5>' +
-                  '<p id="divConSofkianCedula" class="card-text">cedula: ' + sofkian.id + '</p>' +
-                  '<p id="divConSofkianCaracteristicas" class="card-text">caracteristicas: ' + sofkian.characteristics + '</p>' +
-                  '<p id="divConSofkianExperiencia" class="card-text">Experiencia en Sofka: ' + sofkian.sofkaExperience + '</p>' +
-                  '<p id="divConBeforeSofkianExperiencia" class="card-text">Experiencia pre-Sofka: ' + sofkian.beforeSofkaExperience + '</p>' +
-                  '<p id="divConTecnologia1" class="card-text">tecnologias manejadas: ' + sofkian.tecnologiasManejadas + '</p>' +
-                  '<p id="divConTecnologia1" class="card-text">proyecto 1: ' + sofkian.proyecto1 + '</p>' +
-                  '<p id="divConTecnologia1" class="card-text">dedicacion: ' + sofkian.dedicacionProyecto1 + '%</p>' +
-                  '<p id="divConTecnologia1" class="card-text">proyecto 2: ' + sofkian.proyecto2 + '</p>' +
-                  '</div>' +
-                  '</div>';
+            return `<div   class="card col-md-3 mr-5 mb-3" style="width: 18rem; padding: 0.2%; margin: 2%">
+                  <img src="${sofkian.img}" class="card-img-top" alt="...">
+                  <div id="${sofkian.name}" class="card-body">
+                  <h5 id="divConSofkianName" class="card-title" id="enterpriseName"> ${sofkian.name} </h5>
+                  <p id="divConSofkianCedula" class="card-text">cedula: ${sofkian.id} </p>
+                  <p id="divConSofkianCaracteristicas" class="card-text">caracteristicas: ${sofkian.characteristics} </p>
+                  <p id="divConSofkianExperiencia" class="card-text">Experiencia en Sofka:  ${sofkian.sofkaExperience} </p>
+                  <p id="divConBeforeSofkianExperiencia" class="card-text">Experiencia pre-Sofka: ${sofkian.beforeSofkaExperience} </p>
+                  <p id="divConTecnologia1" class="card-text">tecnologias manejadas:  ${sofkian.tecnologiasManejadas} </p>
+                  <p id="divConTecnologia1" class="card-text">proyecto 1:  ${sofkian.proyecto1 }</p>
+                  <p id="divConTecnologia1" class="card-text">dedicacion:  ${sofkian.dedicacionProyecto1 }%</p>
+                  <p id="divConTecnologia1" class="card-text">proyecto 2:  ${sofkian.proyecto2 }</p>
+                  <button id="editar_sofkiano" style="height: 40px" class="btn btn-primary mb-3">Editar</button>
+                  <button id="borrar_sofkiano" style="height: 40px"  class="btn btn-danger mb-3"  >Borrar</button>
+                  </div>
+                  </div>`;
+      }
+
+      eliminar_sofkiano(nombre_sofkiano){
+            alert("funcina la funcion onclick")
       }
 
       showEspecificSokfian(jsonArray) {
@@ -84,13 +93,13 @@ class SofkianFunctions {
             return sofkianoEncontrado;
       }
 
-      eliminarSofkianoPorNombre(jsonArray) {
-            var nombreDelEliminado = document.getElementById('divConSofkianName').innerHTML;
+      eliminarSofkianoPorNombre(jsonArray,nombreDelEliminado) {
             for (var index = 0; index < jsonArray.length; index++) {
                   if (jsonArray[index].name === nombreDelEliminado) {
                         jsonArray.splice(index, 1);
                   }
             }
+            this.showAllSofkians(jsonArray)
       }
       incluirHtmlParaEditar(jsonArray) {
             document.getElementById('sofkianDiv').innerHTML = this.formEdicionSofkian(this.devolverSofkiano(jsonArray));
@@ -248,10 +257,37 @@ class SofkianFunctions {
                   document.getElementById('proyecto1_Updt').value,
                   document.getElementById('proyecto1_porcentaje_Updt').value,
                   document.getElementById('proyecto2_Updt').value,
-                  "no_avatar",
+                  "no_avatar.jpeg",
                   document.getElementById('tecnologias_Updt').value);
-                  console.log(JSON_SOFKIANS);
+            console.log(JSON_SOFKIANS);
             JSON.stringify(JSON_SOFKIANS.push(sofkianoToCreate));
+      }
+
+      createDivOptionsSofkian() {
+            let divOptionsClient = document.getElementById('options');
+            try {
+
+
+                  let divOptions = document.createElement('div');
+                  divOptions.className = "col-md-6";
+                  divOptions.style = "width:400px";
+                  divOptions.innerHTML = `<div class="dropdown col-md-12" style="padding-left: 0px; margin-bottom: 8px">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Seleccione opcion de creacion 
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" id="crear_sofkiano" style="cursor:pointer">Crear Sofkiano</a>
+          </div>
+          </div> 
+          </div>`;
+
+                  divOptionsClient.appendChild(divOptions);
+
+            } catch (error) {
+                  console.log(error);
+
+            }
       }
 
 
