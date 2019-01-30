@@ -29,10 +29,14 @@ let home = new HomeView();
 
 let searchbtn = document.getElementById('searchButton');
 
-clientBtn.addEventListener('click', () => {
-    cleanHtml();
+function showSearchButton() {
     let button = document.getElementById('search-box');
     button.style = "display: block";
+}
+
+clientBtn.addEventListener('click', () => {
+    cleanHtml();
+    showSearchButton();
     createDivOptionsClient();
     Client.prototype.functionClients();
     Client.prototype.createClients();
@@ -57,6 +61,7 @@ homeBtn.addEventListener('click', () => {
 
 document.getElementById('btnSofkianos').addEventListener('click', () => {
     cleanHtml();
+    showSearchButton();
     sofkianPeople.showAllSofkians(JSON_SOFKIAN.sofkians);
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
@@ -67,8 +72,9 @@ document.getElementById('btnSofkianos').addEventListener('click', () => {
 
 document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();
-    viewName = 'project';
+    showSearchButton();
     projectFunctions.addCreateButtonToModal();
+    projectFunctions.createDivOptions();
     projectFunctions.showAllProjects();
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
@@ -82,6 +88,7 @@ document.getElementById("button-openSideBar").addEventListener("click", () => {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("button-openSideBar").style.display = 'none';
 });
+
 document.getElementById("button-closeSideBar").addEventListener("click", () => {
     console.log("the bar is close");
     document.getElementById("main").style.marginLeft = "0%";
