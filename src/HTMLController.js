@@ -23,7 +23,7 @@ let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
 let clientBtn = document.getElementById('btnClients');
 
-
+let projectFunctions = new ProjectFunctions();
 let sofkianPeople = new Sofkian();
 let home = new HomeView();
 
@@ -53,10 +53,9 @@ homeBtn.addEventListener('click', () => {
     viewName = 'home';
 });
 
-document.getElementById('btnSofkianos').addEventListener('click',() => {
+document.getElementById('btnSofkianos').addEventListener('click', () => {
     cleanHtml();
     sofkianPeople.showAllSofkians(JSON_SOFKIAN.sofkians);
-    
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
@@ -66,14 +65,12 @@ document.getElementById('btnSofkianos').addEventListener('click',() => {
 
 document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();
-    let projectFunctions = new ProjectFunctions();
-    projectFunctions.mainFunctionalities();
+    viewName = 'project';
+    projectFunctions.addCreateButtonToModal();
+    projectFunctions.showAllProjects();
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
-    viewName = 'project';
-    console.log(viewName);
-
 });
 
 controllerName.innerText = "Sofkatalogo";

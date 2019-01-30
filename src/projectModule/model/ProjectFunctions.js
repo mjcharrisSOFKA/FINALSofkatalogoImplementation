@@ -12,70 +12,73 @@ let options = document.getElementById('options');
 
 class ProjectFunctions {
 
-  constructor() {
-    this.showAllProjects();
+  openedCreationModal() {
+    const ENTERPRISES = "enterprises";
+    const PERSONS = "persons";
+    const TECH = "technologies";
+    const SOFKS = "sofkianos";
+    let clientsSelect = document.getElementById('project-client-select');
+    let technologies = document.getElementById('technologies');
+    let sofkianos = document.getElementById('sofkianos');
+    
+    clientsSelect.innerHTML = " ";
+    technologies.innerHTML = " ";
+    sofkianos.innerHTML = " ";
+    this.addClientOptions(clientsSelect, ENTERPRISES);
+    this.addClientOptions(clientsSelect, PERSONS);
+    this.addPropertiesToDiv(technologies, TECH);
+    this.addPropertiesToDiv(sofkianos, SOFKS);
   }
 
-  mainFunctionalities() {
-    try {
-      document.getElementById('open-create-modal').addEventListener('click', () => {
-        const enterprises = "enterprises";
-        const persons = "persons";
-        const tech = "technologies";
-        const sofks = "sofkianos";
-        let clientsSelect = document.getElementById('project-client-select');
-        let technologies = document.getElementById('technologies');
-        let sofkianos = document.getElementById('sofkianos');
-        clientsSelect.innerHTML = " ";
-        technologies.innerHTML = " ";
-        sofkianos.innerHTML = " ";
-        this.addClientOptions(clientsSelect, enterprises);
-        this.addClientOptions(clientsSelect, persons);
-        this.addPropertiesToDiv(technologies, tech);
-        this.addPropertiesToDiv(sofkianos, sofks);
-      });
-
-      document.getElementById('create-project').addEventListener('click', () => {
-        this.createProject();
-      });
-
-      document.getElementById('show-all-projects').addEventListener('click', () => {
-        this.showAllProjects();
-      });
-
-      document.getElementById('searching-trigger').addEventListener('click', () => {
-        let value = document.getElementById('search-by').value;
-        let radioButtons = document.getElementsByName('search');
-        let checkedRadioButtonValue = getCheckedRadioButton(radioButtons);
-        let projectsSearched = findValueByAnyAttributeInArray(value, checkedRadioButtonValue);
-        projectCards.innerHTML = "";
-        this.printSearchResults(projectsSearched);
-      });
-    }
-    catch (error) {
-    }
+  addCreateButtonToModal() {
+    let modalFooter = document.getElementById(`modal-footer`);
+    let createButton = document.createElement(`button`);
+    createButton.innerText = "Crear";
+    createButton.className = `btn btn-success`;
+    createButton.setAttribute(`data-dismiss`, `modal`);
+    createButton.addEventListener(`click`, () => {
+      options.innerHTML = "";
+      this.createProject();
+    });
+    modalFooter.insertAdjacentElement(`beforeend`, createButton);
   }
 
   showAllProjects() {
     try {
+      this.addButtonsToDiv();
       projectCards.innerHTML = "";
-      let createButton = document.createElement(`button`);
-      createButton.className = `btn btn-success`;
-      createButton.innerText = `Agregar Proyecto`;
-      createButton.setAttribute(`data-target`, `#createModal`);
-      createButton.setAttribute(`data-toggle`, `modal`);
-      createButton.id = `open-create-modal`;
-      let showAllProjects = document.createElement(`button`);
-      showAllProjects.className = `btn btn-info`;
-      showAllProjects.innerText = `Mostrar todos los proyectos`;
-      showAllProjects.id = `show-all-projects`;
       for (let index = 0; index < JSON_PROJECTS.length; index++) {
         this.printCardHtml(JSON_PROJECTS[index]);
       }
-      options.appendChild(createButton);
-      options.appendChild(showAllProjects);
     } catch (error) { }
   };
+
+  addButtonsToDiv() {
+    let { createButton, showAllProjects } = this.createButtons();
+    options.appendChild(createButton);
+    options.appendChild(showAllProjects);
+  }
+
+  createButtons() {
+    let createButton = document.createElement(`button`);
+    createButton.className = `btn btn-success`;
+    createButton.innerText = `Agregar Proyecto`;
+    createButton.setAttribute(`data-target`, `#createModal`);
+    createButton.setAttribute(`data-toggle`, `modal`);
+    createButton.addEventListener(`click`, () => {
+      this.openedCreationModal();
+    });
+    createButton.id = `open-create-modal`;
+    let showAllProjects = document.createElement(`button`);
+    showAllProjects.className = `btn btn-info`;
+    showAllProjects.innerText = `Mostrar todos los proyectos`;
+    showAllProjects.id = `show-all-projects`;
+    showAllProjects.addEventListener(`click`, () => {
+      options.innerHTML = "";
+      this.showAllProjects();
+    });
+    return { createButton, showAllProjects };
+  }
 
   printCardHtml(projectToPrint) {
 
@@ -191,7 +194,8 @@ class ProjectFunctions {
       this.getPropertiesArrayObject(selectedSofkianos, "sofkianos", project);
       project.technologies = this.getPropertiesArrayObject(selectedTechnologies, "technologies");
       project.sofkianos = this.getPropertiesArrayObject(selectedSofkianos, "sofkianos");
-      this.showAllProjects(JSON_PROJECTS.projects);
+      options.innerHTML = "";
+      this.showAllProjects();
     });
     buttonEditProject.innerText = ("Aceptar Cambios");
     divEditingProject.appendChild(buttonEditProject);
@@ -251,6 +255,7 @@ class ProjectFunctions {
   }
 
   deleteProject(project) {
+    options.innerHTML = "";
     let answer = confirm(`Esta seguro que desea eliminar el proyecto ${project.name}`);
     if (answer) {
       for (let index = 0; index < JSON_PROJECTS.length; index++) {
@@ -310,10 +315,11 @@ class ProjectFunctions {
       let sofkianos = this.getCheckedBoxes(projectSofkianos);
       let projectToCreate = new Project(name, "To Do", description, starDate, endDate, image, clientObject, technologies, sofkianos, id);
       JSON.stringify(JSON_PROJECTS.push(projectToCreate));
-      this.showAllProjects();
-      id++;
+      debugger;
     } catch (error) {
       console.log(error);
+    } finally {
+      this.showAllProjects();
     }
   }
 
