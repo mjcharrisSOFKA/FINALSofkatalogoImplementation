@@ -79,7 +79,6 @@ document.addEventListener('click',function(e){
         try{
               var nombreSofkiano = e.target.parentNode.id;
               sofkianPeople.incluirHtmlParaEditar(JSON_SOFKIAN.sofkians,nombreSofkiano)
-              console.log(sofkianPeople.devolverSofkiano(JSON_SOFKIAN.sofkians,nombreSofkiano))
         }catch(error){
              console.log("Ha ocurrido un error: " + error);
         }
@@ -87,7 +86,10 @@ document.addEventListener('click',function(e){
 
   if(e.target && e.target.id === "editar_sofkian"){
     try{
-          var analizando = e.target.parentNode;
+          var valoresPostEdicion = e.target.parentNode.querySelectorAll("div> input");
+          sofkianPeople.editarSokfiano(JSON_SOFKIAN.sofkians,valoresPostEdicion)
+          sofkianPeople.showAllSofkians(JSON_SOFKIAN.sofkians);
+          sofkianPeople.createDivOptionsSofkian();
           console.log(analizando)
     }catch(error){
          console.log("Ha ocurrido un error: " + error);

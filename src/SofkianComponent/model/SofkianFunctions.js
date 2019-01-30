@@ -114,27 +114,24 @@ class SofkianFunctions {
             return sofkiano;
       }
 
-      editarSokfiano(jsonArray) {
-            if (this.hayUnSofkianoBuscado()) {
-                  var pocision = this.devolverPocisionEnSofkiano(jsonArray);
-                  jsonArray[pocision].name = document.getElementById('nombre_Updt').value;
-                  jsonArray[pocision].id = document.getElementById('id_Updt').value;
-                  jsonArray[pocision].characteristics = document.getElementById('characteristics_Updt').value;
-                  jsonArray[pocision].sofkaExperience = document.getElementById('sofkaExperience_Updt').value;
-                  jsonArray[pocision].beforeSofkaExperience = document.getElementById('beforeSofkaExperienced_Updt').value;
-                  jsonArray[pocision].tecnologiasManejadas = document.getElementById('tecnologias_Updt').value;
-                  jsonArray[pocision].proyecto1 = document.getElementById('proyecto1_Updt').value;
-                  jsonArray[pocision].proyecto2 = document.getElementById('proyecto2_Updt').value;
-                  jsonArray[pocision].dedicacionProyecto1 = document.getElementById('proyecto1_porcentaje_Updt').value;
-                  this.printCardHtml(this.cardSofkian(jsonArray[pocision]));
-            } else {
-                  alert("no hay un sofkiano especificado para editar")
-            }
+      editarSokfiano(jsonArray,valoresPostEdicion) {
+
+            var pocision = this.devolverPocisionEnSofkiano(jsonArray,valoresPostEdicion);
+            jsonArray[pocision].name = valoresPostEdicion[0].value;
+            jsonArray[pocision].id = valoresPostEdicion[1].value;
+            jsonArray[pocision].characteristics = valoresPostEdicion[2].value;
+            jsonArray[pocision].sofkaExperience = valoresPostEdicion[3].value;
+            jsonArray[pocision].beforeSofkaExperience = valoresPostEdicion[4].value;
+            jsonArray[pocision].tecnologiasManejadas = valoresPostEdicion[5].value;
+            jsonArray[pocision].proyecto1 = valoresPostEdicion[6].value;
+            jsonArray[pocision].proyecto2 = valoresPostEdicion[8].value;
+            jsonArray[pocision].dedicacionProyecto1 = valoresPostEdicion[7].value;
+
       }
 
-      devolverPocisionEnSofkiano(jsonArray) {
+      devolverPocisionEnSofkiano(jsonArray,valoresPostEdicion) {
             var PocisionDelsofkianoEnArray;
-            var nombreParaEditar = document.getElementById('divConSofkianName').innerHTML;
+            var nombreParaEditar = valoresPostEdicion[0].value;
             for (var index = 0; index < jsonArray.length; index++) {
                   if (jsonArray[index].name === nombreParaEditar) {
                         var PocisionDelsofkianoEnArray = index;
