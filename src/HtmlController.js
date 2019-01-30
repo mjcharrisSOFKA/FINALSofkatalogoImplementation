@@ -84,16 +84,33 @@ document.addEventListener('click',function(e){
         }
   }
 
-  if(e.target && e.target.id === "editar_sofkian"){
+  if(e.target && e.target.id === "editar_sofkiano"){
     try{
           var valoresPostEdicion = e.target.parentNode.querySelectorAll("div> input");
           sofkianPeople.editarSokfiano(JSON_SOFKIAN.sofkians,valoresPostEdicion)
           sofkianPeople.showAllSofkians(JSON_SOFKIAN.sofkians);
-          sofkianPeople.createDivOptionsSofkian();
           console.log(analizando)
     }catch(error){
          console.log("Ha ocurrido un error: " + error);
     }
+    }
+
+    if(e.target && e.target.id === "abrir_form_abrir_sofkiano"){
+        try{
+              sofkianPeople.incluirHtmlParaAgregar();
+        }catch(error){
+             console.log("Ha ocurrido un error: " + error);
+        }
+        }
+
+    if(e.target && e.target.id === "agregar_sofkiano"){
+        //try{
+            var valoresDelAgregado = e.target.parentNode.querySelectorAll("div> input");
+            sofkianPeople.agregarSokfiano(JSON_SOFKIAN.sofkians,valoresDelAgregado)
+            sofkianPeople.showAllSofkians(JSON_SOFKIAN.sofkians);
+        //}catch(error){
+                console.log("Ha ocurrido un error: " + error);
+        //}
     }
 
 })

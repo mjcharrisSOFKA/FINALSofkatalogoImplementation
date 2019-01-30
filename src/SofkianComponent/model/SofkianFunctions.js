@@ -186,13 +186,13 @@ class SofkianFunctions {
                   '<label for="exampleInputEmail1"><strong>Proyecto 1:</strong></label>' +
                   '<input type="textarea" class="form-control" id="proyecto2_Updt" aria-describedby="emailHelp" placeholder="' + sofkian.proyecto2 + '" value="' + sofkian.proyecto2 + '">' +
                   '</div>' +
-                  '<a href="#" class="btn btn-primary" id="editar_sofkian">Actualizar</a>' +
+                  '<a href="#" class="btn btn-primary" id="editar_sofkiano">Actualizar</a>' +
                   '</div>';
       }
 
 
       incluirHtmlParaAgregar() {
-            document.getElementById('sofkianDiv').innerHTML = this.formAgregarSofkian();
+            document.getElementById('cards-content').innerHTML = this.formAgregarSofkian();
       }
 
       formAgregarSofkian() {
@@ -239,24 +239,22 @@ class SofkianFunctions {
                   '<label for="exampleInputEmail1"><strong>Proyecto 2:</strong></label>' +
                   '<input type="textarea" class="form-control" id="proyecto2_Updt" aria-describedby="emailHelp" placeholder=" " value=" ">' +
                   '</div>' +
-                  '<a href="#" class="btn btn-primary" id="agregarSofkian">Agregar</a>' +
+                  '<a href="#" class="btn btn-primary" id="agregar_sofkiano">Agregar</a>' +
                   '</div>';
       }
-      agregarSokfiano() {
-            alert(JSON_SOFKIANS);
+      agregarSokfiano(jsonArray,valoresDelAgregado) {
             var sofkianoToCreate = new Sofkiano(
-                  document.getElementById('nombre_Updt').value,
-                  document.getElementById('id_Updt').value,
-                  document.getElementById('characteristics_Updt').value,
-                  document.getElementById('sofkaExperience_Updt').value,
-                  document.getElementById('beforeSofkaExperienced_Updt').value,
-                  document.getElementById('proyecto1_Updt').value,
-                  document.getElementById('proyecto1_porcentaje_Updt').value,
-                  document.getElementById('proyecto2_Updt').value,
+                  valoresDelAgregado[0].value,
+                  valoresDelAgregado[1].value,
+                  valoresDelAgregado[2].value,
+                  valoresDelAgregado[3].value,
+                  valoresDelAgregado[4].value,
+                  valoresDelAgregado[6].value,
+                  valoresDelAgregado[7].value,
+                  valoresDelAgregado[8].value,
                   "no_avatar.jpeg",
-                  document.getElementById('tecnologias_Updt').value);
-            console.log(JSON_SOFKIANS);
-            JSON.stringify(JSON_SOFKIANS.push(sofkianoToCreate));
+                  valoresDelAgregado[5].value);
+            JSON.stringify(jsonArray.push(sofkianoToCreate));
       }
 
       createDivOptionsSofkian() {
@@ -267,16 +265,8 @@ class SofkianFunctions {
                   let divOptions = document.createElement('div');
                   divOptions.className = "col-md-6";
                   divOptions.style = "width:400px";
-                  divOptions.innerHTML = `<div class="dropdown col-md-12" style="padding-left: 0px; margin-bottom: 8px">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Seleccione opcion de creacion 
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" id="crear_sofkiano" style="cursor:pointer">Crear Sofkiano</a>
-          </div>
-          </div> 
-          </div>`;
+                  divOptions.innerHTML = `
+                  <button id="abrir_form_abrir_sofkiano" style="height: 40px"  class="btn btn-success mb-3"  >Crear Sofkiano</button>`;
 
                   divOptionsClient.appendChild(divOptions);
 
