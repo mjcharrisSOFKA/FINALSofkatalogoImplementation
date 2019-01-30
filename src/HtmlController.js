@@ -1,6 +1,6 @@
 import SofkianFunctions from './model/SofkianFunctions';
 
-
+let { createDivOptionsSofkian } = require('./model/SofkianFunctions');
 
 
 
@@ -18,30 +18,32 @@ let clientBtn = document.getElementById('btnClients');
 
 let sofkianFunctions = new SofkianFunctions();
 document.getElementById('btnSofkian').addEventListener('click', () => {
+    console.log(createDivOptionsSofkian());
     sofkianFunctions.showAllSofkians(JSON_SOFKIANS);
 });
-document.getElementById('buscarSofkianBoton').addEventListener('click', () => {
-    sofkianFunctions.showEspecificSokfian(JSON_SOFKIANS);
-});
-document.getElementById("eliminarSofkianBoton").addEventListener('click', () => {
-    sofkianFunctions.eliminarSokfian(JSON_SOFKIANS);
-});
-document.getElementById("editarSofkianBoton").addEventListener('click', () => {
-    sofkianFunctions.incluirHtmlParaEditar(JSON_SOFKIANS);
-});
 
-document.addEventListener('click',function(e){
-    if(e.target && e.target.id === "actualizarSofkian"){
-        sofkianFunctions.editarSokfiano(JSON_SOFKIANS)
-    }
-});
+// document.getElementById('buscarSofkianBoton').addEventListener('click', () => {
+//     sofkianFunctions.showEspecificSokfian(JSON_SOFKIANS);
+// });
+// document.getElementById("eliminarSofkianBoton").addEventListener('click', () => {
+//     sofkianFunctions.eliminarSokfian(JSON_SOFKIANS);
+// });
+// document.getElementById("editarSofkianBoton").addEventListener('click', () => {
+//     sofkianFunctions.incluirHtmlParaEditar(JSON_SOFKIANS);
+// });
 
-document.getElementById("agregarSofkianBoton").addEventListener('click', () => {
-    sofkianFunctions.incluirHtmlParaAgregar();
-});
+// document.addEventListener('click',function(e){
+//     if(e.target && e.target.id === "actualizarSofkian"){
+//         sofkianFunctions.editarSokfiano(JSON_SOFKIANS)
+//     }
+// });
 
-document.addEventListener('click',function(e){
-    if(e.target && e.target.id === "agregarSofkian"){
-        sofkianFunctions.agregarSokfiano();
-    }
-});
+// document.getElementById("agregarSofkianBoton").addEventListener('click', () => {
+//     sofkianFunctions.incluirHtmlParaAgregar();
+// });
+
+// document.addEventListener('click',function(e){
+//     if(e.target && e.target.id === "agregarSofkian"){
+//         sofkianFunctions.agregarSokfiano();
+//     }
+// });
