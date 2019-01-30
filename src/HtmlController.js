@@ -23,7 +23,7 @@ let controllerName = document.getElementById('controllerName');
 let homeBtn = document.getElementById('btnHome');
 let clientBtn = document.getElementById('btnClients');
 
-let projectFunctions = new ProjectFunctions();
+
 let sofkianPeople = new Sofkian();
 let home = new HomeView();
 

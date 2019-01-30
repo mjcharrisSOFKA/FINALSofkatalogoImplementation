@@ -60,6 +60,51 @@
 
     </div>
     </div>
+    
+    <div id="createModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Create Project</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <label>Nombre: <input type="text" id="project-name">
+                        </label>
+                        <label>Descripción: <textarea type="text" id="project-description"></textarea>
+                        </label>
+                        <label>Fecha de inicio: <input type="date" id="project-start-date">
+                        </label>
+                        <label>Fecha de fin: <input type="date" id="project-end-date">
+                        </label>
+                        <label>Imagen <input type="file" id="project-image">
+                        </label>
+                        <hr>
+                        <label>Cliente: <select id="project-client-select">
+
+                            </select>
+                        </label>
+                        <br>
+                        <label>Tecnologías: <span id="technologies">
+
+                            </span>
+                        </label>
+                        <br>
+                        <label>Sofkianos: <span id="sofkianos">
+
+                            </span>
+                        </label>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="create-project" data-dismiss="modal">Crear</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <div style="margin: 1%; padding: 1%">
         <footer class="page-footer font-small teal pt-4">
