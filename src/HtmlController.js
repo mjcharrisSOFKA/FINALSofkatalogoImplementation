@@ -31,6 +31,8 @@ let searchbtn = document.getElementById('searchButton');
 
 clientBtn.addEventListener('click', () => {
     cleanHtml();
+    let button = document.getElementById('search-box');
+    button.style = "display: block";
     createDivOptionsClient();
     Client.prototype.functionClients();
     Client.prototype.createClients();
@@ -72,8 +74,6 @@ document.getElementById('btnProject').addEventListener('click', () => {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
 });
-
-controllerName.innerText = "Sofkatalogo";
 
 document.getElementById("button-openSideBar").addEventListener("click", () => {
     console.log("the bar is open");
