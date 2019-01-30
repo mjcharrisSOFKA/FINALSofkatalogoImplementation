@@ -71,9 +71,13 @@ document.getElementById('btnSofkianos').addEventListener('click', () => {
 
 document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();
+
+    let projectFunctions = new ProjectFunctions();
     projectFunctions.showAllProjects();
+
     let button = document.getElementById('search-box');
     button.style = "display: block";
+
     console.log("the bar is close");
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
