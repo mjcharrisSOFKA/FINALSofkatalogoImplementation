@@ -105,7 +105,7 @@ function cleanHtml() {
 function searchInProject() {
     switch (valueName) {
         case 'client':
-
+            
             break;
         case 'project':
             break;
