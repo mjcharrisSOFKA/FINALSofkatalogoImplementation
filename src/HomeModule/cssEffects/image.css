@@ -1,0 +1,5 @@
+.img-trans{
+    width: 100px;
+    height: 100px;
+    transition: width 1s;
+}

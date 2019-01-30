@@ -30,8 +30,8 @@ class ProjectFunctions {
       this.showProject(projectToPrint);
     });
 
-    divCard.className = 'card';
-    divCard.style = 'width: 18rem; float: left';
+    divCard.className = 'div class="card col-md-3 ml-2 mr-5 mb-5" style="width:400px';
+    divCard.style = 'style="width:400px';
     divCard.innerHTML = `<img src=${projectToPrint.image} class='card-img-top'>
     <div class='card-body'>
     <h5 class='card-title'> ${projectToPrint.name} </h5>

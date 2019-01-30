@@ -31,6 +31,8 @@ let searchbtn = document.getElementById('searchButton');
 
 clientBtn.addEventListener('click', () => {
     cleanHtml();
+    let button = document.getElementById('search-box');
+    button.style = "display: block";
     createDivOptionsClient();
     Client.prototype.functionClients();
     Client.prototype.createClients();
@@ -53,10 +55,13 @@ homeBtn.addEventListener('click', () => {
     viewName = 'home';
 });
 
-document.getElementById('btnSofkianos').addEventListener('click',() => {
+document.getElementById('btnSofkianos').addEventListener('click', () => {
     cleanHtml();
     sofkianPeople.showAllSofkians(JSON_SOFKIAN.sofkians);
-    
+
+    let button = document.getElementById('search-box');
+    button.style = "display: block";
+
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
@@ -67,6 +72,8 @@ document.getElementById('btnSofkianos').addEventListener('click',() => {
 document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();
     projectFunctions.showAllProjects();
+    let button = document.getElementById('search-box');
+    button.style = "display: block";
     console.log("the bar is close");
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
@@ -75,8 +82,6 @@ document.getElementById('btnProject').addEventListener('click', () => {
     console.log(viewName);
 
 });
-
-controllerName.innerText = "Sofkatalogo";
 
 document.getElementById("button-openSideBar").addEventListener("click", () => {
     console.log("the bar is open");
