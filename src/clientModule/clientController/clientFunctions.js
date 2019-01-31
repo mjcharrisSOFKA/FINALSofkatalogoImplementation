@@ -115,7 +115,6 @@ function cardEnterprise(clientEnterprise) {
 
 function createDivOptionsClient() {
 
-
     let divOptions = document.createElement('div');
     divOptions.className = "col-md-6";
     divOptions.style = "width:400px";
