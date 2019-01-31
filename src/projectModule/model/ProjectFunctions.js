@@ -110,6 +110,7 @@ class ProjectFunctions {
 
   createButtons() {
     let createButton = document.createElement(`button`);
+    createButton.style = "";
     createButton.className = `btn btn-success`;
     createButton.innerText = `Agregar Proyecto`;
     createButton.setAttribute(`data-target`, `#createModal`);
@@ -118,6 +119,7 @@ class ProjectFunctions {
       this.openedCreationModal();
     });
     createButton.id = `open-create-modal`;
+    
     let showAllProjects = document.createElement(`button`);
     showAllProjects.className = `btn btn-info`;
     showAllProjects.innerText = `Mostrar todos los proyectos`;
@@ -194,38 +196,138 @@ class ProjectFunctions {
 
   updateProject(project) {
     let div = document.getElementById('cards-content');
+    div.innerHTML = "";
+    let div2 = document.createElement('div');
+
     let buttonEditProject = document.createElement('button');
-    div.innerHTML = `<h1>Editando ${project.name}</h1>
-        <div id="editing-project">
-        <label>Nombre:
-            <input type="text" value="${project.name}" id="projectName">
-        </label><br>
-        <label>Estado:
-            <input type="text" value="${project.status}" id="projectStatus">
-        </label><br>
-        <label>Descripción:
-            <textarea id="projectDescription">${project.description}</textarea>
-        </label><br>
-        <label>Fecha de inicio:
-            <input type="date" value="${project.startDate}" id="projectStartDate">
-        </label><br>
-        <label>Fecha de fin:
-            <input type="date" value="${project.endDate}" id="projectEndDate">
-        </label><br>
-        <br>
-        <label>Cliente: ${project.client.name.toUpperCase()}<br>
+    div2.style = "width: 80%;"
+    div2.innerHTML = `
+        <div class="input-group-prepend">
+          <h1 style="margin: 2%;"> Editando ${project.name}</h1>
+        </div>
+        <div class="input-group mb-3" id="editing-project" style="margin-left: 5%; ">
+          <label>Nombre:
+              <input type="text" class="form-control" value="${project.name}" id="projectName">
+          </label><br>
+        </div>
+        
+        <div>
+          <label>Estado:
+          <select id="projectStatus" value="${project.status}">
+          <option>To Do</option>
+          <option>WIP</option>
+          <option>Done</option>
+          </select>
+          </label><br>
+        </div>
+        
+        <div>
+          <label>Descripción:
+          <textarea id="projectDescription">${project.description}</textarea>
+          </label><br>        
+        </div>
+
+        <div>
+          <label>Fecha de inicio:
+          <input type="date" value="${project.startDate}" id="projectStartDate">
+          </label><br>
+          <label>Fecha de fin:
+              <input type="date" value="${project.endDate}" id="projectEndDate">
+          </label><br>
+          <br>
+        </div>
+        
+        <div>
+          <label>Cliente: ${project.client.name.toUpperCase()}<br>
             <select id="clients-options"></select>
-        </label><br>
-        <br>
+          </label><br>
+        </div>
+        
+        <div>
+
+        </div>
         <div id="actual-technologies">Tecnologías:
-        <br>
+          <br>
         </div>
         <br>
         <div id="actual-sofkianos">Sofkianos:
         <br>
         </div>
-        </div>`;
-    let divEditingProject = document.getElementById('editing-project');
+        </div>
+        
+        
+
+
+        <div style="margin: 4%">
+        <h1> Editando ${project.name}</h1>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Nombre del proyecto</span>
+            </div>
+            <input type="text" value="${project.name}" id="projectName" class="form-control" aria-label="Username"
+                aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Descripción</span>
+            </div>
+            <textarea class="form-control" id="projectDescription" aria-label="With textarea">${project.description}</textarea>
+        </div>
+
+        <div class="input-group" style="margin: 2%">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                <div class="dropdown-menu" id="projectStatus">
+                    <a class="dropdown-item" href="#">To Do</a>
+                    <a class="dropdown-item" href="#">WIP</a>
+                    <a class="dropdown-item" href="#">Done</a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Canceled</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-daterange input-group" id="datepicker">
+            <input type="text" class="input-sm form-control" name="start" />
+            <span class="input-group-addon">to</span>
+            <input type="text" class="input-sm form-control" name="end" />
+        </div>
+
+        <div class="input-group" style="margin: 2%">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                <div class="dropdown-menu" id="clients-options">
+                    <a href=""></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text" id="actual-technologies">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text" id="actual-sofkianos">
+
+                </div>
+            </div>
+        </div>
+
+    </div>  
+        
+        
+        `;
+
+    div.appendChild(div2);
+
     buttonEditProject.addEventListener('click', () => {
       project.name = document.getElementById('projectName').value;
       project.status = document.getElementById('projectStatus').value;
@@ -247,7 +349,7 @@ class ProjectFunctions {
       this.showAllProjects();
     });
     buttonEditProject.innerText = ("Aceptar Cambios");
-    divEditingProject.appendChild(buttonEditProject);
+    div2.insertAdjacentElement(`beforeend`,buttonEditProject);
     let selectClients = document.getElementById('clients-options');
     this.addClientOptions(selectClients, "enterprises");
     this.addClientOptions(selectClients, "persons");
@@ -340,7 +442,7 @@ class ProjectFunctions {
     type === `enterprises` ? optgroup.label = "Empresas" : optgroup.label = "Personas";
     select.add(optgroup);
     for (let i = 0; i < tempArray.length; i++) {
-      let option = document.createElement('option');
+      let option = document.createElement('a');
       option.id = type;
       option.innerText = tempArray[i].name;
       select.add(option);
