@@ -18,47 +18,82 @@ class ProjectFunctions {
     modal.id = `createModal`;
     modal.className = `modal fade`;
     modal.setAttribute(`role`, `dialog`);
-    modal.innerHTML = `<div class="modal-dialog">
+    modal.innerHTML = ` 
+    <div class="modal-dialog modal-lg">
 
       <div class="modal-content">
           <div class="modal-header">
-              <h4 class="modal-title">Create Project</h4>
+            <h4 class="modal-title">Create Project</h4>
+            <a  data-dismiss="modal" >
+             <i class="fas fa-times"> </i>
+            </a>
           </div>
-          <div class="modal-body">
-              <form>
-                  <label>Nombre: <input type="text" id="project-name">
+          <div class="modal-body modal-lg">
+            <form>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                   <span class="input-group-text">Nombre</span>
+                  </div>
+                  <input class="form-control" placeholder="Nombre" id="project-name">
+              </div>
+    
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                   <span class="input-group-text">Descripcion</span>
+                </div>
+                <textarea class="form-control" id="project-description" rows="4"></textarea>
+              </div>
+    
+              <div class="input-group mb-3">
+                <label>Fecha de inicio:
+                  <input type="date" id="projectStartDate">
                   </label>
-                  <label>Descripción: <textarea type="text" id="project-description"></textarea>
-                  </label>
-                  <label>Fecha de inicio: <input type="date" id="project-start-date">
-                  </label>
-                  <label>Fecha de fin: <input type="date" id="project-end-date">
-                  </label>
-                  <label>Imagen <input type="file" id="project-image">
-                  </label>
-                  <hr>
-                  <label>Cliente: <select id="project-client-select">
+                <label>Fecha de fin:
+                    <input type="date" id="projectEndDate">
+                </label>
+              </div>
+    
+    
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label for="project-image">Example file input</label>
+                  <input type="file" class="form-control-file" id="project-image">
+                </div>
+              </div>
 
-                      </select>
-                  </label>
-                  <br>
-                  <label>Tecnologías: <span id="technologies">
-
-                      </span>
-                  </label>
-                  <br>
-                  <label>Sofkianos: <span id="sofkianos">
-
-                      </span>
-                  </label>
-              </form>
-          </div>
-          <div class="modal-footer" id="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+    
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="project-client-select">Clientes</label>
+                </div>
+                <select class="custom-select" id="project-client-select">
+                    <option selected>Elige uno ...</option>
+                </select>
+              </div>
+    
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="technologies"> Tecnologías </label>
+                  <span id="technologies" />
+                  </div>
+              </div>
+               
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="sofkianos"> Sofkianos </label>
+                  <span id="sofkianos" />
+                </div> 
+              </div>
+                
+        </form>
       </div>
-
-  </div>`;
+        <div class="modal-footer" id="modal-footer">
+          
+        </div>
+      </div>
+  </div>
+  </div>
+  `;
     main.insertAdjacentElement(`beforeend`, modal);
   };
 
@@ -99,11 +134,14 @@ class ProjectFunctions {
       for (let index = 0; index < JSON_PROJECTS.length; index++) {
         this.printCardHtml(JSON_PROJECTS[index]);
       }
-    } catch (error) { }
+    } catch (error) {}
   };
 
   addButtonsToDiv() {
-    let { createButton, showAllProjects } = this.createButtons();
+    let {
+      createButton,
+      showAllProjects
+    } = this.createButtons();
     options.appendChild(createButton);
     options.appendChild(showAllProjects);
   };
@@ -415,6 +453,25 @@ class ProjectFunctions {
       console.log(error);
     } finally {
       this.showAllProjects();
+    }
+  }
+
+  findValueByAnyAttribute(value, attribute) {
+    try {
+
+      let results = [];
+      Object.keys(projects).map(key => {
+        if (JSON_PROJECTS.projects[key][attribute] === value) {
+          results.push(projects[key]);
+        }
+      });
+      return results;
+    } catch (error) {}
+  };
+
+  printSearchResults(resultsArray) {
+    for (let i = 0; i < resultsArray.length; i++) {
+      printCardHtml(resultsArray[i]);
     }
   };
 
