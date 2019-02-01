@@ -134,7 +134,7 @@ class ProjectFunctions {
       for (let index = 0; index < JSON_PROJECTS.length; index++) {
         this.printCardHtml(JSON_PROJECTS[index]);
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   addButtonsToDiv() {
@@ -278,10 +278,7 @@ class ProjectFunctions {
         <div class="input-group" style="margin: 2%">
             <div class="input-group-append">
             <span class="input-group-text">Cliente: </span>
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">${project.client.name.toUpperCase()}</button>
-                <div class="dropdown-menu" id="clients-options">
-                </div>
+            <select class="form-control" id="clients-options">${project.client.name.toUpperCase()}</select>
             </div>
         </div>
 
@@ -353,14 +350,12 @@ class ProjectFunctions {
 
   addClientOptions(select, type) {
     let tempArray = [];
-    let header = document.createElement('h6');
+    let optgroup = document.createElement('optgroup');
     type === `enterprises` ? tempArray = JSON_ENTERPRISES : tempArray = JSON_PERSONS;
-    type === `enterprises` ? header.innerText = `Empresas` : header.innerText = `Personas`;
-    header.className = `dropdown-header`;
-    select.insertAdjacentElement(`beforeend`, header);
+    type === `enterprises` ? optgroup.label = `Empresas` : optgroup.label = `Personas`;
+    select.insertAdjacentElement(`beforeend`, optgroup);
     for (let i = 0; i < tempArray.length; i++) {
-      let option = document.createElement('a');
-      option.className = `dropdown-item`;
+      let option = document.createElement('option');
       option.id = type;
       option.innerText = tempArray[i].name;
       option.value = tempArray[i].name;
@@ -466,7 +461,7 @@ class ProjectFunctions {
         }
       });
       return results;
-    } catch (error) {}
+    } catch (error) { }
   };
 
   printSearchResults(resultsArray) {
