@@ -264,10 +264,10 @@ class ProjectFunctions {
 
         <div class="input-group mb-3">
           <label>Fecha de inicio:
-            <input class="form-control" type="date" id="start-date" value="${project.startDate}">
+            <input class="form-control" type="date" id="projectStartDate" value="${project.startDate}">
             </label>
           <label>Fecha de fin:
-              <input class="form-control" type="date" id="end-date" value="${project.endDate}">
+              <input class="form-control" type="date" id="projectEndDate" value="${project.endDate}">
           </label>
         </div>
 
@@ -301,7 +301,9 @@ class ProjectFunctions {
 
     buttonEditProject.addEventListener('click', () => {
       project.name = document.getElementById('projectName').value;
-      project.status = document.getElementById('projectStatus').value;
+      let status = document.getElementById('projectUpdatedStatus');
+      let updatedStatus = status.options[status.selectedIndex].value;
+      project.status = updatedStatus;
       project.description = document.getElementById('projectDescription').value;
       project.startDate = document.getElementById('projectStartDate').value;
       project.endDate = document.getElementById('projectEndDate').value;
@@ -317,13 +319,13 @@ class ProjectFunctions {
       project.technologies = this.getPropertiesFromArrayObject(selectedTechnologies, "technologies");
       project.sofkianos = this.getPropertiesFromArrayObject(selectedSofkianos, "sofkianos");
       options.innerHTML = "";
-      this.showAllProjects();
+      this.showProject(project);
     });
     buttonEditProject.innerText = ("Aceptar Cambios");
     div2.insertAdjacentElement(`beforeend`, buttonEditProject);
     let selectClients = document.getElementById('clients-options');
     let selectStatus = document.getElementById('projectStatus');
-    this.addSelectOptions(selectStatus, project.status);
+    this.addStatusOptions(selectStatus, project.status);
     this.addClientOptions(selectClients, "enterprises");
     this.addClientOptions(selectClients, "persons");
     let tech = document.getElementById('actual-technologies');
@@ -332,10 +334,11 @@ class ProjectFunctions {
     this.getPropertiesToEditSepecificProject(sofkianos, 'sofkianos', project);
   };
 
-  addSelectOptions(div, optionSelected) {
+  addStatusOptions(div, optionSelected) {
     let statusOptions = [`Done`, `WIP`, `To Do`];
     let select = document.createElement('select');
     select.className = `form-control`;
+    select.id = `projectUpdatedStatus`;
     for (let index = 0; index < statusOptions.length; index++) {
       let option = document.createElement(`option`);
       if (optionSelected.toLowerCase() === `done`) {
@@ -352,7 +355,7 @@ class ProjectFunctions {
       select.insertAdjacentElement(`beforeend`, option);
       div.insertAdjacentElement(`beforeend`, select);
     };
-    
+
   };
 
   getPropertiesFromArrayObject(namesArray, jsonName) {
@@ -424,17 +427,6 @@ class ProjectFunctions {
     }
   };
 
-  getCheckedBoxes(checkboxArray) {
-    let checkedBoxes = [];
-    for (let index = 0; index < checkboxArray.length; index++) {
-      if (checkboxArray[index].checked) {
-        let checkBoxId = checkboxArray[index].id.toString();
-        checkedBoxes.push(checkBoxId);
-      }
-    }
-    return checkedBoxes;
-  };
-
   deleteProject(project) {
     options.innerHTML = "";
     let answer = confirm(`Esta seguro que desea eliminar el proyecto ${project.name}`);
@@ -450,7 +442,6 @@ class ProjectFunctions {
 
   createProject() {
     try {
-      let id = 4;
       let name = document.getElementById('project-name').value;
       let description = document.getElementById('project-description').value;
       let starDate = document.getElementById('projectStartDate').value;
@@ -459,17 +450,31 @@ class ProjectFunctions {
       let clientName = document.getElementById('project-client-select');
       let typeName = clientName.getElementsByTagName('option')[clientName.selectedIndex].id;
       let clientObject = this.getClientObject(clientName.value, typeName);
-      let projectTechnologies = document.getElementsByName('technology');
-      let projectSofkianos = document.getElementsByName('sofkiano');
-      let technologies = this.getCheckedBoxes(projectTechnologies);
-      let sofkianos = this.getCheckedBoxes(projectSofkianos);
-      let projectToCreate = new Project(name, "To Do", description, starDate, endDate, image, clientObject, technologies, sofkianos, id);
+      let checkBoxesTechnologies = document.getElementsByName('technologies');
+      let checkBoxesSofkianos = document.getElementsByName('sofkianos');
+      let selectedTechnologies = this.getCheckedBoxes(checkBoxesTechnologies);
+      let selectedSofkianos = this.getCheckedBoxes(checkBoxesSofkianos);
+      let technologies = this.getPropertiesFromArrayObject(selectedTechnologies, "technologies");
+      let sofkianos = this.getPropertiesFromArrayObject(selectedSofkianos, "sofkianos");
+      let projectToCreate = new Project(name, "To Do", description, starDate, endDate,
+        image, clientObject, technologies, sofkianos);
       JSON.stringify(JSON_PROJECTS.push(projectToCreate));
     } catch (error) {
       console.log(error);
     } finally {
       this.showAllProjects();
     }
+  };
+
+  getCheckedBoxes(checkboxArray) {
+    let checkedBoxes = [];
+    for (let index = 0; index < checkboxArray.length; index++) {
+      if (checkboxArray[index].checked) {
+        let checkBoxId = checkboxArray[index].id.toString();
+        checkedBoxes.push(checkBoxId);
+      }
+    }
+    return checkedBoxes;
   };
 
   getCheckedRadioButton(radioButtons) {
@@ -488,7 +493,7 @@ class ProjectFunctions {
       label.innerText = tempArray[index].name;
       let input = document.createElement('input');
       input.type = 'checkbox';
-      input.name = name;
+      input.name = jsonName;
       input.id = tempArray[index].name;
       label.appendChild(input);
       div.appendChild(label);
