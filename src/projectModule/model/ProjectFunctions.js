@@ -1,4 +1,5 @@
 'use strict';
+
 const JSON_CLIENTS = require('./../data/ClientsData.json').clients;
 const JSON_ENTERPRISES = JSON_CLIENTS.enterprises;
 const JSON_PERSONS = JSON_CLIENTS.persons;
@@ -12,6 +13,44 @@ let options = document.getElementById('options');
 let main = document.getElementById(`main`);
 
 class ProjectFunctions {
+
+  addNewProjectHTML(div) {
+
+    try {
+      let cardNewProject = document.createElement('div');
+      cardNewProject.className = `card col-md-3 ml-2 mr-5 mb-5`;
+      cardNewProject.setAttribute = `onmouseover="${this.changeColorIn(this)}" onmouseout="${this.changeColorOut(this)}"`;
+      cardNewProject.style = `width:400px `;
+      cardNewProject.innerHTML = `
+    <div class="card-body">
+    
+        <i class="fas fa-plus" style="font-size: 20rem"
+          id="add-project"
+          data-target="#createModal" 
+          data-toggle="modal" 
+          onClick= "${this.openedCreationModal()}" >
+        </i>
+      
+      <h5 class="card-title" style = "text-align: center">
+        Crear nuevo projecto
+      </h5>
+    </div>
+    `;
+
+      div.appendChild(cardNewProject);
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+  changeColorIn(x) {
+    x.style = `background-color : #FF7521; transition: 100ms `;
+  }
+  
+  changeColorOut(x) {
+    x.style = `background-color : "white"; transition: 50ms `;
+  }
 
   createModal() {
     let modal = document.createElement('div');
@@ -131,31 +170,24 @@ class ProjectFunctions {
     try {
       this.addButtonsToDiv();
       projectCards.innerHTML = "";
+      this.addNewProjectHTML(projectCards);
       for (let index = 0; index < JSON_PROJECTS.length; index++) {
         this.printCardHtml(JSON_PROJECTS[index]);
       }
-    } catch (error) { }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   addButtonsToDiv() {
     let {
-      createButton,
       showAllProjects
     } = this.createOptionButtons();
-    options.appendChild(createButton);
     options.appendChild(showAllProjects);
   };
 
   createOptionButtons() {
-    let createButton = document.createElement(`button`);
-    createButton.className = `btn btn-success`;
-    createButton.innerText = `Agregar Proyecto`;
-    createButton.setAttribute(`data-target`, `#createModal`);
-    createButton.setAttribute(`data-toggle`, `modal`);
-    createButton.addEventListener(`click`, () => {
-      this.openedCreationModal();
-    });
-    createButton.id = `open-create-modal`;
+
     let showAllProjects = document.createElement(`button`);
     showAllProjects.className = `btn btn-info`;
     showAllProjects.innerText = `Mostrar todos los proyectos`;
@@ -164,10 +196,14 @@ class ProjectFunctions {
       options.innerHTML = "";
       this.showAllProjects();
     });
-    return { createButton, showAllProjects };
+    return {
+      showAllProjects
+    };
   };
 
   printCardHtml(projectToPrint) {
+
+
     let divCard = document.createElement('div');
     let buttonShowProject = document.createElement('button');
     buttonShowProject.className = `btn btn-sm btn-info`;
@@ -184,7 +220,9 @@ class ProjectFunctions {
     <h4 class='card-title'> ${projectToPrint.name} </h4>
     <p class='card-text'> ${projectToPrint.description} </p>`;
 
+    //divCard.insertAdjacentElement(`beforebegin`,card);
     divCard.insertAdjacentElement(`beforeend`, buttonShowProject);
+
     projectCards.appendChild(divCard);
   };
 
