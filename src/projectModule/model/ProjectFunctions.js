@@ -257,22 +257,18 @@ class ProjectFunctions {
 
         <div class="input-group" style="margin: 2%">
             <div class="input-group-append">
-            <span class="input-group-text">Estado: </span>
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">${project.status}</button>
-                <div class="dropdown-menu" id="projectStatus">
-                    <a class="dropdown-item" href="#">To Do</a>
-                    <a class="dropdown-item" href="#" >WIP</a>
-                    <a class="dropdown-item" href="#">Done</a>
-                </div>
+                <span class="input-group-text">Estado: </span>
+                <div id="projectStatus"></div>
             </div>
         </div>
 
-        <div class="input-daterange input-group" id="datepicker">
-        <span class="input-group-text">Fecha: </span>
-            <input type="text" class="input-sm form-control" name="start" id="start-date"/>
-            <span class="input-group-addon"> hasta </span>
-            <input type="text" class="input-sm form-control" name="end" id="end-date"/>
+        <div class="input-group mb-3">
+          <label>Fecha de inicio:
+            <input class="form-control" type="date" id="start-date" value="${project.startDate}">
+            </label>
+          <label>Fecha de fin:
+              <input class="form-control" type="date" id="end-date" value="${project.endDate}">
+          </label>
         </div>
 
         <div class="input-group" style="margin: 2%">
@@ -326,12 +322,37 @@ class ProjectFunctions {
     buttonEditProject.innerText = ("Aceptar Cambios");
     div2.insertAdjacentElement(`beforeend`, buttonEditProject);
     let selectClients = document.getElementById('clients-options');
+    let selectStatus = document.getElementById('projectStatus');
+    this.addSelectOptions(selectStatus, project.status);
     this.addClientOptions(selectClients, "enterprises");
     this.addClientOptions(selectClients, "persons");
     let tech = document.getElementById('actual-technologies');
     let sofkianos = document.getElementById('actual-sofkianos');
     this.getPropertiesToEditSepecificProject(tech, 'technologies', project);
     this.getPropertiesToEditSepecificProject(sofkianos, 'sofkianos', project);
+  };
+
+  addSelectOptions(div, optionSelected) {
+    let statusOptions = [`Done`, `WIP`, `To Do`];
+    let select = document.createElement('select');
+    select.className = `form-control`;
+    for (let index = 0; index < statusOptions.length; index++) {
+      let option = document.createElement(`option`);
+      if (optionSelected.toLowerCase() === `done`) {
+        let label = document.createElement(`span`);
+        label.innerText = `Done`;
+        div.className = `form-control`;
+        div.insertAdjacentElement(`beforeend`, label);
+        break;
+      } else {
+        option.innerText = statusOptions[index];
+        option.value = statusOptions[index];
+        option.value === optionSelected ? option.selected = true : option.selected = false;
+      }
+      select.insertAdjacentElement(`beforeend`, option);
+      div.insertAdjacentElement(`beforeend`, select);
+    };
+    
   };
 
   getPropertiesFromArrayObject(namesArray, jsonName) {
@@ -432,8 +453,8 @@ class ProjectFunctions {
       let id = 4;
       let name = document.getElementById('project-name').value;
       let description = document.getElementById('project-description').value;
-      let starDate = document.getElementById('project-start-date').value;
-      let endDate = document.getElementById('project-end-date').value;
+      let starDate = document.getElementById('projectStartDate').value;
+      let endDate = document.getElementById('projectEndDate').value;
       let image = "https://s3-ap-south-1.amazonaws.com/static.awfis.com/wp-content/uploads/2017/07/07184649/ProjectManagement.jpg";
       let clientName = document.getElementById('project-client-select');
       let typeName = clientName.getElementsByTagName('option')[clientName.selectedIndex].id;
