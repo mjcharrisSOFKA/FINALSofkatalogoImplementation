@@ -23,7 +23,7 @@ class ProjectFunctions {
 
       <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Create Project</h4>
+            <h4 class="modal-title">Nuevo Proyecto</h4>
             <a  data-dismiss="modal" >
              <i class="fas fa-times"> </i>
             </a>
@@ -141,12 +141,12 @@ class ProjectFunctions {
     let {
       createButton,
       showAllProjects
-    } = this.createButtons();
+    } = this.createOptionButtons();
     options.appendChild(createButton);
     options.appendChild(showAllProjects);
   };
 
-  createButtons() {
+  createOptionButtons() {
     let createButton = document.createElement(`button`);
     createButton.className = `btn btn-success`;
     createButton.innerText = `Agregar Proyecto`;
@@ -399,7 +399,7 @@ class ProjectFunctions {
 
   printArrayPropertyFromProjectWithPropertyName(project, element, propertyName) {
     for (let i = 0; i < project[propertyName].length; i++) {
-      element.innerText += `\t${project[propertyName][i].name}`;
+      element.innerText += `- \t${project[propertyName][i].name}\t - `;
     }
   };
 
@@ -448,25 +448,6 @@ class ProjectFunctions {
       console.log(error);
     } finally {
       this.showAllProjects();
-    }
-  }
-
-  findValueByAnyAttribute(value, attribute) {
-    try {
-
-      let results = [];
-      Object.keys(projects).map(key => {
-        if (JSON_PROJECTS.projects[key][attribute] === value) {
-          results.push(projects[key]);
-        }
-      });
-      return results;
-    } catch (error) { }
-  };
-
-  printSearchResults(resultsArray) {
-    for (let i = 0; i < resultsArray.length; i++) {
-      printCardHtml(resultsArray[i]);
     }
   };
 
