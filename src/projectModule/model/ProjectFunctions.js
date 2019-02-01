@@ -77,7 +77,7 @@ class ProjectFunctions {
     this.addClientOptions(clientsSelect, PERSONS);
     this.addPropertiesToDiv(technologies, TECH);
     this.addPropertiesToDiv(sofkianos, SOFKS);
-  }
+  };
 
   addCreateButtonToModal() {
     let modalFooter = document.getElementById(`modal-footer`);
@@ -90,7 +90,7 @@ class ProjectFunctions {
       this.createProject();
     });
     modalFooter.insertAdjacentElement(`beforeend`, createButton);
-  }
+  };
 
   showAllProjects() {
     try {
@@ -106,11 +106,10 @@ class ProjectFunctions {
     let { createButton, showAllProjects } = this.createButtons();
     options.appendChild(createButton);
     options.appendChild(showAllProjects);
-  }
+  };
 
   createButtons() {
     let createButton = document.createElement(`button`);
-    createButton.style = "";
     createButton.className = `btn btn-success`;
     createButton.innerText = `Agregar Proyecto`;
     createButton.setAttribute(`data-target`, `#createModal`);
@@ -119,7 +118,6 @@ class ProjectFunctions {
       this.openedCreationModal();
     });
     createButton.id = `open-create-modal`;
-    
     let showAllProjects = document.createElement(`button`);
     showAllProjects.className = `btn btn-info`;
     showAllProjects.innerText = `Mostrar todos los proyectos`;
@@ -129,7 +127,7 @@ class ProjectFunctions {
       this.showAllProjects();
     });
     return { createButton, showAllProjects };
-  }
+  };
 
   printCardHtml(projectToPrint) {
     let divCard = document.createElement('div');
@@ -202,67 +200,11 @@ class ProjectFunctions {
     let buttonEditProject = document.createElement('button');
     div2.style = "width: 80%;"
     div2.innerHTML = `
-        <div class="input-group-prepend">
-          <h1 style="margin: 2%;"> Editando ${project.name}</h1>
-        </div>
-        <div class="input-group mb-3" id="editing-project" style="margin-left: 5%; ">
-          <label>Nombre:
-              <input type="text" class="form-control" value="${project.name}" id="projectName">
-          </label><br>
-        </div>
-        
-        <div>
-          <label>Estado:
-          <select id="projectStatus" value="${project.status}">
-          <option>To Do</option>
-          <option>WIP</option>
-          <option>Done</option>
-          </select>
-          </label><br>
-        </div>
-        
-        <div>
-          <label>Descripción:
-          <textarea id="projectDescription">${project.description}</textarea>
-          </label><br>        
-        </div>
-
-        <div>
-          <label>Fecha de inicio:
-          <input type="date" value="${project.startDate}" id="projectStartDate">
-          </label><br>
-          <label>Fecha de fin:
-              <input type="date" value="${project.endDate}" id="projectEndDate">
-          </label><br>
-          <br>
-        </div>
-        
-        <div>
-          <label>Cliente: ${project.client.name.toUpperCase()}<br>
-            <select id="clients-options"></select>
-          </label><br>
-        </div>
-        
-        <div>
-
-        </div>
-        <div id="actual-technologies">Tecnologías:
-          <br>
-        </div>
-        <br>
-        <div id="actual-sofkianos">Sofkianos:
-        <br>
-        </div>
-        </div>
-        
-        
-
-
         <div style="margin: 4%">
-        <h1> Editando ${project.name}</h1>
+        <h1> Editando ${project.name.toUpperCase()}</h1>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">Nombre del proyecto</span>
+                <span class="input-group-text" id="basic-addon1">Nombre del proyecto: </span>
             </div>
             <input type="text" value="${project.name}" id="projectName" class="form-control" aria-label="Username"
                 aria-describedby="basic-addon1">
@@ -270,46 +212,46 @@ class ProjectFunctions {
 
         <div class="input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text">Descripción</span>
+                <span class="input-group-text">Descripción: </span>
             </div>
             <textarea class="form-control" id="projectDescription" aria-label="With textarea">${project.description}</textarea>
         </div>
 
         <div class="input-group" style="margin: 2%">
             <div class="input-group-append">
+            <span class="input-group-text">Estado: </span>
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                    aria-haspopup="true" aria-expanded="false">${project.status}</button>
                 <div class="dropdown-menu" id="projectStatus">
                     <a class="dropdown-item" href="#">To Do</a>
-                    <a class="dropdown-item" href="#">WIP</a>
+                    <a class="dropdown-item" href="#" >WIP</a>
                     <a class="dropdown-item" href="#">Done</a>
-                    <div role="separator" class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Canceled</a>
                 </div>
             </div>
         </div>
 
         <div class="input-daterange input-group" id="datepicker">
-            <input type="text" class="input-sm form-control" name="start" />
-            <span class="input-group-addon">to</span>
-            <input type="text" class="input-sm form-control" name="end" />
+        <span class="input-group-text">Fecha: </span>
+            <input type="text" class="input-sm form-control" name="start" id="start-date"/>
+            <span class="input-group-addon"> hasta </span>
+            <input type="text" class="input-sm form-control" name="end" id="end-date"/>
         </div>
 
         <div class="input-group" style="margin: 2%">
             <div class="input-group-append">
+            <span class="input-group-text">Cliente: </span>
                 <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Dropdown</button>
+                    aria-haspopup="true" aria-expanded="false">${project.client.name.toUpperCase()}</button>
                 <div class="dropdown-menu" id="clients-options">
-                    <a href=""></a>
                 </div>
             </div>
         </div>
 
-        <div class="input-group mb-3">
+        <div class="input-group mb-3" id="tech">
             <div class="input-group-prepend">
-                <div class="input-group-text" id="actual-technologies">
+              <div class="input-group-text" id="actual-technologies">
 
-                </div>
+              </div>
             </div>
         </div>
 
@@ -321,9 +263,7 @@ class ProjectFunctions {
             </div>
         </div>
 
-    </div>  
-        
-        
+      </div>  
         `;
 
     div.appendChild(div2);
@@ -341,45 +281,25 @@ class ProjectFunctions {
       let checkBoxesSofkianos = document.getElementsByName('cbsofkianos');
       let selectedTechnologies = this.getCheckedBoxes(checkBoxesTechnologies);
       let selectedSofkianos = this.getCheckedBoxes(checkBoxesSofkianos);
-      this.getPropertiesArrayObject(selectedTechnologies, "technologies", project);
-      this.getPropertiesArrayObject(selectedSofkianos, "sofkianos", project);
-      project.technologies = this.getPropertiesArrayObject(selectedTechnologies, "technologies");
-      project.sofkianos = this.getPropertiesArrayObject(selectedSofkianos, "sofkianos");
+      this.getPropertiesFromArrayObject(selectedTechnologies, "technologies", project);
+      this.getPropertiesFromArrayObject(selectedSofkianos, "sofkianos", project);
+      project.technologies = this.getPropertiesFromArrayObject(selectedTechnologies, "technologies");
+      project.sofkianos = this.getPropertiesFromArrayObject(selectedSofkianos, "sofkianos");
       options.innerHTML = "";
       this.showAllProjects();
     });
     buttonEditProject.innerText = ("Aceptar Cambios");
-    div2.insertAdjacentElement(`beforeend`,buttonEditProject);
+    div2.insertAdjacentElement(`beforeend`, buttonEditProject);
     let selectClients = document.getElementById('clients-options');
     this.addClientOptions(selectClients, "enterprises");
     this.addClientOptions(selectClients, "persons");
     let tech = document.getElementById('actual-technologies');
     let sofkianos = document.getElementById('actual-sofkianos');
-    this.getPropertiesToEdit(tech, 'technologies', project);
-    this.getPropertiesToEdit(sofkianos, 'sofkianos', project);
-  }
+    this.getPropertiesToEditSepecificProject(tech, 'technologies', project);
+    this.getPropertiesToEditSepecificProject(sofkianos, 'sofkianos', project);
+  };
 
-  getPropertiesToEdit(div, jsonName, project) {
-    let tempArray = [];
-    jsonName === "technologies" ? tempArray = JSON_TECHNOLOGIES : tempArray = JSON_SOFKIANOS;
-    for (let i = 0; i < tempArray.length; i++) {
-      let label = document.createElement('label');
-      label.innerText = tempArray[i].name;
-      let input = document.createElement('input');
-      input.type = 'checkbox';
-      input.name = `cb${jsonName}`;
-      input.id = tempArray[i].name;
-      for (let j = 0; j < project[jsonName].length; j++) {
-        if (project[jsonName][j].name === tempArray[i].name) {
-          input.checked = true;
-        }
-      }
-      label.appendChild(input);
-      div.appendChild(label);
-    }
-  }
-
-  getPropertiesArrayObject(namesArray, jsonName) {
+  getPropertiesFromArrayObject(namesArray, jsonName) {
     let tempArray = [];
     let resultArray = [];
     jsonName === `sofkianos` ? tempArray = JSON_SOFKIANOS : tempArray = JSON_TECHNOLOGIES;
@@ -391,7 +311,46 @@ class ProjectFunctions {
       }
     }
     return resultArray;
-  }
+  };
+
+  addClientOptions(select, type) {
+    let tempArray = [];
+    let header = document.createElement('h6');
+    type === `enterprises` ? tempArray = JSON_ENTERPRISES : tempArray = JSON_PERSONS;
+    type === `enterprises` ? header.innerText = `Empresas` : header.innerText = `Personas`;
+    header.className = `dropdown-header`;
+    select.insertAdjacentElement(`beforeend`, header);
+    for (let i = 0; i < tempArray.length; i++) {
+      let option = document.createElement('a');
+      option.className = `dropdown-item`;
+      option.id = type;
+      option.innerText = tempArray[i].name;
+      option.value = tempArray[i].name;
+      select.insertAdjacentElement(`beforeend`, option);
+    }
+  };
+
+  getPropertiesToEditSepecificProject(div, jsonName, project) {
+    let tempArray = [];
+    jsonName === "technologies" ? tempArray = JSON_TECHNOLOGIES : tempArray = JSON_SOFKIANOS;
+    for (let i = 0; i < tempArray.length; i++) {
+      let label = document.createElement('label');
+      label.className = `form-control`;
+      label.innerText = tempArray[i].name;
+      let input = document.createElement('input');
+      input.type = 'checkbox';
+      input.name = `cb${jsonName}`;
+      input.id = tempArray[i].name;
+      for (let j = 0; j < project[jsonName].length; j++) {
+        if (project[jsonName][j].name === tempArray[i].name) {
+          input.checked = true;
+        }
+      }
+      label.htmlFor = tempArray[i].name;
+      div.appendChild(input);
+      div.appendChild(label);
+    }
+  };
 
   getClientObject(name, jsonName) {
     let propertyObject;
@@ -403,19 +362,6 @@ class ProjectFunctions {
       }
     }
     return propertyObject;
-  }
-
-  deleteProject(project) {
-    options.innerHTML = "";
-    let answer = confirm(`Esta seguro que desea eliminar el proyecto ${project.name}`);
-    if (answer) {
-      for (let index = 0; index < JSON_PROJECTS.length; index++) {
-        if (project.name === JSON_PROJECTS[index].name) {
-          JSON_PROJECTS.splice(index, 1);
-        }
-      }
-      this.showAllProjects();
-    }
   };
 
   printArrayPropertyFromProjectWithPropertyName(project, element, propertyName) {
@@ -435,17 +381,16 @@ class ProjectFunctions {
     return checkedBoxes;
   };
 
-  addClientOptions(select, type) {
-    let tempArray = [];
-    let optgroup = document.createElement('optgroup');
-    type === `enterprises` ? tempArray = JSON_ENTERPRISES : tempArray = JSON_PERSONS;
-    type === `enterprises` ? optgroup.label = "Empresas" : optgroup.label = "Personas";
-    select.add(optgroup);
-    for (let i = 0; i < tempArray.length; i++) {
-      let option = document.createElement('a');
-      option.id = type;
-      option.innerText = tempArray[i].name;
-      select.add(option);
+  deleteProject(project) {
+    options.innerHTML = "";
+    let answer = confirm(`Esta seguro que desea eliminar el proyecto ${project.name}`);
+    if (answer) {
+      for (let index = 0; index < JSON_PROJECTS.length; index++) {
+        if (project.name === JSON_PROJECTS[index].name) {
+          JSON_PROJECTS.splice(index, 1);
+        }
+      }
+      this.showAllProjects();
     }
   };
 
@@ -470,25 +415,6 @@ class ProjectFunctions {
       console.log(error);
     } finally {
       this.showAllProjects();
-    }
-  }
-
-  findValueByAnyAttribute(value, attribute) {
-    try {
-
-      let results = [];
-      Object.keys(projects).map(key => {
-        if (JSON_PROJECTS.projects[key][attribute] === value) {
-          results.push(projects[key]);
-        }
-      });
-      return results;
-    } catch (error) { }
-  };
-
-  printSearchResults(resultsArray) {
-    for (let i = 0; i < resultsArray.length; i++) {
-      printCardHtml(resultsArray[i]);
     }
   };
 
@@ -515,7 +441,6 @@ class ProjectFunctions {
     }
   };
 
-
-}
+};
 
 module.exports = ProjectFunctions;
