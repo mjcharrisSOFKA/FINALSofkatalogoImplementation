@@ -204,6 +204,7 @@ class ProjectFunctions {
     buttonUpdateProject.addEventListener('click', () => {
       this.updateProject(project);
     });
+    project.status === `Done` ? buttonUpdateProject.disabled = true : buttonUpdateProject.enabled = true;
     div.innerHTML = `<div id="grid-project-view" style="margin: auto"><h1>${project.name}</h1><span><img src="${project.image}"></span>
         <br>
       <span>Estado: ${project.status}</span>
