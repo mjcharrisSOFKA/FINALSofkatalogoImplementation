@@ -46,10 +46,10 @@ class ProjectFunctions {
     
               <div class="input-group mb-3">
                 <label>Fecha de inicio:
-                  <input type="date" id="projectStartDate">
+                  <input type="date" id="projectStartDateO">
                   </label>
                 <label>Fecha de fin:
-                    <input type="date" id="projectEndDate">
+                    <input type="date" id="projectEndDateO">
                 </label>
               </div>
     
@@ -318,8 +318,14 @@ class ProjectFunctions {
       this.getPropertiesFromArrayObject(selectedSofkianos, "sofkianos", project);
       project.technologies = this.getPropertiesFromArrayObject(selectedTechnologies, "technologies");
       project.sofkianos = this.getPropertiesFromArrayObject(selectedSofkianos, "sofkianos");
-      options.innerHTML = "";
-      this.showProject(project);
+
+      if (this.validateCreateAndUpdateProject(project.name, project.description, project.startDate, project.endDate, project.technologies, project.sofkianos)) {
+        console.log("Si puedo actualizar");
+        options.innerHTML = "";
+        this.showProject(project);
+      } else {
+        alert("Todos los campos son requeridos");
+      }
     });
     buttonEditProject.innerText = ("Aceptar Cambios");
     div2.insertAdjacentElement(`beforeend`, buttonEditProject);
@@ -444,8 +450,8 @@ class ProjectFunctions {
     try {
       let name = document.getElementById('project-name').value;
       let description = document.getElementById('project-description').value;
-      let starDate = document.getElementById('projectStartDate').value;
-      let endDate = document.getElementById('projectEndDate').value;
+      let starDate = document.getElementById('projectStartDateO').value;
+      let endDate = document.getElementById('projectEndDateO').value;
       let image = "https://s3-ap-south-1.amazonaws.com/static.awfis.com/wp-content/uploads/2017/07/07184649/ProjectManagement.jpg";
       let clientName = document.getElementById('project-client-select');
       let typeName = clientName.getElementsByTagName('option')[clientName.selectedIndex].id;
@@ -456,9 +462,14 @@ class ProjectFunctions {
       let selectedSofkianos = this.getCheckedBoxes(checkBoxesSofkianos);
       let technologies = this.getPropertiesFromArrayObject(selectedTechnologies, "technologies");
       let sofkianos = this.getPropertiesFromArrayObject(selectedSofkianos, "sofkianos");
-      let projectToCreate = new Project(name, "To Do", description, starDate, endDate,
-        image, clientObject, technologies, sofkianos);
-      JSON.stringify(JSON_PROJECTS.push(projectToCreate));
+
+      if (this.validateCreateAndUpdateProject(name, description, starDate, endDate, technologies, sofkianos)) {
+        let projectToCreate = new Project(name, "To Do", description, starDate, endDate,
+          image, clientObject, technologies, sofkianos);
+        JSON.stringify(JSON_PROJECTS.push(projectToCreate));
+      } else {
+        alert("Todos los campos son requeridos");
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -499,6 +510,10 @@ class ProjectFunctions {
       div.appendChild(label);
     }
   };
+
+  validateCreateAndUpdateProject(nameProject, descriptionProject, starDateProject, endDateProject, technologiesProject, sofkianosProject) {
+    return nameProject !== "" && descriptionProject !== "" && starDateProject !== "" && endDateProject !== "" && technologiesProject.length > 0 && sofkianosProject.length > 0
+  }
 
 };
 
