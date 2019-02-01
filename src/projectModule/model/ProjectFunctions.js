@@ -350,8 +350,6 @@ class ProjectFunctions {
       project.sofkianos = this.getPropertiesFromArrayObject(selectedSofkianos, "sofkianos");
 
       if (this.validateCreateAndUpdateProject(project.name, project.description, project.startDate, project.endDate, project.technologies, project.sofkianos)) {
-        console.log("Si puedo actualizar");
-        options.innerHTML = "";
         this.showProject(project);
       } else {
         alert("Todos los campos son requeridos");
