@@ -527,14 +527,25 @@ class ProjectFunctions {
     let tempArray = [];
     jsonName === "technologies" ? tempArray = JSON_TECHNOLOGIES : tempArray = JSON_SOFKIANOS;
     for (let index = 0; index < tempArray.length; index++) {
+      let divToCheckBox = document.createElement('div');
+      divToCheckBox.className ="custom-control custom-switch";
+
       let label = document.createElement('label');
       label.innerText = tempArray[index].name;
+      label.className ="custom-control-label";
+      label.htmlFor = tempArray[index].name;
+
       let input = document.createElement('input');
       input.type = 'checkbox';
+      input.className = "custom-control-input"
       input.name = jsonName;
       input.id = tempArray[index].name;
-      label.appendChild(input);
-      div.appendChild(label);
+
+      divToCheckBox.appendChild(input);
+      divToCheckBox.appendChild(label);
+      divToCheckBox.style.paddingLeft = "3rem";
+
+      div.appendChild(divToCheckBox);
     }
   };
 
