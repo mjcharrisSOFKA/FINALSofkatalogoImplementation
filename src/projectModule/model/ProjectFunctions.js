@@ -17,39 +17,31 @@ class ProjectFunctions {
   addNewProjectHTML(div) {
 
     try {
+
       let cardNewProject = document.createElement('div');
       cardNewProject.className = `card col-md-3 ml-2 mr-5 mb-5`;
-      cardNewProject.setAttribute = `onmouseover="${this.changeColorIn(this)}" onmouseout="${this.changeColorOut(this)}"`;
       cardNewProject.style = `width:400px `;
       cardNewProject.innerHTML = `
-    <div class="card-body">
-    
-        <i class="fas fa-plus" style="font-size: 20rem"
+      <div class="card-body" >
+      
+        <i class="fas fa-plus" style="font-size: 20rem; cursor:pointer"
           id="add-project"
           data-target="#createModal" 
           data-toggle="modal" 
-          onClick= "${this.openedCreationModal()}" >
-        </i>
-      
-      <h5 class="card-title" style = "text-align: center">
-        Crear nuevo projecto
-      </h5>
-    </div>
-    `;
+          onClick= "${this.openedCreationModal()}
+        />
+        
+          <h5 class="card-title" style = "text-align: center">
+            Crear nuevo projecto
+          </h5>
 
+      </div>
+      `;
       div.appendChild(cardNewProject);
     } catch (error) {
       console.log(error)
     }
 
-  }
-
-  changeColorIn(x) {
-    x.style = `background-color : #FF7521; transition: 100ms `;
-  }
-  
-  changeColorOut(x) {
-    x.style = `background-color : "white"; transition: 50ms `;
   }
 
   createModal() {
@@ -64,7 +56,7 @@ class ProjectFunctions {
           <div class="modal-header">
             <h4 class="modal-title">Nuevo Proyecto</h4>
             <a  data-dismiss="modal" >
-             <i class="fas fa-times"> </i>
+             <i class="fas fa-times" style = " cursor:pointer" > </i>
             </a>
           </div>
           <div class="modal-body modal-lg">
@@ -220,7 +212,6 @@ class ProjectFunctions {
     <h4 class='card-title'> ${projectToPrint.name} </h4>
     <p class='card-text'> ${projectToPrint.description} </p>`;
 
-    //divCard.insertAdjacentElement(`beforebegin`,card);
     divCard.insertAdjacentElement(`beforeend`, buttonShowProject);
 
     projectCards.appendChild(divCard);
