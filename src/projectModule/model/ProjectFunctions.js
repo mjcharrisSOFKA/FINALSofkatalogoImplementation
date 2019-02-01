@@ -22,14 +22,13 @@ class ProjectFunctions {
       cardNewProject.className = `card col-md-3 ml-2 mr-5 mb-5`;
       cardNewProject.style = `width:400px `;
       cardNewProject.innerHTML = `
-      <div class="card-body" >
+      <div class="card-body">
       
-        <i class="fas fa-plus" style="font-size: 20rem; cursor:pointer"
+        <i class="fas fa-plus" style="font-size: 14rem; cursor:pointer; padding: 3rem 2rem"
           id="add-project"
           data-target="#createModal" 
           data-toggle="modal" 
-          onClick= "${this.openedCreationModal()}
-        />
+          onClick= "${this.openedCreationModal()}"></i>
         
           <h5 class="card-title" style = "text-align: center">
             Crear nuevo projecto
