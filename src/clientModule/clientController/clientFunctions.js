@@ -1,6 +1,6 @@
 "use strict";
 
-var clientList = require('./clientObjects.js');
+var clientList = require('./../../projectModule/data/ClientsData.json').clients;
 var {
     Client
 } = require('../models.js');
@@ -16,7 +16,6 @@ for (let i in clientList) {
 Client.prototype.getClients = () => {
 
     try {
-
         for (let j = 0; j < arr.length; j++) {
             showClient += arr[j].map((client) => {
                 return Client.prototype.printCardHtml(client);
