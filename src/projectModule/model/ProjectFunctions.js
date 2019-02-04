@@ -10,7 +10,7 @@ const JSON_TECHNOLOGIES = require('./../data/TechnologiesData.json').technologie
 let Project = require('./ProjectClass');
 let projectCards = document.getElementById('cards-content');
 let options = document.getElementById('options');
-let main = document.getElementById(`main`);
+let footer = document.getElementById(`footerModal`);
 
 class ProjectFunctions {
 
@@ -124,7 +124,7 @@ class ProjectFunctions {
   </div>
   </div>
   `;
-    main.insertAdjacentElement(`beforeend`, modal);
+    footer.insertAdjacentElement(`beforeend`, modal);
   };
 
   openedCreationModal() {
