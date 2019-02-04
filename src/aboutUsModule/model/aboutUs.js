@@ -42,7 +42,8 @@ class AboutUs {
       left: 160px;
       bottom: 130px;
       width: 80px;
-      background-color: #fff;`;
+      background-color: #fff;
+      border-radius: 50%;`;
 
       img.src = member.img;
       img.className = `fa fa-terminal img-cricle`;
