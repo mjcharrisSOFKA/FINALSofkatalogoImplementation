@@ -31,7 +31,7 @@ class ProjectFunctions {
           onClick= "${this.openedCreationModal()}"></i>
         
           <h5 class="card-title" style = "text-align: center">
-            Crear nuevo projecto
+            Crear nuevo proyecto
           </h5>
 
       </div>
