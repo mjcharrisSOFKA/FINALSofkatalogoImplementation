@@ -35,13 +35,27 @@ class AboutUs {
       <a href="${member.social[0].instagram}"><i class="fa fa-instagram fa-2x" style="color:black; padding: .5rem" aria-hidden="true"></i></a>
       <a href="${member.social[0].linkedIn}"><i class="fa fa-linkedin-square fa-2x" style="color:black; padding: .5rem" aria-hidden="true"></i></a>
       `;
-      console.log(member.social.fb);
+      
+      let img = document.createElement('img');
+      img.style = `float: right;
+      position: absolute;
+      left: 160px;
+      bottom: 130px;
+      width: 80px;
+      background-color: #fff;
+      border-radius: 50%;`;
 
+      img.src = member.img;
+      img.className = `fa fa-terminal img-cricle`;
+      img.innerText = `This is the IMG`;
+
+      divCard.insertAdjacentElement(`beforeend`, img);
       cardsContent.appendChild(divCard);
     } catch (error) {
       console.log(error);
     }
   }
+
 }
 
 module.exports = AboutUs;
