@@ -137,14 +137,14 @@ Client.prototype.deleteClient = (client) => {
         } else {
             for (let i = 0; i < clientsCollection.persons.length; i++) {
                 if (clientsCollection.persons[i].cedula === client.cedula) {
+                    clientsCollection.persons[i]
                     clientsCollection.persons.splice(i, 1);
-
                     returnBackDelete();
                 }
             }
         }
     } catch (error) {
-
+        console.log(error);
     }
 
 }

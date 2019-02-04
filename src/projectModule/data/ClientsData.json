@@ -122,42 +122,42 @@
         "persons": [
             {
                 "name": "JUAN",
-                "id": "1.038.435,932",
+                "cedula": "1.038.435,932",
                 "img": "https://examapplication.com/public/img/user.png"
             },
             {
                 "name": "LIZA",
-                "id": "42.813.784",
+                "cedula": "42.813.784",
                 "img": "https://img.icons8.com/color/1600/administrator-female.png"
             },
             {
                 "name": "ROXANA",
-                "id": "1.020.456.846",
+                "cedula": "1.020.456.846",
                 "img": "https://img.icons8.com/color/1600/administrator-female.png"
             },
             {
                 "name": "MARTHA",
-                "id": "37.080.664",
+                "cedula": "37.080.664",
                 "img": "https://img.icons8.com/color/1600/administrator-female.png"
             },
             {
                 "name": "GUSTAVO",
-                "id": "1.100.950.935",
+                "cedula": "1.100.950.935",
                 "img": "https://examapplication.com/public/img/user.png"
             },
             {
                 "name": "DIEGO",
-                "id": "1.053.773.244",
+                "cedula": "1.053.773.244",
                 "img": "https://examapplication.com/public/img/user.png"
             },
             {
                 "name": "JUAN CAMILO MUÑOZ",
-                "id": "15.3456.451",
+                "cedula": "15.3456.451",
                 "img": "https://examapplication.com/public/img/user.png"
             },
             {
                 "name": "LUISA",
-                "id": "1.036.389.136",
+                "cedula": "1.036.389.136",
                 "img": "https://img.icons8.com/color/1600/administrator-female.png"
             }
         ]
