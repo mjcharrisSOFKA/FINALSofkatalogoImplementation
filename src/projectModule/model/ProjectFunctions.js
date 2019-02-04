@@ -142,6 +142,7 @@ class ProjectFunctions {
     this.addClientOptions(clientsSelect, PERSONS);
     this.addPropertiesToDiv(technologies, TECH);
     this.addPropertiesToDiv(sofkianos, SOFKS);
+    this.addCreateButtonToModal();
   };
 
   addCreateButtonToModal() {
@@ -528,11 +529,11 @@ class ProjectFunctions {
     jsonName === "technologies" ? tempArray = JSON_TECHNOLOGIES : tempArray = JSON_SOFKIANOS;
     for (let index = 0; index < tempArray.length; index++) {
       let divToCheckBox = document.createElement('div');
-      divToCheckBox.className ="custom-control custom-switch";
+      divToCheckBox.className = "custom-control custom-switch";
 
       let label = document.createElement('label');
       label.innerText = tempArray[index].name;
-      label.className ="custom-control-label";
+      label.className = "custom-control-label";
       label.htmlFor = tempArray[index].name;
 
       let input = document.createElement('input');
