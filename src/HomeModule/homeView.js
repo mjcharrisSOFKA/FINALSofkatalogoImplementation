@@ -26,7 +26,7 @@ class HomeView {
         controllerName.innerText = 'Sofkatalogos';
         
         img.style = "padding-left: 15%";
-        img.src = "https://images.unsplash.com/photo-1534989713668-e6c993fd1554?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80";
+        img.src = 'https://i.pinimg.com/originals/16/70/f1/1670f148e271094f7804af31b70697c0.png';
         
         
         divTextContent.appendChild(textToDiv);
