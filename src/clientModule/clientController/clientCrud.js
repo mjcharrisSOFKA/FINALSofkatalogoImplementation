@@ -1,6 +1,6 @@
 let { Client, Enterprise, Person } = require("../models");
 
-let clientsCollection = require("./clientObjects");
+let clientsCollection = require("./../../projectModule/data/ClientsData.json").clients;
 let nameEmpresa, nitEmpresa, size, sector, namePersona, cedulaPersona;
 
 let { divRow, cleanHtmlClient } = require('../clientController/clientFunctions');

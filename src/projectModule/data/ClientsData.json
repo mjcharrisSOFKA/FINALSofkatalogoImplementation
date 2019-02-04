@@ -7,7 +7,8 @@
                 "size": "5.500-10.000 empleados",
                 "sector": "Alimentos y bebidas",
                 "img": "https://cdn.advantis.co/wp-content/uploads/2018/06/Alpina-864x675.png",
-                "webPage": "https://www.alpina.com/"
+                "web": "https://www.alpina.com/",
+                "type": "Empresa"
             },
             {
                 "name": "PROTECCION",
@@ -15,7 +16,8 @@
                 "size": "1.001-5.000 empleados",
                 "sector": "Servicios Financieros",
                 "img": "https://www.viviendocali.com/wp-content/uploads/2018/02/Protecci%C3%B3n-en-Cartagena.jpg",
-                "webPage": "https://www.proteccion.com"
+                "web": "https://www.proteccion.com",
+                "type": "Empresa"
             },
             {
                 "name": "SURA",
@@ -23,7 +25,8 @@
                 "size": "51-200 empleados",
                 "sector": "Servicios Financieros",
                 "img": "https://mazkomazda.com/wp-content/uploads/2018/04/SURA_logo-16-9-728-2.jpg",
-                "webPage": "https://www.segurossura.com.co"
+                "web": "https://www.segurossura.com.co",
+                "type": "Empresa"
             },
             {
                 "name": "COORDINADORA",
@@ -31,7 +34,8 @@
                 "size": "1.001-5.000 empleados",
                 "sector": "Transporte de mercancia",
                 "img": "https://www.mayorca.com.co/wp-content/uploads/2018/06/coordinadora-mayorca.jpg",
-                "webPage": "http://www.coordinadora.com/"
+                "web": "http://www.coordinadora.com/",
+                "type": "Empresa"
             },
             {
                 "name": "ALFAPEOPLE",
@@ -39,7 +43,8 @@
                 "size": "1.001-5.000 empleados",
                 "sector": "Software y servicios informáticos",
                 "img": "http://camara-comercio.com/wp-content/uploads/2016/03/AlfaPeople-270x150.jpg",
-                "webPage": "https://alfapeople.com/co/"
+                "web": "https://alfapeople.com/co/",
+                "type": "Empresa"
             },
             {
                 "name": "AMADEUS",
@@ -47,7 +52,8 @@
                 "size": "1.001-5.000 empleados",
                 "sector": "Software y servicios informáticos",
                 "img": "https://www.conectaturismo.com/todo-sobre-agencias-de-viajes/wp-content/uploads/2018/03/xml-amadeus-motor-vuelos-gds-1080x675.png",
-                "webPage": "https://amadeus.com/es"
+                "web": "https://amadeus.com/es",
+                "type": "Empresa"
             },
             {
                 "name": "EXITO",
@@ -55,7 +61,8 @@
                 "size": "Más de 10.000 empleados",
                 "sector": "Comercio",
                 "img": "https://steemitimages.com/DQmVe93wr7MeR5mZ673c7FWeFTqQ8FVwvVkxErWGef6cuLT/exito-01.jpg",
-                "webPage": "https://www.exito.com/"
+                "web": "https://www.exito.com/",
+                "type": "Empresa"
             },
             {
                 "name": "INFOCORP",
@@ -63,7 +70,8 @@
                 "size": "51-200 empleados",
                 "sector": "Software y servicios informáticos",
                 "img": "https://www.smarttalent.uy/innovaportal/file/3091/1/infocorp.png",
-                "webPage": "http://www.infocorp.com.uy"
+                "web": "http://www.infocorp.com.uy",
+                "type": "Empresa"
             },
             {
                 "name": "ITERIAUS",
@@ -71,7 +79,8 @@
                 "size": "51-200 empleados",
                 "sector": "Software y servicios informáticos",
                 "img": "https://media.licdn.com/dms/image/C510BAQEzNtFk6CiT7w/company-logo_200_200/0?e=2159024400&v=beta&t=HYm9PIGmoxS9rcaE16s4skNvPEwF2eVSZdI1ruckvZA",
-                "webPage": "https://www.iteria.us/"
+                "web": "https://www.iteria.us/",
+                "type": "Empresa"
             },
             {
                 "name": "METRO DE MEDELLIN",
@@ -79,7 +88,8 @@
                 "size": "51-200 empleados",
                 "sector": "Transporte y movilidad",
                 "img": "http://damconsultores.co/wp-content/uploads/2017/07/Metro-de-Medell%C3%ADn-1-1.jpg",
-                "webPage": "https://www.metrodemedellin.gov.co/"
+                "web": "https://www.metrodemedellin.gov.co/",
+                "type": "Empresa"
             },
             {
                 "name": "SAS",
@@ -87,7 +97,8 @@
                 "size": "Más de 10.000 empleados",
                 "sector": "Software y servicios informáticos",
                 "img": "https://www.observatoriorh.com/wp-content/uploads/2017/07/sas-logo.jpg",
-                "webPage": "https://www.sas.com"
+                "web": "https://www.sas.com",
+                "type": "Empresa"
             },
             {
                 "name": "TECNOQUIMICAS",
@@ -95,7 +106,8 @@
                 "size": "5,001-10,000 empleados",
                 "sector": "Quimico y farmacéutico",
                 "img": "https://risaraldahoy.com/wp-content/uploads/2018/09/tecnoquimicas.jpg",
-                "webPage": "https://www.tqconfiable.com"
+                "web": "https://www.tqconfiable.com",
+                "type": "Empresa"
             },
             {
                 "name": "TELEFORMANCE",
@@ -103,7 +115,8 @@
                 "size": "Más de 10.000 empleados",
                 "sector": "Telecomunicaciones",
                 "img": "http://www.cccolombia.com/wp-content/uploads/2014/02/Teleperformance.png",
-                "webPage": "http://www.teleperformance.co"
+                "web": "http://www.teleperformance.co",
+                "type": "Empresa"
             }
         ],
         "persons": [
