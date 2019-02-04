@@ -1,0 +1,70 @@
+{
+  "teamMembers": [
+    {
+      "name": "Mariana",
+      "rol": "Back End",
+      "social": [
+        {
+          "fb": "https://www.facebook.com/marianita2017",
+          "linkedIn": "https://www.linkedin.com/in/mariana-montoya/",
+          "instagram": "https://www.instagram.com/marianita2017/"
+        }
+      ]
+    },
+    {
+      "name": "Alex",
+      "rol": "Scrum Master",
+      "social": [
+        {
+          "fb": "https://www.facebook.com/DelargeAlx",
+          "linkedIn": "https://www.linkedin.com/",
+          "instagram": "https://www.instagram.com/delarge.alex/"
+        }
+      ]
+    },
+    {
+      "name": "Quinto",
+      "rol": "Full Stack",
+      "social": [
+        {
+          "fb": "https://www.facebook.com/andres.quinto.545",
+          "linkedIn": "https://www.linkedin.com/in/andres-quinto-72412817a/",
+          "instagram": "https://www.instagram.com/elquinto98/?hl=es-la"
+        }
+      ]
+    },
+    {
+      "name": "Leyner",
+      "rol": "Back End",
+      "social": [
+        {
+          "fb": "https://www.facebook.com/leyner.bejarano",
+          "linkedIn": "https://co.linkedin.com/in/leyner-andres-bejarano-palacios-9962a4103",
+          "instagram": "https://www.instagram.com/leynerandresbejarano/?hl=es"
+        }
+      ]
+    },
+    {
+      "name": "Manuel",
+      "rol": "Front End",
+      "social": [
+        {
+          "fb": "https://www.facebook.com/Manchabla",
+          "linkedIn": "https://www.linkedin.com/in/manuel-charris-73176a172/",
+          "instagram": "https://www.instagram.com/manchabla/"
+        }
+      ]
+    },
+    {
+      "name": "Oscar",
+      "rol": "Full Stack",
+      "social": [
+        {
+          "fb": "https://www.facebook.com/osdarvema",
+          "linkedIn": "https://www.linkedin.com/in/oscar-david-vel%C3%A1squez-marmolejo-44403914b/",
+          "instagram": "https://www.instagram.com/osdarvema/"
+        }
+      ]
+    }    
+  ]
+}

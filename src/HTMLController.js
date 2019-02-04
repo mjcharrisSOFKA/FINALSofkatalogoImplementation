@@ -1,6 +1,7 @@
 import ProjectFunctions from './projectModule/model/ProjectFunctions';
 import HomeView from './HomeModule/homeView';
 import Sofkian from './SofkianComponent/model/SofkianFunctions';
+import AboutUs from './aboutUsModule/model/aboutUs';
 
 const JSON_SOFKIAN = require('./SofkianComponent/data/SofkianData.json');
 
@@ -26,6 +27,7 @@ let clientBtn = document.getElementById('btnClients');
 let projectFunctions = new ProjectFunctions();
 let sofkianPeople = new Sofkian();
 let home = new HomeView();
+let aboutUs;
 
 let searchbtn = document.getElementById('search-icon');
 
@@ -37,9 +39,7 @@ function showSearchButton() {
 homeBtn.addEventListener('click', () => {
     console.log("the bar is close");
     cleanHtml();
-    document.getElementById("main").style.marginLeft = "0%";
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("button-openSideBar").style.display = 'block';
+    hideNavBar();;
     home.showHome();
     viewName = 'home';
 });
@@ -53,9 +53,7 @@ clientBtn.addEventListener('click', () => {
     Client.prototype.functionClients();
     Client.prototype.createClients();
     Client.prototype.getClients();
-    document.getElementById("main").style.marginLeft = "0%";
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("button-openSideBar").style.display = 'block';
+    hideNavBar();
     home.controllerName.innerText = `Clientes`;
 });
 
@@ -65,9 +63,7 @@ document.getElementById('btnSofkianos').addEventListener('click', () => {
     cleanHtml();
     showSearchButton();
     sofkianPeople.showAllSofkians(JSON_SOFKIAN.sofkians);
-    document.getElementById("main").style.marginLeft = "0%";
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("button-openSideBar").style.display = 'block';
+    hideNavBar();
     home.controllerName.innerText = viewName;
 });
 
@@ -79,14 +75,18 @@ document.getElementById('btnProject').addEventListener('click', () => {
     projectFunctions.createModal();
     projectFunctions.addCreateButtonToModal();
     projectFunctions.showAllProjects();
-    document.getElementById("main").style.marginLeft = "0%";
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("button-openSideBar").style.display = 'block';
+    hideNavBar();
     home.controllerName.innerText = `Proyectos`;
 });
 
+document.getElementById(`btnAboutUs`).addEventListener(`click`, () => {
+    cleanHtml();
+    aboutUs = new AboutUs(divMainClass);
+    hideNavBar();
+    home.controllerName.innerText = `Conócenos`;
+});
+
 document.getElementById("button-openSideBar").addEventListener("click", () => {
-    console.log("the bar is open");
     document.getElementById("main").style.marginLeft = "25%";
     document.getElementById("mySidebar").style.width = "25%";
     document.getElementById("mySidebar").style.display = "block";
@@ -94,11 +94,16 @@ document.getElementById("button-openSideBar").addEventListener("click", () => {
 });
 
 document.getElementById("button-closeSideBar").addEventListener("click", () => {
-    console.log("the bar is close");
     document.getElementById("main").style.marginLeft = "0%";
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("button-openSideBar").style.display = 'block';
 });
+
+function hideNavBar() {
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("button-openSideBar").style.display = 'block';
+}
 
 function cleanHtml() {
     divMainClass.innerHTML = " ";
