@@ -35,6 +35,7 @@ class SofkianFunctions {
                   <p id="divConTecnologia1" class="card-text">proyecto 1:  ${sofkian.proyecto1}</p>
                   <p id="divConTecnologia1" class="card-text">dedicacion:  ${sofkian.dedicacionProyecto1}%</p>
                   <p id="divConTecnologia1" class="card-text">proyecto 2:  ${sofkian.proyecto2}</p>
+                  
                   </div>
                   </div>`;
       }
