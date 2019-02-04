@@ -2,6 +2,8 @@ class HomeView {
 
     showHome() {
 
+
+
         let homeDiv = document.getElementById('cards-content');
         let button = document.getElementById('search-box');
         button.style = "display: none";

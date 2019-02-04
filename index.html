@@ -18,8 +18,8 @@
 
 <body>
 
-    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" 
-        style="display:none; align-self: flex-end; margin-top: -15%" id="mySidebar">
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none; align-self: flex-end; margin-top: -15%"
+        id="mySidebar">
 
         <button class="w3-bar-item w3-button w3-large" id="button-closeSideBar" style="text-align: right">
             &times;
@@ -39,15 +39,15 @@
     </div>
 
     <div id="main" class="headerBar">
-        <div>
+        <div id="header-container">
             <button id="button-openSideBar" class="w3-button w3-xlarge">&#9776;</button>
-            <h1 class="display-1" style="padding-left: 5%; padding-bottom: 2%; font-weight: 400" id="controllerName">
+            <h1 class="display-1" style="padding-left: 5%; padding-bottom: 2%; font-weight: 500" id="controllerName">
             </h1>
         </div>
 
         <div class="form-group" style="display: block">
             <div class="search-box" style="color: white" id="search-box">
-                <input type="text" class="search-txt" id="searchButton" placeholder="Buscar . . ."/>
+                <input type="text" class="search-txt" id="searchButton" placeholder="Buscar . . ." />
                 <a class="search-btn" id="search-icon">
                     <i class="fas fa-search search-icon"></i>
                 </a>
@@ -59,7 +59,7 @@
     <div id="options" class="col-md-12 mb-5 ml-1" style="margin-top: 250px">
 
     </div>
-    <div id="cards-content" >
+    <div id="cards-content">
 
     </div>
     </div>
@@ -72,6 +72,32 @@
                 </div>
         </footer>
     </div>
+
+    <script>
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+
+                document.getElementById("header-container").style.transition = "1s";
+                document.getElementById("header-container").style.paddingTop = "1rem";
+                document.getElementById("header-container").style.paddingLeft = "2rem";
+                document.getElementById("controllerName").style.fontSize = "2rem";
+                document.getElementById("header-container").className = "row";
+
+            } else {
+
+                document.getElementById("header-container").style.transition = "1s";
+                document.getElementById("header-container").style.paddingTop = "0";
+                document.getElementById("header-container").style.paddingLeft = "0";
+                document.getElementById("controllerName").style.fontSize = "6rem";
+                document.getElementById('header-container').removeAttribute('class');
+
+            }
+        }
+    </script>
 
     <script src="./dist/bundle.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

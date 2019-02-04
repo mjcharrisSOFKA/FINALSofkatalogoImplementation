@@ -162,16 +162,11 @@ function validateSearch() {
     divMainClass.innerHTML = '<h2>No hay resultados<h2>'
 }
 
-(function resizeHeader() {
-
-    let HTMLheader1 = document.getElementById('main');
-    let btnHeader = document.getElementById('button-openSideBar');
-    let bodyHTML = document.getElementsByTagName("BODY");
-
+function resizeHeader() {
 
     console.log(document.body.scrollTop);
 
-})();
+};
 
 
 home.showHome();
