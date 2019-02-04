@@ -73,7 +73,6 @@ document.getElementById('btnProject').addEventListener('click', () => {
     cleanHtml();
     showSearchButton();
     projectFunctions.createModal();
-    projectFunctions.addCreateButtonToModal();
     projectFunctions.showAllProjects();
     hideNavBar();
     home.controllerName.innerText = `Proyectos`;
@@ -162,5 +161,17 @@ function compareValues(inputValue, jsonObject) {
 function validateSearch() {
     divMainClass.innerHTML = '<h2>No hay resultados<h2>'
 }
+
+(function resizeHeader() {
+
+    let HTMLheader1 = document.getElementById('main');
+    let btnHeader = document.getElementById('button-openSideBar');
+    let bodyHTML = document.getElementsByTagName("BODY");
+
+
+    console.log(document.body.scrollTop);
+
+})();
+
 
 home.showHome();

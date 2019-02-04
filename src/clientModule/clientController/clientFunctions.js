@@ -1,7 +1,9 @@
 "use strict";
 
 var clientList = require('./clientObjects.js');
-var { Client } = require('../models.js');
+var {
+    Client
+} = require('../models.js');
 var showClient = [];
 var arr = [];
 let divRow = document.getElementById('cards-content');
@@ -68,31 +70,52 @@ Client.prototype.functionClients = () => {
 
 Client.prototype.printCardHtml = (client) => {
 
+    let footerdiv = document.createElement('div');
+
     let div = document.createElement('div');
     div.className = "card col-md-3 ml-2 mr-5 mb-5";
     div.style = "width:400px";
 
-    let buttonEdit = document.createElement('button');
-    buttonEdit.innerHTML = `<p>Update</p>`;
-    buttonEdit.style = "height: 40px";
-    buttonEdit.className = "btn btn-primary mb-3";
-    buttonEdit.onclick = () => { Client.prototype.editClient(client) };
+    let buttonEdit = document.createElement('a');
+    
+    buttonEdit.innerHTML=`<i class="far fa-edit" style ="cursor: pointer;
+    font-size: 1.6rem;
+    margin-left: 2rem;
+    float: left;
+    color: blue;
+    padding: 1rem;
+    "</i>`;
+    buttonEdit.onclick = () => {
+        Client.prototype.editClient(client)
+    };
 
-    let buttonDelete = document.createElement('button');
-    buttonDelete.innerHTML = "<p>Delete</p>";
-    buttonDelete.style = "height: 40px";
-    buttonDelete.className = "btn btn-danger mb-3";
-    buttonDelete.onclick = () => { Client.prototype.deleteClient(client) };
+    let buttonDelete = document.createElement('a');
+    buttonDelete.innerHTML = `<i class="fas fa-trash" 
+    style ="    cursor: pointer;
+    font-size: 1.6rem;
+    margin-left: 4rem;
+    margin-right: 2rem;
+    float: right;
+    color: red;
+    padding: 1rem;
+    ">
+    </i>`;
+    buttonDelete.onclick = () => {
+        Client.prototype.deleteClient(client)
+    };
 
     div.innerHTML = `<img src="${client.img}" alt="Card image" style="width:100%">
         <div class="card-body">
         <h4 class="card-title">${client.name}</h4>
         <p class="card-text">Sofka se debe a sus clientes a quienes consideramos socios estratégicos...</p>
         </div>
-        </div>`;
+        </div>`
+    ;
 
-    div.appendChild(buttonEdit);
-    div.appendChild(buttonDelete);
+    footerdiv.appendChild(buttonEdit);
+    footerdiv.appendChild(buttonDelete);
+
+    div.appendChild(footerdiv);
 
 
     return divRow.appendChild(div);
@@ -245,4 +268,8 @@ function cleanHtmlClient() {
     divRow.innerHTML = " ";
 }
 
-module.exports = { divRow, cleanHtmlClient, createDivOptionsClient };
+module.exports = {
+    divRow,
+    cleanHtmlClient,
+    createDivOptionsClient
+};

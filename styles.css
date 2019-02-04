@@ -1,3 +1,24 @@
 #cards-content {
-  padding-left:  5%;
+  padding-left: 5%;
+}
+
+;
+
+#menu {
+  overflow: hidden;
+  background-color: #FF7521;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.headerBar {
+  overflow: hidden;
+  background-color: #FF7521;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  width: 100%;
+  transition: 0.3s;
 }

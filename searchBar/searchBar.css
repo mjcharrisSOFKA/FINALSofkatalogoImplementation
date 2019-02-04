@@ -1,6 +1,6 @@
 .search-box {
     position: absolute;
-    top: 10%;
+    top: 40%;
     left: 80%;
     transform: translate(-50%, -50%);
     background: #2f3640;
@@ -17,6 +17,14 @@
 .search-box:hover>.search-btn {
     background: white;
     color: black;
+}
+
+.search-icon>.search-box:hover{
+    color: #2f3640;
+}
+
+.search-icon{
+    color: white;
 }
 
 .search-btn {
